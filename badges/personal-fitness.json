@@ -1,0 +1,208 @@
+{
+  "badge": "Personal Fitness",
+  "requirementsRevised": "2025",
+  "workbookUpdated": "August 2026",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Defining Personal Fitness. Explain to your counselor what personal fitness means to you, including:",
+      "subs": [
+        { "letter": "a", "text": "Describe a person who is physically fit.", "blocks": [{ "type": "lines", "rows": 4 }] },
+        { "letter": "b", "text": "Describe a person who is mentally, emotionally and socially fit.", "blocks": [{ "type": "lines", "rows": 4 }] },
+        { "letter": "c", "text": "Describe a person who is spiritually fit.", "blocks": [{ "type": "lines", "rows": 4 }] },
+        { "letter": "d", "text": "Explain why it is important to be fit in all of these ways.", "blocks": [{ "type": "lines", "rows": 4 }] },
+        { "letter": "e", "text": "Discuss how each aspect of personal fitness relates to the Scout Oath and Scout Law.", "blocks": [{ "type": "lines", "rows": 4 }] }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Monitoring Your Health. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Discuss with your counselor the importance of having a physical examination each year. Discuss why overall health, immunizations, medications, allergies, and medical history are covered during an examination. Tell your counselor when you last underwent a physical examination.",
+          "blocks": [
+            { "type": "lines", "rows": 5 },
+            { "type": "fields", "labels": ["Date of my last physical examination:"], "labelWidth": 3400 }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explain why it is important to have a routine dental examination. Explain what preventive or corrective treatments your dentist can provide, and why daily oral care is an important part of staying well. Tell your counselor when you last underwent a dental examination.",
+          "blocks": [
+            { "type": "lines", "rows": 5 },
+            { "type": "fields", "labels": ["Date of my last dental examination:"], "labelWidth": 3400 }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Your Fitness Knowledge and Habits. Do the following with your counselor:",
+      "subs": [
+        { "letter": "a", "text": "Explain the physical exercise you regularly do, whether your routine includes all four components of physical fitness (cardiorespiratory fitness, muscular strength and endurance, flexibility, and body composition), and how your current practices increase or decrease your likelihood of developing cardiovascular disease or other conditions in adulthood.", "blocks": [{ "type": "lines", "rows": 6 }] },
+        { "letter": "b", "text": "Discuss what harmful substances you consciously avoid, and how these actions affect your risk factors now and in the future.", "blocks": [{ "type": "lines", "rows": 5 }] },
+        { "letter": "c", "text": "Explain what common diseases can be prevented or mitigated by vaccinations, and whether you are immunized according to the advice of your healthcare provider and the direction of your parent or guardian.", "blocks": [{ "type": "lines", "rows": 5 }] },
+        { "letter": "d", "text": "Discuss how good nutrition is related to the other components of personal fitness, and if you follow a nutritious, balanced diet.", "blocks": [{ "type": "lines", "rows": 5 }] },
+        { "letter": "e", "text": "Discuss what a healthy weight is for you, and what you do to maintain a healthy weight.", "blocks": [{ "type": "lines", "rows": 4 }] },
+        { "letter": "f", "text": "Explain why getting adequate sleep is important, and whether you get enough hours of sleep each night.", "blocks": [{ "type": "lines", "rows": 4 }] },
+        { "letter": "g", "text": "Discuss whether you spend quality time with your family and friends in social and recreational activities, and how you contribute to creating and maintaining a good home life.", "blocks": [{ "type": "lines", "rows": 5 }] }
+      ]
+    },
+    {
+      "num": 4,
+      "pageBreakBefore": true,
+      "text": "Measures of Physical Fitness. Determine with your counselor the assessments of physical fitness and nutrition you will do before, during, and after completing the 12-week program in requirement 7.",
+      "subs": [
+        { "letter": "a", "text": "Include a measure of cardiorespiratory (aerobic) fitness: Record the time required to complete a mile walk or run as fast as you can. If you are unable to walk or run as a result of a disability that is permanent or is expected to last for longer than two years, work with your counselor to define a test with a similar degree of aerobic challenge." },
+        { "letter": "b", "text": "Include two measures of muscular strength and endurance: Record either the number of sit-ups done in 60 seconds OR how long a plank was held; AND, record the number of either push-ups OR pull-ups done in 60 seconds. If you are unable to complete one of these exercises safely and correctly, work with your counselor to replace it with a different exercise that measures strength and endurance." },
+        { "letter": "c", "text": "Include at least one measure of flexibility, such as a back-saver sit-and-reach test or a back scratch test." }
+      ],
+      "after": [
+        { "type": "label", "text": "Assessments agreed on with my counselor:" },
+        {
+          "type": "grid",
+          "headers": ["Component", "Assessment I will use", "How it is measured"],
+          "widths": [2.6, 3.4, 3.4],
+          "rowLabels": ["Cardiorespiratory (4a)", "Strength / endurance 1 (4b)", "Strength / endurance 2 (4b)", "Flexibility (4c)"]
+        },
+        { "type": "label", "text": "Nutrition assessment I will use (see requirement 5c):" },
+        { "type": "lines", "rows": 2 },
+        { "type": "fields", "labels": ["Counselor approval date:"], "labelWidth": 3400 }
+      ]
+    },
+    {
+      "num": 5,
+      "pageBreakBefore": true,
+      "text": "Pre-Assessment of Physical Fitness. Before beginning the 12-week program in requirement 7, do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Complete each of the assessments you defined in requirement 4, and record your results.",
+          "blocks": [
+            { "type": "note", "text": "Record your pre-assessment results in the left column below. You will come back to this same table for requirement 7(b), so keep it with your workbook." },
+            {
+              "type": "grid",
+              "wide": true,
+              "headers": ["Assessment", "Pre-Assessment", "Week 4", "Week 8", "Final", "Change"],
+              "widths": [2.9, 1.6, 1.4, 1.4, 1.4, 1.4],
+              "rowLabels": ["Date", "Cardiorespiratory (4a)", "Strength / endurance 1 (4b)", "Strength / endurance 2 (4b)", "Flexibility (4c)"]
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Identify your weakest and strongest area of physical fitness, and choose an area to target for improvement.",
+          "blocks": [{ "type": "fields", "labels": ["Strongest area:", "Weakest area:", "Area I will target:"], "labelWidth": 2400, "blanksAfter": 1 }]
+        },
+        {
+          "letter": "c",
+          "text": "Keep a log of what you eat and drink for a period of three days.",
+          "blocks": [{ "type": "grid", "headers": ["Day 1", "Day 2", "Day 3"], "widths": [1, 1, 1], "rows": 13 }]
+        },
+        {
+          "letter": "d",
+          "text": "Based on your diet log, identify at least two improvement goals related to diet and nutrition.",
+          "blocks": [{ "type": "numbered", "count": 2 }]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "pageBreakBefore": true,
+      "text": "Plan the Program. Outline with your counselor a comprehensive 12-week physical fitness and nutrition program that you will complete based on your improvement goals and ability. The program must incorporate the following:",
+      "subs": [
+        { "letter": "a", "text": "Warm-up: low-intensity movement or gentle muscle stretching before each more rigorous workout", "blocks": [{ "type": "lines", "rows": 3 }] },
+        { "letter": "b", "text": "Cardiorespiratory (aerobic) element: an activity that raises your heart and respiratory rate for 15 to 30 minutes at least three times per week", "blocks": [{ "type": "lines", "rows": 3 }] },
+        { "letter": "c", "text": "Muscular strength and endurance element: repetitive exercises that target different muscles (upper body, core, and/or legs) based on your improvement goals and potential", "blocks": [{ "type": "lines", "rows": 3 }] },
+        { "letter": "d", "text": "Flexibility element: movements that arch/lower/stretch/relax your back, rotate your trunk, or stretch your hamstrings", "blocks": [{ "type": "lines", "rows": 3 }] },
+        { "letter": "e", "text": "Cool-down: low-intensity movement or gentle stretching to prevent muscle cramps and enhance the benefits of exercise", "blocks": [{ "type": "lines", "rows": 3 }] },
+        { "letter": "f", "text": "A plan for achieving your two improvement goals related to diet and nutrition", "blocks": [{ "type": "lines", "rows": 3 }] }
+      ],
+      "after": [
+        { "type": "label", "text": "Program approved by:" },
+        { "type": "fields", "labels": ["Counselor:", "Parent or guardian:", "Start date:"], "labelWidth": 2400 }
+      ]
+    },
+    {
+      "num": 7,
+      "pageBreakBefore": true,
+      "text": "Complete the Program. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Complete and keep a log, over 12 consecutive weeks, of the physical fitness and nutrition program you have outlined. (If your program is interrupted by illness or unavoidable conflicts for less than two weeks, you may resume where you left off, adding the missed days or weeks at the end.)",
+          "blocks": [{ "type": "note", "text": "Use the 12-week activity log at the back of this workbook." }]
+        },
+        {
+          "letter": "b",
+          "text": "During week 4 and week 8 of your program, repeat the assessments you did in requirement 5(a) before you began. Repeat the same tests for a final assessment within two weeks after completing the 12-week program. Show improvement over your pre-assessment results.",
+          "blocks": [{ "type": "note", "text": "Record these results in the table under requirement 5(a)." }]
+        },
+        {
+          "letter": "c",
+          "text": "For three days during week 8, and again during week 12, keep a log of what you eat and drink. Show improvement toward the diet and nutrition goals you set in requirement 5(d).",
+          "blocks": [
+            { "type": "label", "text": "Week 8 food and drink log:" },
+            { "type": "grid", "headers": ["Day 1", "Day 2", "Day 3"], "widths": [1, 1, 1], "rows": 8 },
+            { "type": "label", "text": "Week 12 food and drink log:" },
+            { "type": "grid", "headers": ["Day 1", "Day 2", "Day 3"], "widths": [1, 1, 1], "rows": 8 }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Discuss your results, improvements, insights, and experiences with your counselor after completing the program and assessments.",
+          "blocks": [{ "type": "lines", "rows": 6 }]
+        }
+      ]
+    },
+    {
+      "num": 8,
+      "pageBreakBefore": true,
+      "text": "Future Career or Lifestyle. Do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explore three careers related to personal fitness. Research one career area by interviewing an expert in the field, visiting a site, or using other resources. Learn about training, education, expenses, job outlook, salary, and advancement. Discuss your findings and career interest with your counselor.",
+          "blocks": [
+            { "type": "label", "text": "Three careers related to personal fitness:" },
+            { "type": "numbered", "count": 3 },
+            { "type": "label", "text": "The career I researched, and how I researched it:" },
+            { "type": "fields", "labels": ["Career:", "How I researched it:"], "labelWidth": 2400 },
+            { "type": "fields", "labels": ["Training:", "Education:", "Expenses:", "Job outlook:", "Salary:", "Advancement:"], "labelWidth": 2400 },
+            { "type": "label", "text": "My findings and my own interest in this career:" },
+            { "type": "lines", "rows": 4 }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explore how an area of personal fitness could contribute to a hobby or healthy lifestyle. Research education, costs, and organizations related to this activity. Discuss your findings and goals with your counselor.",
+          "blocks": [
+            { "type": "fields", "labels": ["Activity or hobby:", "Education:", "Costs:", "Organizations:"], "labelWidth": 2400, "blanksAfter": 1 },
+            { "type": "label", "text": "My findings and my goals:" },
+            { "type": "lines", "rows": 5 }
+          ]
+        }
+      ]
+    }
+  ],
+  "appendices": [
+    {
+      "title": "12-Week Fitness Program Activity Log",
+      "subtitle": "Requirement 7(a). Record how long you exercised, distance covered, repetitions completed, and exercise heart rate.",
+      "blocks": [
+        {
+          "type": "repeatgrid",
+          "count": 12,
+          "perPage": 3,
+          "caption": "Week {n}",
+          "headers": ["Day", "Fitness Program Activity and Notes", "Distance", "Duration", "Reps", "Heart Rate"],
+          "widths": [0.9, 4.6, 1.14, 1.2, 1.14, 1.14],
+          "headerSize": 20,
+          "cellSize": 20,
+          "rowLabels": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+        }
+      ]
+    }
+  ]
+}
