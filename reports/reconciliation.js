@@ -7,11 +7,18 @@
  * Primary output: a self-contained HTML report that opens in a new browser tab.
  * Optional outputs: PDF (via Playwright) and CSV.
  *
- * Four categories:
- *   1. In my.scouting only  — needs to be added to TroopWebHost
- *   2. In TroopWebHost only — investigate / possibly remove
- *   3. Name mismatch        — one row per scout with a name discrepancy
- *   4. Rank mismatch        — one row per scout with a rank discrepancy
+ * Five categories:
+ *   1. Missing BSA ID in TWH — can't be matched at all; fix this first
+ *   2. In my.scouting only   — needs to be added to TroopWebHost
+ *   3. In TroopWebHost only  — investigate / possibly remove
+ *   4. Name mismatch         — one row per scout with a name discrepancy
+ *   5. Rank mismatch         — one row per scout with a rank discrepancy
+ *
+ * Matching is by BSA Member ID only. A TroopWebHost row with no BSA ID can't
+ * be looked up in my.scouting at all, so it's reported separately instead of
+ * silently vanishing from every other category (this used to live in Roster
+ * Audit as "Missing BSA ID" - moved here since the real risk is exactly this
+ * kind of invisible-to-reconciliation scout, not just a blank field).
  *
  * my.scouting is treated as the source of truth.
  * Palm ranks (Gold/Silver/Bronze) are treated as equivalent to Eagle.
@@ -32,7 +39,7 @@ function fileTimestamp() {
 const manifest = {
   id: "reconciliation",
   name: "Roster Reconciliation",
-  description: "Compares youth on my.scouting.org against TroopWebHost. Flags who needs to be added, who needs investigation, and any name or rank discrepancies.",
+  description: "Compares youth on my.scouting.org against TroopWebHost. Flags who needs to be added, who needs investigation, who's missing a BSA ID, and any name or rank discrepancies.",
   icon: "🔍",
   outputType: "html",   // signals the server to open result in a new tab
   inputs: [
@@ -87,21 +94,32 @@ function extractTroopName(lines) {
 function loadTWH(rosterPath) {
   const rows = csvParser.parseCSV(fs.readFileSync(rosterPath, "utf8"));
   const map = new Map();
+  const missingId = [];
   rows.filter(r => r.Adult === "N").forEach(r => {
-    const id = (r["BSA ID"] || "").trim();
-    if (!id) return;
+    const id      = (r["BSA ID"] || "").trim();
     const firstName = (r["FIrst Name"] || r["First Name"] || "").trim();
     const lastName  = (r["Last Name"] || "").trim();
-    map.set(id, {
-      id,
-      firstName,
-      lastName,
-      fullName: `${firstName} ${lastName}`.trim(),
-      rank:     (r["Rank"] || "").trim(),
-      patrol:   (r["Patrol"] || "").trim(),
-    });
+    const fullName  = `${firstName} ${lastName}`.trim();
+    const rank      = (r["Rank"] || "").trim();
+    const patrol    = (r["Patrol"] || "").trim();
+
+    if (!id) {
+      // No BSA ID at all - can't be matched against my.scouting by this
+      // report's key, so it never enters `map` and would otherwise vanish
+      // from every category below. Skip alumni the same way Roster Audit
+      // did, since this replaces that report's "Missing BSA ID" check.
+      if (!patrol.toLowerCase().startsWith("zinactive")) {
+        missingId.push({
+          bsaId: "", myscoutingName: "", twhName: fullName,
+          myscoutingRank: "", twhRank: rank, patrol, registrationStatus: "",
+        });
+      }
+      return;
+    }
+
+    map.set(id, { id, firstName, lastName, fullName, rank, patrol });
   });
-  return map;
+  return { map, missingId };
 }
 
 function loadMyScouting(scoutingPath) {
@@ -136,8 +154,8 @@ function loadMyScouting(scoutingPath) {
 }
 
 // ═══════════════════════════════ RECONCILE ═══════════════════════════════
-function reconcile(twhMap, msMap) {
-  const results = { msOnly: [], twhOnly: [], nameIssues: [], rankIssues: [] };
+function reconcile(twhMap, msMap, missingId) {
+  const results = { msOnly: [], twhOnly: [], nameIssues: [], rankIssues: [], missingId: missingId || [] };
   const msIds  = new Set(msMap.keys());
   const twhIds = new Set(twhMap.keys());
 
@@ -201,14 +219,15 @@ function reconcile(twhMap, msMap) {
   byLastName(results.twhOnly);
   byLastName(results.nameIssues);
   byLastName(results.rankIssues);
+  byLastName(results.missingId);
 
   return results;
 }
 
 // ═══════════════════════════════ HTML GENERATION ═════════════════════════
 function buildHTML(results, troopName, dateStr) {
-  const { msOnly, twhOnly, nameIssues, rankIssues } = results;
-  const total = msOnly.length + twhOnly.length + nameIssues.length + rankIssues.length;
+  const { msOnly, twhOnly, nameIssues, rankIssues, missingId } = results;
+  const total = msOnly.length + twhOnly.length + nameIssues.length + rankIssues.length + missingId.length;
 
   const badge = (n, bg) =>
     `<span class="badge" style="background:${bg}">${n}</span>`;
@@ -251,6 +270,15 @@ function buildHTML(results, troopName, dateStr) {
         </table>
       </div>`;
   };
+
+  const missingIdSection = section(
+    "missing-id", "#1565C0", "🪪",
+    "Missing BSA ID",
+    "The following scouts have no BSA ID on file in TroopWebHost, so they could not be checked against the Council Roster at all. Fix these first.",
+    "#1565C0", missingId,
+    ["TroopWebHost Name", "Patrol", "Rank"],
+    r => checkRow([r.twhName, r.patrol, r.twhRank], "#1565C0")
+  );
 
   const msOnlySection = section(
     "ms-only", "#2E7D32", "➕",
@@ -458,6 +486,10 @@ function buildHTML(results, troopName, dateStr) {
 
 <div class="summary">
   <div class="summary-item">
+    <div class="summary-count" style="color:#1565C0">${missingId.length}</div>
+    <div class="summary-label">Missing<br>BSA ID</div>
+  </div>
+  <div class="summary-item">
     <div class="summary-count" style="color:#2E7D32">${msOnly.length}</div>
     <div class="summary-label">Add to<br>TroopWebHost</div>
   </div>
@@ -475,6 +507,7 @@ function buildHTML(results, troopName, dateStr) {
   </div>
 </div>
 
+${missingIdSection}
 ${msOnlySection}
 ${twhOnlySection}
 ${nameSection}
@@ -512,6 +545,7 @@ function buildCSV(results) {
     category, r.bsaId, r.myscoutingName, r.twhName,
     r.myscoutingRank, r.twhRank, r.note || "", r.registrationStatus, r.patrol,
   ].map(escape).join(",")));
+  addRows("Missing BSA ID in TroopWebHost - cannot reconcile", results.missingId);
   addRows("In my.scouting only - add to TroopWebHost", results.msOnly);
   addRows("In TroopWebHost only - investigate", results.twhOnly);
   addRows("Name mismatch - review", results.nameIssues);
@@ -546,9 +580,9 @@ async function generate(inputs, outputDir, options = {}) {
   if (!rosterPath || !fs.existsSync(rosterPath)) throw new Error("TroopWebHost roster CSV not provided");
   if (!scoutingPath || !fs.existsSync(scoutingPath)) throw new Error("my.scouting roster CSV not provided");
 
-  const twhMap              = loadTWH(rosterPath);
-  const { map: msMap, troopName } = loadMyScouting(scoutingPath);
-  const results             = reconcile(twhMap, msMap);
+  const { map: twhMap, missingId } = loadTWH(rosterPath);
+  const { map: msMap, troopName }  = loadMyScouting(scoutingPath);
+  const results             = reconcile(twhMap, msMap, missingId);
   const dateStr             = todayLong();
   const ts = fileTimestamp();
 
@@ -565,6 +599,7 @@ async function generate(inputs, outputDir, options = {}) {
     pdfPath: null,
     csvPath: null,
     stats: {
+      missingBsaId:    results.missingId.length,
       addToTWH:        results.msOnly.length,
       investigateInTWH: results.twhOnly.length,
       nameMismatches:  results.nameIssues.length,

@@ -13,7 +13,7 @@ function fileTimestamp() {
 const manifest = {
   id: "roster-audit",
   name: "Roster Audit",
-  description: "Scans the active youth roster for data quality issues: missing dates of birth, scouts without a patrol, missing BSA IDs, and duplicate names.",
+  description: "Scans the active youth roster for data quality issues: missing dates of birth, scouts without a patrol, and duplicate names.",
   icon: "📋",
   outputType: "html",
   inputs: [
@@ -78,7 +78,6 @@ function audit(scouts) {
   return {
     missingDob:  byLastFirst(scouts.filter(s => !s.dob)),
     noPatrol:    byLastFirst(scouts.filter(s => !s.patrol)),
-    missingId:   byLastFirst(scouts.filter(s => !s.bsaId)),
     duplicates:  byLastFirst(duplicates),
     scoutCount:  scouts.length,
   };
@@ -95,8 +94,8 @@ function esc(s) {
 
 function buildHTML(results, dateStr, troopName) {
   const label = troopName ? `${troopName} - ` : "";
-  const { missingDob, noPatrol, missingId, duplicates, scoutCount } = results;
-  const totalIssues = missingDob.length + noPatrol.length + missingId.length + duplicates.length;
+  const { missingDob, noPatrol, duplicates, scoutCount } = results;
+  const totalIssues = missingDob.length + noPatrol.length + duplicates.length;
 
   const badge = (n, bg) =>
     `<span class="badge" style="background:${n > 0 ? bg : "#aaa"}">${n}</span>`;
@@ -264,10 +263,6 @@ function buildHTML(results, dateStr, troopName) {
     <div class="summary-label">No Patrol<br>Assigned</div>
   </div>
   <div class="summary-item">
-    <div class="summary-count" style="color:#1565C0">${missingId.length}</div>
-    <div class="summary-label">Missing<br>BSA ID</div>
-  </div>
-  <div class="summary-item">
     <div class="summary-count" style="color:#6A1B9A">${duplicates.length}</div>
     <div class="summary-label">Duplicate<br>Names</div>
   </div>
@@ -285,13 +280,6 @@ ${section(
   noPatrol,
   ["Name", "BSA ID", "Rank"],
   r => checkRow([r.fullName, r.bsaId, r.rank])
-)}
-
-${section(
-  "missing-id", "#1565C0", "🪪", "Missing BSA ID",
-  missingId,
-  ["Name", "Patrol", "Rank"],
-  r => checkRow([r.fullName, r.patrol, r.rank])
 )}
 
 ${section(
@@ -322,7 +310,6 @@ function buildCSV(results) {
     ));
   add("Missing Date of Birth", results.missingDob);
   add("No Patrol Assigned",    results.noPatrol);
-  add("Missing BSA ID",        results.missingId);
   add("Duplicate Name",        results.duplicates);
   return lines.join("\r\n");
 }
@@ -374,7 +361,6 @@ async function generate(inputs, outputDir, options = {}) {
       activeScouts:   results.scoutCount,
       missingDob:     results.missingDob.length,
       noPatrol:       results.noPatrol.length,
-      missingBsaId:   results.missingId.length,
       duplicateNames: results.duplicates.length,
     },
   };
