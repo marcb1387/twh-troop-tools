@@ -32,4 +32,19 @@ const OFFICIAL_BADGES = [
   "Whitewater","Wilderness Survival","Wildland Fire Management","Wood Carving","Woodwork",
 ];
 
-module.exports = { OFFICIAL_BADGES };
+// The 14 required Eagle categories, expanded to all 18 badge names since
+// four of those categories let a Scout choose between alternatives
+// (Emergency Preparedness/Lifesaving, Environmental Science/Sustainability,
+// Hiking/Cycling/Swimming). Kept independent of any troop's TWH export for
+// the same reason as OFFICIAL_BADGES - a badge nobody has ever earned won't
+// appear in the data at all, asterisk or not, so there's no way to detect
+// "this is Eagle-required" from the export alone.
+const EAGLE_REQUIRED_BADGES = [
+  "Camping", "Citizenship in Society", "Citizenship in the Community",
+  "Citizenship in the Nation", "Citizenship in the World", "Communication",
+  "Cooking", "Cycling", "Emergency Preparedness", "Environmental Science",
+  "Family Life", "First Aid", "Hiking", "Lifesaving", "Personal Fitness",
+  "Personal Management", "Sustainability", "Swimming",
+];
+
+module.exports = { OFFICIAL_BADGES, EAGLE_REQUIRED_BADGES };

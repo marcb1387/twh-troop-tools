@@ -12,7 +12,9 @@ const path = require("path");
 const { parseCSV } = require("../shared/csv-parser");
 const { normalizeName, formatDisplayName } = require("../shared/name-normalize");
 const { parseDate, todayLong } = require("../shared/dates");
-const { OFFICIAL_BADGES } = require("../shared/official-badges");
+const { OFFICIAL_BADGES, EAGLE_REQUIRED_BADGES } = require("../shared/official-badges");
+
+const EAGLE_REQUIRED_SET = new Set(EAGLE_REQUIRED_BADGES);
 
 // ═══════════════════════════════ MANIFEST ═══════════════════════════════
 const manifest = {
@@ -189,7 +191,11 @@ function processData(meritBadgesPath, rosterPath, selectedBadge) {
     const d = badgeData.get(key);
     return {
       badge:        officialName,
-      isEagle:      d ? d.isEagle : false,
+      // A badge zero scouts have ever earned has zero rows in the CSV -
+      // asterisk or not - so the data alone can't say it's Eagle-required.
+      // Fall back to the canonical list; still honor the data if it flags
+      // something the canonical list doesn't (naming mismatch, etc.).
+      isEagle:      (d && d.isEagle) || EAGLE_REQUIRED_SET.has(officialName),
       activeCount:  d ? d.activeScouts.size : 0,
       everCount:    d ? d.everScouts.size : 0,
       lastEarned:   d ? d.lastEarned : null,

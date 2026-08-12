@@ -2,7 +2,7 @@ const fs   = require("fs");
 const path = require("path");
 const { parseCSV } = require("../shared/csv-parser");
 const { todayLong } = require("../shared/dates");
-const { OFFICIAL_BADGES } = require("../shared/official-badges");
+const { OFFICIAL_BADGES, EAGLE_REQUIRED_BADGES } = require("../shared/official-badges");
 
 // ═══════════════════════════════ MANIFEST ════════════════════════════════
 const manifest = {
@@ -69,6 +69,8 @@ function esc(s) {
 
 function fmt1(n) { return isNaN(n) ? "-" : Number(n).toFixed(1); }
 
+const EAGLE_REQUIRED_NORM = new Set(EAGLE_REQUIRED_BADGES.map(normalizeName));
+
 // ═══════════════════════════════ DATA PROCESSING ════════════════════════
 function processData(csvPath) {
   const raw  = fs.readFileSync(csvPath, "utf8");
@@ -87,8 +89,12 @@ function processData(csvPath) {
   rows.forEach(r => {
     const scout    = (r["Scout"] || "").trim();
     const rawBadge = (r["Merit Badge"] || "").trim();
-    const isEagle  = rawBadge.startsWith("*");
     const badge    = cleanName(rawBadge);
+    // TWH's asterisk marking turns out to be inconsistent per-row - some
+    // genuinely Eagle-required completions (e.g. Citizenship in Society)
+    // come through with no asterisk at all. Trust the canonical list first;
+    // fall back to the asterisk only for a badge the list doesn't cover.
+    const isEagle  = EAGLE_REQUIRED_NORM.has(normalizeName(badge)) || rawBadge.startsWith("*");
     const earned   = parseDate(r["Earned"]);
     if (!scout || !badge) return;
 
@@ -132,9 +138,19 @@ function processData(csvPath) {
     .filter(d => d.scouts >= MIN_SCOUTS && (!d.last || d.last < staleDate))
     .sort((a, b) => b.scouts - a.scouts);
 
-  // Eagle sorted ascending (fewest scouts = most attention needed)
-  const eagleSorted = [...eagleMap.entries()]
-    .map(([b, s]) => ({ badge: b, count: s.size }))
+  // Eagle sorted ascending (fewest scouts = most attention needed).
+  // Starts from the canonical Eagle-required list, not just what's in the
+  // data - a badge zero scouts have ever earned has zero rows in the CSV
+  // (asterisk or not), so it would otherwise be invisible here entirely.
+  // Anything the data flags as Eagle-required but isn't in the canonical
+  // list (a naming mismatch, or the list going stale) is still included,
+  // not silently dropped.
+  const eagleFromData = [...eagleMap.entries()].map(([b, s]) => ({ badge: b, count: s.size }));
+  const eagleFromDataNorm = new Set(eagleFromData.map(d => normalizeName(d.badge)));
+  const eagleNeverEarned = EAGLE_REQUIRED_BADGES
+    .filter(b => !eagleFromDataNorm.has(normalizeName(b)))
+    .map(b => ({ badge: b, count: 0 }));
+  const eagleSorted = [...eagleFromData, ...eagleNeverEarned]
     .sort((a, b) => a.count - b.count);
 
   // Top electives
