@@ -51,7 +51,9 @@ function resolveCacheKey(inputSpec) {
   return inputSpec.twhReport || inputSpec.cacheKey || null;
 }
 
-const PORT = 3001; // starting port — auto-increments if in use
+// Packaged installs stay on 3000 so a source-run dev/test build (3001) can
+// run alongside an installed release at the same time.
+const PORT = process.pkg ? 3000 : 3001; // starting port — auto-increments if in use
 const app = express();
 
 // ═══════════════════════════════ AUTO-DISCOVERY ════════════════════════
