@@ -41,6 +41,7 @@ const { login: twhLogin } = require("./twh/login");
 const { downloadReport: twhDownload } = require("./twh/downloads");
 const settings   = require("./settings");
 const cache      = require("./cache");
+const workbooksRouter = require("./routes/workbooks");
 const { version: APP_VERSION } = require("./package.json");
 
 // A manifest input's cache slot: the TWH report id for TWH-backed inputs,
@@ -50,7 +51,7 @@ function resolveCacheKey(inputSpec) {
   return inputSpec.twhReport || inputSpec.cacheKey || null;
 }
 
-const PORT = 3000; // starting port — auto-increments if in use
+const PORT = 3001; // starting port — auto-increments if in use
 const app = express();
 
 // ═══════════════════════════════ AUTO-DISCOVERY ════════════════════════
@@ -176,6 +177,11 @@ app.post("/api/settings", (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+// ═══════════════════════════════ WORKBOOKS (experimental) ══════════════
+// Standalone paste-in tool, not part of the report system: no manifest, no
+// TWH data. See routes/workbooks.js.
+app.use("/workbooks", workbooksRouter);
 
 // ═══════════════════════════════ REPORT LISTING ════════════════════════
 app.get("/api/reports", (req, res) => {

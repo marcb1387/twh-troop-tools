@@ -86,29 +86,6 @@
         <input type="text" id="settings-subdomain" placeholder="e.g. Troop123YourCity" autocomplete="off" spellcheck="false" />
       </label>
 
-      <div class="settings-section">TroopWebHost Menu Item IDs</div>
-      <p class="settings-hint">
-        Find these in your TWH report URLs after <code>Menu_Item_ID=</code>.
-      </p>
-
-      <label class="field">
-        <span class="field-label">Active Roster Report ID</span>
-        <span class="field-hint">Menu → Membership → Export Membership Data → Export Active Roster to Excel</span>
-        <input type="number" id="settings-id-roster" placeholder="e.g. 12345" min="1" />
-      </label>
-
-      <label class="field">
-        <span class="field-label">Rank Requirements Report ID</span>
-        <span class="field-hint">Menu → Advancement → Requirements Reports → Uncompleted Rank Requirements By Requirement → Open in Excel</span>
-        <input type="number" id="settings-id-requirements" placeholder="e.g. 12345" min="1" />
-      </label>
-
-      <label class="field">
-        <span class="field-label">Merit Badge History Report ID</span>
-        <span class="field-hint">Menu → Advancement → Advancement Status Reports → Merit Badge History By Scout By Badge Name → Open in Excel</span>
-        <input type="number" id="settings-id-merit-badges" placeholder="e.g. 12345" min="1" />
-      </label>
-
       <div id="settings-result"></div>
     </div>
     <div class="modal-footer">
@@ -147,29 +124,6 @@
           e.g. <code>Troop123YourCity</code>
         </span>
         <input type="text" id="setup-subdomain" placeholder="e.g. Troop123YourCity" autocomplete="off" spellcheck="false" />
-      </label>
-
-      <div class="setup-ids-help">
-        <strong>How to find your Report IDs:</strong>
-        Log in to TroopWebHost and run each report below manually. Look at the browser URL bar — copy the number that appears after <code>Menu_Item_ID=</code>.
-      </div>
-
-      <label class="field">
-        <span class="field-label">Active Roster Report ID *</span>
-        <span class="field-hint">Menu → Membership → Export Membership Data → Export Active Roster to Excel</span>
-        <input type="number" id="setup-id-roster" placeholder="e.g. 12345" min="1" />
-      </label>
-
-      <label class="field">
-        <span class="field-label">Rank Requirements Report ID *</span>
-        <span class="field-hint">Menu → Advancement → Requirements Reports → Uncompleted Rank Requirements By Requirement → Open in Excel</span>
-        <input type="number" id="setup-id-requirements" placeholder="e.g. 12345" min="1" />
-      </label>
-
-      <label class="field">
-        <span class="field-label">Merit Badge History Report ID</span>
-        <span class="field-hint">Menu → Advancement → Advancement Status Reports → Merit Badge History By Scout By Badge Name → Open in Excel (optional - only needed for the Merit Badge Analysis report)</span>
-        <input type="number" id="setup-id-merit-badges" placeholder="e.g. 12345" min="1" />
       </label>
 
       <div id="setup-result"></div>

@@ -8,8 +8,8 @@ Currently supports:
 - **Troop Health Report** - Committee-meeting deck with membership demographics, rank distribution, recent advancements, Eagle pipeline, and scouts needing follow-up.
 - **Merit Badge Analysis** - Troop-wide merit badge analytics: Eagle coverage, scout progress, popular electives, badges never earned, and stale badges worth repeating.
 - **Patrol Balance** - Snapshot of patrol composition with age and rank variance, plus single-move rebalancing suggestions.
-- **Roster Audit** - Scans the active youth roster for data quality issues: missing dates of birth, scouts without a patrol, missing BSA IDs, and duplicate names.
-- **Roster Reconciliation** - Compares youth on my.scouting.org against TroopWebHost. Flags who needs to be added, who needs investigation, and any name or rank discrepancies.
+- **Roster Audit** - Scans the active youth roster for data quality issues: missing dates of birth, scouts without a patrol, and duplicate names.
+- **Roster Reconciliation** - Compares youth on my.scouting.org against TroopWebHost. Flags who needs to be added, who needs investigation, who's missing a BSA ID, and any name or rank discrepancies.
 - **Troop Contacts Export** - Exports adult leaders from the active roster into a contacts file. Import directly into Google Contacts or tap to import on iPhone.
 
 ## Install (one-time)
@@ -27,25 +27,10 @@ The first time you open Troop Tools, a setup wizard asks for:
 
 - **Troop name** - used in report titles.
 - **TroopWebHost site path** - the part of your TroopWebHost URL before `.troopwebhost.org` (e.g. if your site is `https://Troop123YourCity.troopwebhost.org`, enter `Troop123YourCity`).
-- **Menu Item IDs** for the reports you want to auto-fetch (see below).
+
+That's it - no report IDs to look up. TroopWebHost's built-in reports (Active Roster, Uncompleted Rank Requirements, Merit Badge History) use the same identifiers across every org, so those are wired in for you.
 
 You can revisit these anytime from the **Settings** button on the dashboard.
-
-### Finding your Menu Item IDs
-
-TroopWebHost doesn't have a lookup API for this, so it's a one-time manual step per report:
-
-1. Log into TroopWebHost in your regular browser.
-2. Run the report once the normal way (see the exact menu paths below).
-3. Look at the URL in your browser - it will contain `Menu_Item_ID=12345`.
-4. Copy that number into the matching field in Troop Tools' Settings.
-
-Reports Troop Tools can auto-fetch this way:
-- **Roster** - Menu → Membership → Export Membership Data → Export Active Roster to Excel
-- **Requirements** - Menu → Advancement → Requirements Reports → Uncompleted Rank Requirements By Requirement → Open in Excel
-- **Merit Badge History** - Menu → Advancement → Advancement Status Reports → Merit Badge History By Scout By Badge Name → Open in Excel
-
-Any report can also be run without these, using the manual upload path below.
 
 ## Two ways to use it
 
@@ -72,7 +57,7 @@ Useful when:
 - CSVs are processed locally and deleted after each report runs.
 - Credentials are held in memory only while you're signed in.
 - Nothing about your troop, your scouts, or your credentials ever leaves your computer. All HTTP traffic is between your browser and your local server. The only external service this tool ever talks to is TroopWebHost itself, using the same login flow you'd do manually in a browser.
-- Settings (troop name, subdomain, Menu Item IDs) are saved to a small file in your user profile, not inside the installed app folder.
+- Settings (troop name, subdomain) are saved to a small file in your user profile, not inside the installed app folder.
 
 ## Troubleshooting
 
@@ -82,17 +67,14 @@ The installer isn't code-signed (that costs money we haven't spent on a hobby to
 **The browser shows "This site can't be reached"**
 The app may still be starting, or it's not running. Reopen it from the Start Menu.
 
-**A report says the Menu Item ID isn't configured**
-Open Settings and follow the steps under [Finding your Menu Item IDs](#finding-your-menu-item-ids) above.
-
 **Login fails with "Couldn't find the username field" or "Couldn't find the Log On link"**
 The TroopWebHost site path may be wrong. Make sure you entered just the path segment (e.g. `Troop123YourCity`) and not the full URL.
 
 **Login fails with "invalid username or password"**
 The credentials weren't accepted by TroopWebHost. Verify them by signing into TroopWebHost manually in your browser.
 
-**"Couldn't click menu item" during fetch**
-TroopWebHost's menu structure may have changed, or your account may not have permissions for that report. Try the **manual upload** path as a workaround, then report the issue.
+**A fetch says the signed-in account doesn't have permission for that report**
+Ask your Key 3 or Committee Chair to grant Scoutmaster-level access or Report permissions. In the meantime, use the **manual upload** path as a workaround.
 
 ---
 
@@ -107,7 +89,7 @@ npm install
 npm start
 ```
 
-This downloads the app's dependencies plus a copy of Chromium (~150 MB) used to log into TroopWebHost on your behalf. `npm start` opens the dashboard automatically; the port auto-increments past 3000 if something else is already using it.
+This downloads the app's dependencies plus a copy of Chromium (~150 MB) used to log into TroopWebHost on your behalf. `npm start` opens the dashboard automatically; the port auto-increments past 3001 if something else is already using it.
 
 ### Building the installer
 
@@ -153,7 +135,7 @@ async function generate(inputs, outputDir, options) {
 module.exports = { manifest, generate };
 ```
 
-If `twhReport` matches a recipe in `twh/downloads.js` (`roster`, `requirements`, or `meritBadges`), the report becomes available as a one-click "Fetch & Generate". If you omit it, the report still works via manual upload. To add a new TroopWebHost recipe, edit the `RECIPES` object in `twh/downloads.js` - its Menu_Item_ID is then user-configurable via Settings rather than hardcoded.
+If `twhReport` matches a recipe in `twh/downloads.js` (`roster`, `requirements`, or `meritBadges`), the report becomes available as a one-click "Fetch & Generate". If you omit it, the report still works via manual upload. To add a new TroopWebHost recipe, edit the `RECIPES` object in `twh/downloads.js` and add the report's `menuItemId` - find it by running the report manually in TroopWebHost and reading `Menu_Item_ID=` out of the URL.
 
 ### File locations
 

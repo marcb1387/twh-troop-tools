@@ -393,6 +393,23 @@ main {
   line-height: 1.5;
 }
 
+/* Link cards navigate straight to a standalone page - no expand/collapse,
+   description always shown. */
+.link-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-card .card-body {
+  display: block;
+  padding-bottom: 1.25rem;
+}
+
+.link-card .card-description {
+  margin-bottom: 0;
+}
+
 /* ─── Cache status ──────────────────────────────────────── */
 .cache-status {
   display: flex;
@@ -778,28 +795,6 @@ footer {
   background: #F7F4EC;
   border-top: 1px solid var(--border);
 }
-.settings-section {
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--text-mid);
-  padding-bottom: 0.25rem;
-  border-bottom: 1px solid var(--border);
-  margin-top: 0.25rem;
-}
-.settings-hint {
-  font-size: 0.82rem;
-  color: var(--text-mid);
-  line-height: 1.5;
-}
-.settings-hint code {
-  background: #F0EBDC;
-  padding: 0.1rem 0.35rem;
-  border-radius: 3px;
-  font-family: monospace;
-  font-size: 0.85em;
-}
 .btn-primary {
   background: var(--od-green);
   color: #fff;
@@ -915,22 +910,6 @@ footer {
   font-size: 0.85rem;
   color: #5D4037;
   line-height: 1.5;
-}
-.setup-ids-help {
-  background: #F0EBDC;
-  border-radius: 6px;
-  padding: 0.75rem 1rem;
-  font-size: 0.83rem;
-  color: var(--text-mid);
-  line-height: 1.55;
-}
-.setup-ids-help code {
-  background: #fff;
-  padding: 0.1rem 0.3rem;
-  border-radius: 3px;
-  font-family: monospace;
-  font-size: 0.85em;
-  border: 1px solid var(--border);
 }
 #setup-result {
   font-size: 0.85rem;

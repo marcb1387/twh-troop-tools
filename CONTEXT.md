@@ -9,7 +9,7 @@ This document provides context for AI coding assistants (Claude Code, etc.) work
 A Node.js application for BSA Scoutmasters that automates report generation from TroopWebHost (TWH) CSV exports and my.scouting.org data.
 
 Two ways it runs:
-- **From source** (developers): `npm install && npm start`, opens at `http://localhost:3000` (auto-increments if busy).
+- **From source** (developers): `npm install && npm start`, opens at `http://localhost:3001` (auto-increments if busy).
 - **As a standalone installer** (end users): a Windows `.exe` (Inno Setup) or macOS `.app`/`.dmg`, built by `scripts/build.js` and distributed via GitHub Releases. No Node.js or npm required on the user's machine.
 
 The user opens it in a browser, either signs into TroopWebHost (the app drives a hidden Playwright browser to fetch CSVs automatically) or uploads CSVs manually, and generates reports with one click. Files are delivered through the browser's normal download mechanism.
@@ -36,7 +36,7 @@ The repo is public: `github.com/ErrorF002/twh-troop-tools`. It is **not affiliat
 ```
 troop-tools/
 ├── server.js                  Express server - routes, auth, file serving, pkg-aware path resolution
-├── settings.js                Persisted settings: troop name, subdomain, menuItemIds. Project dir in dev,
+├── settings.js                Persisted settings: troop name, subdomain. Project dir in dev,
 │                               OS user-data dir (%APPDATA%/TroopTools, ~/Library/Application Support/TroopTools)
 │                               when packaged.
 ├── package.json                Dependencies, pkg config, build scripts
@@ -69,7 +69,7 @@ troop-tools/
 └── twh/
     ├── session.js             Singleton Playwright browser, 30-min inactivity timeout
     ├── login.js               TWH login - handles frameset redirect + popup modal
-    └── downloads.js           Direct URL navigation to download CSVs; Menu_Item_IDs come from settings.js
+    └── downloads.js           Direct URL navigation to download CSVs; Menu_Item_IDs are hardcoded in RECIPES
 ```
 
 ---
@@ -81,9 +81,9 @@ TWH is an ASP.NET site with unusual structure. Key facts:
 - **Frameset:** The root URL loads a `<frameset>` containing `Redirect.htm`, which runs JavaScript to detect screen width, then loads the real page. Playwright must wait for this redirect chain to complete.
 - **Login:** A "Log On" link in the top-right opens a popup modal with fields `name="User_Login"` and `name="User_Password"`. The submit button is `type="button"` (not `type="submit"`) with `name="login"`.
 - **Menu:** Behind a hamburger button (`href="javascript:togglemenu();"`). Categories use `toggleLower('mNN')` to expand - they don't navigate.
-- **Downloads:** Reports are downloaded by navigating directly to URLs of the form `https://www.troopwebhost.org/FormReport.aspx?Menu_Item_ID=XXXXX&Stack=1&ReportFormat=XLS`. These URLs are troop-specific (Menu_Item_IDs vary by troop).
+- **Downloads:** Reports are downloaded by navigating directly to URLs of the form `https://www.troopwebhost.org/FormReport.aspx?Menu_Item_ID=XXXXX&Stack=1&ReportFormat=XLS`.
 
-Menu_Item_IDs are unit-specific and are **not hardcoded anywhere in the codebase**. Each troop configures its own via the first-run setup wizard or the Settings modal, stored as `menuItemIds.roster`, `menuItemIds.requirements`, and `menuItemIds.meritBadges` in `settings.js`. `twh/downloads.js`'s `RECIPES` object only holds the `id`/`description` per report; the actual ID is looked up from settings at fetch time. Don't reintroduce a hardcoded ID here, even as a "default" - it would leak whichever troop's ID a contributor tests with into a public repo.
+Menu_Item_IDs for TroopWebHost's built-in reports turned out to be **the same across every org**, not troop-specific as originally assumed (confirmed 2026-08-12) - so they're hardcoded directly in `twh/downloads.js`'s `RECIPES` object (`roster: 53747`, `requirements: 46047`, `meritBadges: 52388`), not read from settings. `settings.js` only holds `troopName` and `subdomain` now. If you add a new TroopWebHost recipe, find its ID the same way (run the report manually, read `Menu_Item_ID=` from the URL) and hardcode it in `RECIPES` too.
 
 **Download trigger:** `page.goto(url)` throws "Download is starting" - this is expected and must be caught silently. The download event listener must be set up before the navigation.
 
@@ -200,7 +200,7 @@ The app icon (`assets/icon.svg`) uses the same OD green/tan palette.
 
 ## UI Behavior
 
-- **First-run setup wizard** (`setupComplete: false` in settings) walks new users through troop name, TWH subdomain, and Menu_Item_IDs (roster + requirements required, merit badges optional) before showing the dashboard.
+- **First-run setup wizard** (`setupComplete: false` in settings) walks new users through troop name and TWH subdomain before showing the dashboard. Menu_Item_IDs are no longer collected - they're hardcoded (see TroopWebHost Architecture above).
 - **Settings modal** lets users revisit all of the above anytime.
 - **Cards are collapsed by default** - click header to expand; accordion behavior (one open at a time)
 - **Login persists the subdomain** in `localStorage` - shown read-only with a "Change" link
@@ -219,7 +219,7 @@ The app icon (`assets/icon.svg`) uses the same OD green/tan palette.
 - **No generated files** (PPTX, PDF, CSV, VCF, HTML) in the project directory or committed to git. `dist/` is gitignored; installer binaries are distributed via GitHub Releases only, never committed to the repo tree.
 - **Credentials never written to disk** - TWH login credentials live in memory only
 - **Don't break the manual upload fallback** - every report must work without TWH auto-fetch
-- **No real troop-identifying data in source or docs** - no live Menu_Item_IDs, real troop numbers/names, or subdomains as "defaults" or example values. The repo is public; use generic placeholders like "Troop 123 Anytown".
+- **No real troop-identifying data in source or docs** - no real troop numbers/names or subdomains as "defaults" or example values. The repo is public; use generic placeholders like "Troop 123 Anytown". (Menu_Item_IDs are the exception - they're stock TroopWebHost identifiers shared across every org, not troop-identifying, so they're fine to hardcode - see TroopWebHost Architecture above.)
 - **No implied BSA affiliation** - this is an independent tool, not published or endorsed by BSA. Keep BSA references limited to actual domain terminology.
 
 ---

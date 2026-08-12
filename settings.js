@@ -21,11 +21,6 @@ const DEFAULTS = {
   setupComplete: false,
   troopName:     "",
   subdomain:     "",
-  menuItemIds: {
-    roster:       null,
-    requirements: null,
-    meritBadges:  null,
-  },
 };
 
 let _cache = null;
@@ -35,17 +30,13 @@ function load() {
   try {
     if (fs.existsSync(SETTINGS_FILE)) {
       const saved = JSON.parse(fs.readFileSync(SETTINGS_FILE, "utf8"));
-      _cache = {
-        ...DEFAULTS,
-        ...saved,
-        menuItemIds: { ...DEFAULTS.menuItemIds, ...(saved.menuItemIds || {}) },
-      };
+      _cache = { ...DEFAULTS, ...saved };
       return _cache;
     }
   } catch (e) {
     console.warn("Could not load settings.json:", e.message);
   }
-  _cache = { ...DEFAULTS, menuItemIds: { ...DEFAULTS.menuItemIds } };
+  _cache = { ...DEFAULTS };
   return _cache;
 }
 
@@ -56,10 +47,6 @@ function save(data) {
     ...(data.setupComplete !== undefined ? { setupComplete: !!data.setupComplete } : {}),
     ...(data.troopName    !== undefined ? { troopName:    String(data.troopName).trim() }    : {}),
     ...(data.subdomain    !== undefined ? { subdomain:    String(data.subdomain).trim() }    : {}),
-    menuItemIds: {
-      ...current.menuItemIds,
-      ...(data.menuItemIds || {}),
-    },
   };
   fs.writeFileSync(SETTINGS_FILE, JSON.stringify(updated, null, 2), "utf8");
   _cache = updated;

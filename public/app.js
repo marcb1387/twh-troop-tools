@@ -34,9 +34,6 @@
       const data = await res.json();
       $("#settings-troop-name").value       = data.troopName  || "";
       $("#settings-subdomain").value        = data.subdomain  || "";
-      $("#settings-id-roster").value        = data.menuItemIds?.roster        || "";
-      $("#settings-id-requirements").value  = data.menuItemIds?.requirements  || "";
-      $("#settings-id-merit-badges").value  = data.menuItemIds?.meritBadges   || "";
     } catch {}
     settingsResult.textContent = "";
     settingsResult.className   = "";
@@ -55,17 +52,9 @@
     settingsResult.textContent = "";
     settingsResult.className   = "";
     try {
-      const roster       = parseInt($("#settings-id-roster").value, 10);
-      const requirements = parseInt($("#settings-id-requirements").value, 10);
-      const meritBadges  = parseInt($("#settings-id-merit-badges").value, 10);
       const body = {
         troopName:   $("#settings-troop-name").value.trim(),
         subdomain:   $("#settings-subdomain").value.trim(),
-        menuItemIds: {
-          roster:       isNaN(roster)       ? null : roster,
-          requirements: isNaN(requirements) ? null : requirements,
-          meritBadges:  isNaN(meritBadges)  ? null : meritBadges,
-        },
       };
       const res  = await fetch("/api/settings", {
         method: "POST", headers: { "Content-Type": "application/json" },
@@ -97,30 +86,15 @@
     $("#setup-view").classList.remove("hidden");
     if (prefill.troopName)   $("#setup-troop-name").value      = prefill.troopName;
     if (prefill.subdomain)   $("#setup-subdomain").value        = prefill.subdomain;
-    if (prefill.menuItemIds?.roster)       $("#setup-id-roster").value        = prefill.menuItemIds.roster;
-    if (prefill.menuItemIds?.requirements) $("#setup-id-requirements").value  = prefill.menuItemIds.requirements;
-    if (prefill.menuItemIds?.meritBadges)  $("#setup-id-merit-badges").value  = prefill.menuItemIds.meritBadges;
   }
 
   $("#setup-submit").addEventListener("click", async () => {
     const troopName   = $("#setup-troop-name").value.trim();
     const subdomain   = $("#setup-subdomain").value.trim();
-    const rosterRaw   = $("#setup-id-roster").value.trim();
-    const reqRaw      = $("#setup-id-requirements").value.trim();
-    const meritRaw    = $("#setup-id-merit-badges").value.trim();
     const resultEl    = $("#setup-result");
 
     if (!troopName)   { resultEl.textContent = "Troop Name is required."; resultEl.className = "error"; return; }
     if (!subdomain)   { resultEl.textContent = "TroopWebHost site path is required."; resultEl.className = "error"; return; }
-    if (!rosterRaw)   { resultEl.textContent = "Active Roster Report ID is required."; resultEl.className = "error"; return; }
-    if (!reqRaw)      { resultEl.textContent = "Rank Requirements Report ID is required."; resultEl.className = "error"; return; }
-
-    const roster       = parseInt(rosterRaw, 10);
-    const requirements = parseInt(reqRaw, 10);
-    const meritBadges  = meritRaw ? parseInt(meritRaw, 10) : null;
-    if (isNaN(roster) || roster < 1)       { resultEl.textContent = "Roster Report ID must be a positive number."; resultEl.className = "error"; return; }
-    if (isNaN(requirements) || requirements < 1) { resultEl.textContent = "Requirements Report ID must be a positive number."; resultEl.className = "error"; return; }
-    if (meritRaw && (isNaN(meritBadges) || meritBadges < 1)) { resultEl.textContent = "Merit Badge History Report ID must be a positive number."; resultEl.className = "error"; return; }
 
     $("#setup-submit").disabled = true;
     resultEl.textContent = "";
@@ -130,7 +104,6 @@
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           setupComplete: true, troopName, subdomain,
-          menuItemIds: { roster, requirements, meritBadges },
         }),
       });
       const data = await res.json();
@@ -285,10 +258,21 @@
   });
 
   // ─── Dashboard sections ───────────────────────────────
+  // "links" sections point at standalone pages outside the report system
+  // (no manifest, no cache, no generate flow) - the card just navigates out.
   const SECTIONS = [
     { label: "Review", ids: ["reconciliation", "roster-audit"] },
     { label: "Plan",   ids: ["advancement", "merit-badges", "merit-badge-search", "patrol-balance"] },
     { label: "Data",   ids: ["contacts", "health"] },
+    { label: "Experimental", links: [
+      {
+        id: "workbook-generator",
+        icon: "📝",
+        name: "Workbook Generator",
+        description: "Paste merit badge requirements, get a blank fillable workbook as a Word doc. Doesn't touch TroopWebHost data.",
+        href: "/workbooks",
+      },
+    ] },
   ];
 
   // ─── Dashboard ────────────────────────────────────────
@@ -346,19 +330,41 @@
     }
     container.innerHTML = "";
     const byId = Object.fromEntries(reports.map(r => [r.id, r]));
-    const assigned = new Set(SECTIONS.flatMap(s => s.ids));
+    const assigned = new Set(SECTIONS.flatMap(s => s.ids || []));
     SECTIONS.forEach(section => {
-      const group = section.ids.map(id => byId[id]).filter(Boolean);
-      if (!group.length) return;
+      const group = (section.ids || []).map(id => byId[id]).filter(Boolean);
+      const links = section.links || [];
+      if (!group.length && !links.length) return;
       const h = document.createElement("div");
       h.className   = "section-heading";
       h.textContent = section.label;
       container.appendChild(h);
       group.forEach(manifest => container.appendChild(renderCard(manifest)));
+      links.forEach(link => container.appendChild(renderLinkCard(link)));
     });
     reports.filter(r => !assigned.has(r.id))
       .forEach(manifest => container.appendChild(renderCard(manifest)));
     dashboardRendered = true;
+  }
+
+  // ─── Link card rendering (standalone pages, not report manifests) ────
+  function renderLinkCard(link) {
+    const card = document.createElement("a");
+    card.className = "report-card link-card";
+    card.href = link.href;
+    card.target = "_blank";
+    card.rel = "noopener";
+    card.innerHTML = `
+      <div class="card-header">
+        <span class="card-icon">${escape(link.icon || "🔗")}</span>
+        <span class="card-title">${escape(link.name)}</span>
+        <span class="card-chevron">↗</span>
+      </div>
+      <div class="card-body">
+        <p class="card-description">${escape(link.description || "")}</p>
+      </div>
+    `;
+    return card;
   }
 
   // ─── Card rendering ───────────────────────────────────

@@ -9,14 +9,14 @@
  * A blank page (rather than a redirect to login) is returned when not logged
  * in, so we verify the download actually fires rather than trusting the response.
  *
- * NOTE: Menu_Item_IDs are troop-specific. Each troop configures its own
- * via the Settings UI (see settings.js) rather than hardcoding them here.
+ * Menu_Item_IDs turned out to be stock TroopWebHost report identifiers that
+ * are the same across every org, not troop-specific - so they're hardcoded
+ * here rather than configured per-troop.
  */
 
-const fs       = require("fs");
-const path     = require("path");
-const os       = require("os");
-const settings = require("../settings");
+const fs   = require("fs");
+const path = require("path");
+const os   = require("os");
 
 const TROOPWEBHOST_REPORT_BASE = "https://www.troopwebhost.org/FormReport.aspx";
 // Some reports (e.g. Merit Badge History, which covers the troop's entire
@@ -29,21 +29,25 @@ const DOWNLOAD_TIMEOUT_MS = 120000;
 const PERMISSION_CHECK_DELAY_MS = 15000;
 
 // ═══════════════════════════════ RECIPES ════════════════════════════════
-// Each recipe maps to a direct TroopWebHost report URL. The Menu_Item_ID
-// itself is troop-specific and comes from settings.js, not from here.
+// Each recipe maps to a direct TroopWebHost report URL. menuItemId is the
+// same for every troop (confirmed across multiple orgs), not something
+// each unit configures.
 
 const RECIPES = {
   roster: {
     id: "roster",
     description: "Active Roster CSV",
+    menuItemId: "53747",
   },
   requirements: {
     id: "requirements",
     description: "Uncompleted Rank Requirements By Requirement CSV",
+    menuItemId: "46047",
   },
   meritBadges: {
     id: "meritBadges",
     description: "Merit Badge History By Scout CSV",
+    menuItemId: "52388",
   },
 };
 
@@ -65,15 +69,7 @@ async function downloadReport(page, reportName) {
   const recipe = RECIPES[reportName];
   if (!recipe) throw new Error(`Unknown TroopWebHost report: ${reportName}`);
 
-  const configuredIds = settings.load().menuItemIds;
-  const menuItemId    = configuredIds && configuredIds[reportName];
-  if (!menuItemId) {
-    throw new Error(
-      `The Menu Item ID for "${recipe.description}" is not configured. ` +
-      `Open Settings, enter the ID from your TroopWebHost report URL (after Menu_Item_ID=), and save.`
-    );
-  }
-  const url = reportUrl(menuItemId);
+  const url = reportUrl(recipe.menuItemId);
   console.log(`  → Navigating to report URL: ${url}`);
 
   // Set up the download listener first, then navigate. page.goto() usually
