@@ -21,6 +21,9 @@
       "reports/**/*.js",
       "node_modules/playwright-core/browsers.json"
     ],
+    "assets": [
+      "node_modules/pdfkit/js/data/**/*"
+    ],
     "targets": [
       "node18-win-x64",
       "node18-macos-x64",

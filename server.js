@@ -25,6 +25,16 @@ if (process.pkg) {
     configurable: true,
     writable: true,
   });
+
+  // pkg's bundled Node 18 ships "small-icu" (no legacy 8-bit codecs). fontkit
+  // (a pdfkit dependency, loaded eagerly via reports/health.js and
+  // reports/advancement.js) does `new TextDecoder('ascii')` at module load -
+  // and per the WHATWG Encoding Standard, the "ascii" label decodes via the
+  // windows-1252 codec, which throws ERR_ENCODING_NOT_SUPPORTED under
+  // small-icu and crashes the whole app at startup, not just PDF generation.
+  // Patch in a minimal windows-1252 decoder for exactly the legacy labels
+  // that alias to it, before fontkit ever loads.
+  require("./shared/pkg-polyfills").installTextDecoderPolyfill();
 }
 
 const express = require("express");
