@@ -141,6 +141,7 @@ async function generateAndStream(report, inputs, res, options = {}) {
   const ext = path.extname(result.fileName).toLowerCase();
   const contentType = {
     ".pptx": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    ".pdf":  "application/pdf",
     ".csv":  "text/csv",
     ".vcf":  "text/vcard",
   }[ext] || "application/octet-stream";

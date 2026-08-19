@@ -7,7 +7,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const pptxgen = require("pptxgenjs");
+const { SlideDeck } = require("../shared/slide-deck");
 const { parseCSV } = require("../shared/csv-parser");
 const { formatDisplayName } = require("../shared/name-normalize");
 const { parseDate, todayISO, todayLong } = require("../shared/dates");
@@ -25,6 +25,18 @@ const manifest = {
       hint: "Export: Menu → Membership → Export Membership Data → Export Active Roster to Excel",
       required: true,
       twhReport: "roster",
+    },
+  ],
+  options: [
+    {
+      key: "outputFormat",
+      label: "Output Format",
+      type: "radio",
+      choices: [
+        { value: "pptx", label: "PowerPoint (PPTX)" },
+        { value: "pdf", label: "PDF (Landscape)" },
+      ],
+      default: "pptx",
     },
   ],
 };
@@ -89,6 +101,7 @@ function loadScouts(rosterPath) {
       joinDate: parseDate(r["Date Joined Unit"]),
       gender: r["Registered Gender"],
       age: parseInt(r.Age) || null,
+      birthDate: parseDate(r["Born"]),
       meritBadges: parseInt(r["Merit Badges"]) || 0,
       leadership: r.Leadership,
     };
@@ -461,6 +474,13 @@ function slideRecentAdvancements(pres, scouts, dateStr) {
   addPageFooter(slide, dateStr);
 }
 
+// Whole calendar months from `from` to `to` (e.g. Mar 15 -> May 3 is 1 month, not 2).
+function monthsBetween(from, to) {
+  let months = (to.getFullYear() - from.getFullYear()) * 12 + (to.getMonth() - from.getMonth());
+  if (to.getDate() < from.getDate()) months--;
+  return months;
+}
+
 function slideEaglePipeline(pres, scouts, dateStr) {
   const slide = pres.addSlide();
   slide.background = { color: COLOR.bgLight };
@@ -470,7 +490,13 @@ function slideEaglePipeline(pres, scouts, dateStr) {
     .map(s => {
       const today = new Date();
       const monthsAsLife = s.rankDate ? Math.round((today - s.rankDate) / (1000 * 60 * 60 * 24 * 30.4)) : null;
-      const monthsToAge18 = s.age != null ? (18 - s.age) * 12 : null;
+      let monthsToAge18 = null;
+      if (s.birthDate) {
+        const eighteenth = new Date(s.birthDate.getFullYear() + 18, s.birthDate.getMonth(), s.birthDate.getDate());
+        monthsToAge18 = monthsBetween(today, eighteenth);
+      } else if (s.age != null) {
+        monthsToAge18 = (18 - s.age) * 12;
+      }
       return { ...s, monthsAsLife, monthsToAge18 };
     })
     .sort((a, b) => {
@@ -812,8 +838,7 @@ async function generate(inputs, outputDir, options = {}) {
   const scouts = loadScouts(rosterPath);
   const adultCount = countAdults(rosterPath);
 
-  const pres = new pptxgen();
-  pres.layout = "LAYOUT_16x9";
+  const pres = new SlideDeck();
   pres.title = `${CONFIG.troopName} Health Report`;
 
   const dateStr = todayISO();
@@ -832,9 +857,14 @@ async function generate(inputs, outputDir, options = {}) {
   slideStalledScoutsDetail(pres, scouts, dateStr);
 
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
-  const fileName = `troop_health_${dateStr}.pptx`;
+  const outputFormat = options.outputFormat === "pdf" ? "pdf" : "pptx";
+  const fileName = `troop_health_${dateStr}.${outputFormat}`;
   const filePath = path.join(outputDir, fileName);
-  await pres.writeFile({ fileName: filePath });
+  if (outputFormat === "pdf") {
+    await pres.writePdf(filePath);
+  } else {
+    await pres.writePptx(filePath);
+  }
 
   CONFIG.troopName = savedTroopName;
 

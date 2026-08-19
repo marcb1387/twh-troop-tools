@@ -8,7 +8,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const pptxgen = require("pptxgenjs");
+const { SlideDeck } = require("../shared/slide-deck");
 const { parseCSV } = require("../shared/csv-parser");
 const { normalizeName } = require("../shared/name-normalize");
 const { todayISO } = require("../shared/dates");
@@ -35,6 +35,18 @@ const manifest = {
       hint: "Export: Menu → Membership → Export Membership Data → Export Active Roster to Excel",
       required: true,
       twhReport: "roster",
+    },
+  ],
+  options: [
+    {
+      key: "outputFormat",
+      label: "Output Format",
+      type: "radio",
+      choices: [
+        { value: "pptx", label: "PowerPoint (PPTX)" },
+        { value: "pdf", label: "PDF (Landscape)" },
+      ],
+      default: "pptx",
     },
   ],
 };
@@ -710,7 +722,8 @@ function addPatrolProgressSlide(pres, patrolName, patrolScouts, columns, rankMap
   const rowsAreaH = 3.9 - codeBandH;
   const rowH = Math.min(0.7, rowsAreaH / Math.max(rows.length, 1));
   const colW = gridW / Math.max(columns.length, 1);
-  const dotR = Math.min(colW, rowH) * 0.3;
+  const markW = colW * 0.6;
+  const markH = (rowH - 0.01) * 0.6;
 
   // Rotated requirement-code label per column, only when there's enough
   // room per column (median-band slide, fewer columns than the full grid).
@@ -795,11 +808,11 @@ function addPatrolProgressSlide(pres, patrolName, patrolScouts, columns, rankMap
     });
 
     columns.forEach((item, ci) => {
-      if (item.scouts.includes(name)) return; // still outstanding - no dot
+      if (item.scouts.includes(name)) return; // still outstanding - no mark
       const cx = gridX + ci * colW + colW / 2;
       const cy = ry + (rowH - 0.01) / 2;
-      slide.addShape(pres.shapes.OVAL, {
-        x: cx - dotR, y: cy - dotR, w: dotR * 2, h: dotR * 2,
+      slide.addShape(pres.shapes.RECTANGLE, {
+        x: cx - markW / 2, y: cy - markH / 2, w: markW, h: markH,
         fill: { color: rankAccent(item.rank) }, line: { type: "none" },
       });
     });
@@ -813,7 +826,7 @@ function addPatrolProgressSlide(pres, patrolName, patrolScouts, columns, rankMap
 
   const highlightNote = highlightKeys.size > 0 ? "  •  highlighted = also on this patrol's focus list" : "";
   slide.addText(
-    `● = requirement completed, colored by rank  •  ${columns.length} requirements shown${highlightNote}`,
+    `■ = requirement completed, colored by rank  •  ${columns.length} requirements shown${highlightNote}`,
     {
       x: 0.3, y: rowsBottom + 0.05, w: 9.4, h: 0.25,
       fontSize: 8, color: TEXT_MID, italic: true,
@@ -850,8 +863,7 @@ async function generate(inputs, outputDir, options = {}) {
     .sort();
   if (byPatrol.New) patrols.push("New");
 
-  const pres = new pptxgen();
-  pres.layout = "LAYOUT_16x9";
+  const pres = new SlideDeck();
   const troopName = options.troopName || "";
   pres.title = troopName ? `${troopName} Advancement Report` : "Advancement Report";
 
@@ -891,13 +903,25 @@ async function generate(inputs, outputDir, options = {}) {
         highlightItems: items,
       });
     }
+
+    addPatrolProgressSlide(pres, p, analyzed, allColumns, rankMap, {
+      titleSuffix: "ALL PROGRESS (SCOUT → FIRST CLASS)",
+      showCodes: false,
+      highlightItems: items,
+    });
+
     patrolsRendered++;
   });
 
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
-  const fileName = `troop_advancement_${dateStr}.pptx`;
+  const outputFormat = options.outputFormat === "pdf" ? "pdf" : "pptx";
+  const fileName = `troop_advancement_${dateStr}.${outputFormat}`;
   const filePath = path.join(outputDir, fileName);
-  await pres.writeFile({ fileName: filePath });
+  if (outputFormat === "pdf") {
+    await pres.writePdf(filePath);
+  } else {
+    await pres.writePptx(filePath);
+  }
 
   return {
     filePath,
