@@ -25,6 +25,7 @@ The repo is public: `github.com/ErrorF002/twh-troop-tools`. It is **not affiliat
 - **File uploads:** Multer
 - **Browser automation:** Playwright (Chromium) - TroopWebHost login/download automation and PDF generation
 - **PPTX generation:** pptxgenjs
+- **PDF slide-deck generation:** pdfkit (used only by `shared/slide-deck.js` - see below)
 - **Frontend:** Vanilla HTML/CSS/JS - no framework
 - **Packaging:** `@yao-pkg/pkg` (compiles to a single binary) + Inno Setup 6 (Windows installer) / `hdiutil` (macOS dmg)
 - **Unique IDs:** uuid
@@ -55,8 +56,8 @@ troop-tools/
 │   ├── style.css              Scout-themed: OD green / tan / cub blue
 │   └── app.js                 Frontend: login, setup wizard, settings, session state, card rendering
 ├── reports/                   One file per report - drop a new file here to add a report
-│   ├── advancement.js         Patrol advancement PPTX
-│   ├── health.js              Quarterly committee health PPTX
+│   ├── advancement.js         Patrol advancement slide deck (PPTX or landscape PDF)
+│   ├── health.js              Quarterly committee health slide deck (PPTX or landscape PDF)
 │   ├── merit-badges.js        Merit badge analytics (HTML + optional PDF/CSV)
 │   ├── patrol-balance.js      Patrol composition + rebalancing suggestions (HTML)
 │   ├── audit.js                Roster data-quality audit (HTML), manifest id "roster-audit"
@@ -65,7 +66,11 @@ troop-tools/
 ├── shared/
 │   ├── csv-parser.js          Handles quoted fields, BOM, CRLF
 │   ├── name-normalize.js      normalizeName(), formatDisplayName()
-│   └── dates.js               parseDate() handles both 2-digit and 4-digit years
+│   ├── dates.js               parseDate() handles both 2-digit and 4-digit years
+│   ├── slide-deck.js          Shared slide-deck abstraction (see below) - write a slide once,
+│   │                           render as PPTX (pptxgenjs) or landscape PDF (pdfkit)
+│   └── pdf-fonts.js           Resolves Arial/Calibri TTFs from the OS's own installed fonts for
+│                               slide-deck.js's PDF backend (never bundled - proprietary fonts)
 └── twh/
     ├── session.js             Singleton Playwright browser, 30-min inactivity timeout
     ├── login.js               TWH login - handles frameset redirect + popup modal
@@ -138,6 +143,41 @@ module.exports = {
 `options.troopName` is auto-injected by `server.js` from settings before `generate()` is called, unless already provided. Reports should fall back to a generic label (e.g. "BSA Troop") if it's empty, never a specific real troop name.
 
 The server auto-discovers all `.js` files in `reports/`. Adding a new report = drop a file there and restart.
+
+---
+
+## Slide-Deck Reports (PPTX or PDF)
+
+`advancement.js` and `health.js` are built as slide decks via `shared/slide-deck.js`, which lets each report describe its slides **once** and render either format from the identical layout:
+
+```js
+const { SlideDeck } = require("../shared/slide-deck");
+const deck = new SlideDeck();          // mirrors pptxgenjs's own API - addSlide/addShape/addText,
+deck.title = "...";                    // shapes via deck.shapes.RECTANGLE / ROUNDED_RECTANGLE,
+const slide = deck.addSlide();         // all coordinates in inches, same as pptxgenjs
+slide.background = { color: "2A3A1F" };
+slide.addShape(deck.shapes.RECTANGLE, { x, y, w, h, fill: { color }, line: { type: "none" } });
+slide.addText("...", { x, y, w, h, fontSize, bold, color, fontFace, align, valign, margin: 0 });
+
+await deck.writePptx(filePath);        // -> pptxgenjs
+await deck.writePdf(filePath);         // -> pdfkit, landscape, same 10in x 5.625in page as the slide
+```
+
+This is why existing slide-builder functions barely changed when this was introduced: they already called `pres.addSlide()` / `pres.shapes.X` / `slide.addShape()` / `slide.addText()`, and `SlideDeck` mirrors that surface exactly, so only the construction site (`new SlideDeck()` instead of `new pptxgen()`) and the final write step needed to change.
+
+Both reports expose an `outputFormat` manifest option (`radio`, choices `"pptx"`/`"pdf"`, default `"pptx"`) and branch in `generate()`:
+```js
+const outputFormat = options.outputFormat === "pdf" ? "pdf" : "pptx";
+if (outputFormat === "pdf") await deck.writePdf(filePath); else await deck.writePptx(filePath);
+```
+
+**Why the PDF looks exactly like the PPTX:** the PDF page is created at the *same physical size* as the pptxgenjs `LAYOUT_16x9` slide (10in x 5.625in), so every x/y/w/h/fontSize position carries over as a direct inches-to-points multiplication with no scaling factor - both formats are driven by the literal same layout calls, not two independently-maintained renderers.
+
+**Known gotcha already hit and fixed:** pdfkit treats `.text()` as flowing document content by default - if no explicit `height` option is given, it silently calls its own `addPage()` once its internal y-cursor crosses the page's bottom margin, corrupting a fixed-canvas slide layout (this showed up as extra near-blank pages breaking the patrol-progress grids in `advancement.js`, one per slide whose content ran close to the bottom). `slide-deck.js`'s `drawText()` always passes a large explicit `height` to sidestep this - if you touch that function, don't drop it.
+
+**Fonts:** "Arial Black"/"Calibri" (used throughout both reports) aren't PDF-standard fonts. `shared/pdf-fonts.js` resolves real TTFs directly from the OS's own installed fonts (`C:\Windows\Fonts` on Windows) at render time and embeds them - these are never bundled/committed, since Arial and Calibri are proprietary and the repo is public. "Arial Black" specifically maps to bold Arial (`arialbd.ttf`), since Arial Black itself isn't reliably present outside a full Office install. Falls back to pdfkit's built-in core Helvetica family (always present, never fails) if a font file isn't found - relevant mainly on Mac, where Calibri usually isn't installed by default (Mac PDF output will look close but not exact).
+
+**Not yet verified:** whether `pkg`'s packaging step correctly bundles pdfkit's own internal font-metrics data files into a packaged build (same category of risk as the `playwright-core/browsers.json` gotcha below) - untested since this was built and verified only via `npm start` from source. Check this during the next Phase 0 packaging verification pass.
 
 ---
 
@@ -228,10 +268,11 @@ The app icon (`assets/icon.svg`) uses the same OD green/tan palette.
 
 | Report | Manifest id | Output | TWH Auto-Fetch | Manual Input |
 |---|---|---|---|---|
-| Advancement Report | `advancement` | PPTX | Roster + Requirements | Both CSVs |
-| Troop Health Report | `health` | PPTX | Roster | Roster CSV |
+| Advancement Report | `advancement` | PPTX or landscape PDF (choice) | Roster + Requirements | Both CSVs |
+| Troop Health Report | `health` | PPTX or landscape PDF (choice) | Roster | Roster CSV |
 | Merit Badge Analysis | `merit-badges` | HTML (+ optional PDF/CSV) | Merit Badge History | CSV |
-| Patrol Balance | `patrol-balance` | HTML (+ optional PDF/CSV) | Roster | Roster CSV |
+| Merit Badge Search | `merit-badge-search` | HTML (+ optional PDF/CSV) | Roster + Merit Badge History | Both CSVs |
+| Patrol Visualizer | `patrol-balance` | HTML (+ optional PDF/CSV) | Roster | Roster CSV |
 | Roster Audit | `roster-audit` | HTML | Roster | Roster CSV |
 | Roster Reconciliation | `reconciliation` | HTML (+ optional PDF/CSV) | Roster | my.scouting CSV |
 | Troop Contacts Export | `contacts` | CSV or VCF | Roster | Roster CSV |
