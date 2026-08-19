@@ -6,8 +6,8 @@ const { parseDate, todayLong } = require("../shared/dates");
 // ═══════════════════════════════ MANIFEST ════════════════════════════════
 const manifest = {
   id: "patrol-balance",
-  name: "Patrol Balance",
-  description: "Snapshot of patrol composition with age and rank variance, plus single-move rebalancing suggestions.",
+  name: "Patrol Visualizer",
+  description: "Snapshot of patrol composition with age and rank variance, plus rebalancing suggestions that prioritize clearing out unassigned scouts first.",
   icon: "⚖️",
   outputType: "html",
   inputs: [
@@ -62,6 +62,24 @@ function rankNum(rank) {
   return RANK_VALUES[r] ?? 0;
 }
 
+// Same abbreviation scheme as the Advancement report's roster rank badges,
+// used here to keep the Rank column narrow enough for the 3-column print
+// layout without clipping mid-word.
+function rankAbbrev(rank) {
+  const r = (rank || "").trim();
+  if (!r) return "NR";
+  if (/^no rank/i.test(r)) return "NR";
+  if (r.startsWith("Scout")) return "S";
+  if (r.startsWith("Tenderfoot")) return "TF";
+  if (r.startsWith("Second Class")) return "2C";
+  if (r.startsWith("First Class")) return "1C";
+  if (r.startsWith("Star")) return "St";
+  if (r.startsWith("Life")) return "L";
+  if (r.startsWith("Eagle")) return "E";
+  if (/palm/i.test(r)) return "E";
+  return r;
+}
+
 function mean(arr) {
   if (!arr.length) return 0;
   return arr.reduce((s, v) => s + v, 0) / arr.length;
@@ -89,18 +107,19 @@ function metrics(scouts, aw, rw) {
 }
 
 // ═══════════════════════════════ DATA LOADING ════════════════════════════
+const UNASSIGNED_MALE   = "Unassigned (Male)";
+const UNASSIGNED_FEMALE = "Unassigned (Female)";
+
 function loadRoster(rosterPath) {
   const rows = csvParser.parseCSV(fs.readFileSync(rosterPath, "utf8"));
   return rows
     .filter(r => r.Adult === "N")
-    .filter(r => {
-      const patrol = (r.Patrol || "").trim().toLowerCase();
-      return patrol && !patrol.startsWith("zinactive");
-    })
+    .filter(r => !(r.Patrol || "").trim().toLowerCase().startsWith("zinactive"))
     .map(r => {
       const firstName = (r["FIrst Name"] || r["First Name"] || "").trim();
       const lastName  = (r["Last Name"] || "").trim();
       const rank      = (r["Rank"] || "").trim();
+      const gender    = (r["Registered Gender"] || "M").trim().toUpperCase();
       let age = parseInt(r["Age"] || "", 10);
       if (isNaN(age)) {
         const dob = parseDate(r["Born"] || "");
@@ -112,6 +131,11 @@ function loadRoster(rosterPath) {
           age = 0;
         }
       }
+      // No patrol on file - bucket by gender rather than drop the scout
+      // entirely, so unassigned scouts are visible and suggestions can
+      // work on getting them placed.
+      const patrol = (r["Patrol"] || "").trim()
+        || (gender === "F" ? UNASSIGNED_FEMALE : UNASSIGNED_MALE);
       return {
         firstName,
         lastName,
@@ -119,10 +143,14 @@ function loadRoster(rosterPath) {
         rank,
         rankNum:  rankNum(rank),
         age,
-        patrol:   (r["Patrol"] || "").trim(),
-        gender:   (r["Registered Gender"] || "M").trim().toUpperCase(),
+        patrol,
+        gender,
       };
     });
+}
+
+function isUnassigned(patrolName) {
+  return patrolName === UNASSIGNED_MALE || patrolName === UNASSIGNED_FEMALE;
 }
 
 // ═══════════════════════════════ PATROL GROUPING ═════════════════════════
@@ -253,6 +281,129 @@ function findSuggestions(patrols, cfg) {
   return suggestions;
 }
 
+// ═══════════════════════════════ COMBINE UNDERSIZED PATROLS ══════════════
+// Top-tier check, evaluated before anything else: two undersized patrols
+// are often better fixed by merging them outright than by shuffling scouts
+// one at a time. Only suggested when the combined patrol (a) fits within
+// patrolMax and (b) keeps variance low - i.e. the merge doesn't trade a
+// size problem for a variance problem. Greedy: pairs are evaluated by
+// resulting score (best fit first), and a patrol already claimed by one
+// merge can't be reused in another.
+function findMergeSuggestions(patrols, cfg) {
+  const { aw, rw, patrolMin, patrolMax, highVarThreshold } = cfg;
+  const sc = arr => score(arr, aw, rw);
+  const mt = arr => metrics(arr, aw, rw);
+
+  const undersized = patrols.filter(p => p.metrics.size < patrolMin);
+  const candidates = [];
+
+  for (let i = 0; i < undersized.length; i++) {
+    for (let j = i + 1; j < undersized.length; j++) {
+      const a = undersized[i], b = undersized[j];
+      if (a.gender     !== b.gender)     continue;
+      if (a.isNewScout !== b.isNewScout) continue;
+
+      const combined = [...a.scouts, ...b.scouts];
+      if (combined.length > patrolMax) continue;
+
+      const combinedScore = sc(combined);
+      if (combinedScore > highVarThreshold) continue; // variance impacted too much
+
+      candidates.push({ a, b, combined, combinedScore });
+    }
+  }
+
+  candidates.sort((x, y) => x.combinedScore - y.combinedScore); // best fit first
+
+  const used  = new Set();
+  const merges = [];
+  for (const c of candidates) {
+    if (used.has(c.a.name) || used.has(c.b.name)) continue;
+    used.add(c.a.name);
+    used.add(c.b.name);
+    merges.push({
+      issue:   "merge",
+      patrolA: c.a.name, patrolB: c.b.name,
+      beforeA: c.a.metrics, beforeB: c.b.metrics,
+      after:   mt(c.combined),
+    });
+  }
+
+  return { merges, usedNames: used };
+}
+
+// ═══════════════════════════════ UNASSIGNED RESOLUTION ═══════════════════
+// Two-tier: (1) would the unassigned group make a good patrol on its own
+// (low variance)? If so, stop - they can be formalized as a new patrol.
+// (2) If not, peel off the single biggest age outlier to whichever
+// existing (non-unassigned, same-gender) patrol absorbs them with the
+// least harm, then re-check tier 1 against what's left. Repeats until
+// the remainder is low-variance, exhausted, or there's nowhere left to
+// send an outlier.
+function resolveUnassigned(patrols, cfg) {
+  const { aw, rw, patrolMax, highVarThreshold } = cfg;
+  const sc = arr => score(arr, aw, rw);
+  const mt = arr => metrics(arr, aw, rw);
+
+  // Working copy of every patrol's roster, mutated as moves are chosen so
+  // a second outlier sent to the same destination sees the first one
+  // already there instead of stale "before" numbers.
+  const working = new Map(patrols.map(p => [p.name, p.scouts.slice()]));
+  const genderOf = new Map(patrols.map(p => [p.name, p.gender]));
+
+  const results = [];
+
+  for (const u of patrols.filter(p => isUnassigned(p.name))) {
+    let remaining = working.get(u.name);
+    const moves = [];
+
+    // A lone leftover scout is never "a good patrol" regardless of score
+    // (stdDev of one value is trivially 0) - keep trying to place them
+    // rather than declaring a one-scout patrol resolved.
+    while (remaining.length > 0 && (remaining.length === 1 || sc(remaining) > highVarThreshold)) {
+      const avgAge = mean(remaining.map(s => s.age));
+      const outlier = remaining.reduce((worst, s) =>
+        Math.abs(s.age - avgAge) > Math.abs(worst.age - avgAge) ? s : worst
+      );
+
+      let bestName = null, bestAfter = null, bestHarm = Infinity;
+      for (const [name, arr] of working) {
+        if (name === u.name || isUnassigned(name))    continue;
+        if (genderOf.get(name) !== genderOf.get(u.name)) continue;
+        if (arr.length >= patrolMax)                  continue;
+        const harm = sc([...arr, outlier]) - sc(arr);
+        if (harm < bestHarm) { bestHarm = harm; bestName = name; bestAfter = [...arr, outlier]; }
+      }
+
+      if (!bestName) break; // nowhere left to send an outlier
+
+      const fromBefore = mt(remaining);
+      const toBefore    = mt(working.get(bestName));
+
+      remaining = remaining.filter(s => s !== outlier);
+      working.set(u.name, remaining);
+      working.set(bestName, bestAfter);
+
+      moves.push({
+        issue: "unassigned", scout: outlier, from: u.name, to: bestName,
+        fromBefore, fromAfter: mt(remaining),
+        toBefore,   toAfter:   mt(bestAfter),
+      });
+    }
+
+    results.push({
+      patrolName: u.name,
+      gender:     u.gender,
+      moves,
+      remaining,
+      remainingScore: remaining.length > 0 ? sc(remaining) : 0,
+      resolvedLowVariance: remaining.length >= 2 && sc(remaining) <= highVarThreshold,
+    });
+  }
+
+  return results;
+}
+
 // ═══════════════════════════════ HTML ════════════════════════════════════
 function esc(s) {
   return String(s || "")
@@ -268,8 +419,8 @@ function suggestionCard(s) {
     <strong>${esc(s.patrol)}</strong> has only ${s.size} scouts and no valid source patrol could spare one. Consider a new scout transfer or cross-patrol merge.
   </div>`;
 
-  const LABELS = { "too-large": "Too Large", "high-variance": "High Variance", "too-small": "Too Small" };
-  const COLORS = { "too-large": "#E65100", "high-variance": "#C0392B", "too-small": "#1565C0" };
+  const LABELS = { "too-large": "Too Large", "high-variance": "High Variance", "too-small": "Too Small", "unassigned": "Clear Unassigned" };
+  const COLORS = { "too-large": "#E65100", "high-variance": "#C0392B", "too-small": "#1565C0", "unassigned": "#9A7E4E" };
   const color  = COLORS[s.issue] || "#3A4F2A";
 
   function deltaSpan(before, after, lowerIsBetter = true) {
@@ -309,7 +460,74 @@ function suggestionCard(s) {
   </div>`;
 }
 
-function buildHTML(patrols, suggestions, dateStr, troopName, cfg) {
+function unassignedResultCard(r) {
+  const movesHtml = r.moves.map(m => suggestionCard(m)).join("");
+
+  let summary;
+  if (r.remaining.length === 0) {
+    summary = `
+  <div class="suggestion-card" style="border-left-color:#2E7D32">
+    <strong>${esc(r.patrolName)}</strong> is fully cleared - every scout was reassigned to an existing patrol above.
+  </div>`;
+  } else if (r.resolvedLowVariance) {
+    const n = r.remaining.length;
+    summary = `
+  <div class="suggestion-card" style="border-left-color:#2E7D32">
+    The remaining ${n} scout${n === 1 ? "" : "s"} in <strong>${esc(r.patrolName)}</strong> have low variance (score ${fmt(r.remainingScore)}) and could be formalized as a new patrol instead of splitting them up further.
+  </div>`;
+  } else {
+    const n = r.remaining.length;
+    const reason = n === 1
+      ? `no suitable destination patrol was found for the last scout`
+      : `variance is still too high (score ${fmt(r.remainingScore)}) and no suitable destination patrol was found for the rest`;
+    summary = `
+  <div class="suggestion-card warn">
+    <strong>${esc(r.patrolName)}</strong> still has ${n} scout${n === 1 ? "" : "s"} - ${reason}. Manual review needed.
+  </div>`;
+  }
+
+  return movesHtml + summary;
+}
+
+function mergeCard(m) {
+  return `
+  <div class="suggestion-card" style="border-left-color:#2E7D32">
+    <div class="suggestion-header">
+      <span class="badge" style="background:#2E7D32">Combine</span>
+      <span>Combine <strong>${esc(m.patrolA)}</strong> (${m.beforeA.size}) and <strong>${esc(m.patrolB)}</strong> (${m.beforeB.size}) into one patrol of ${m.after.size}</span>
+    </div>
+    <div class="delta-grid">
+      <div class="delta-block">
+        <div class="delta-patrol">${esc(m.patrolA)}</div>
+        <div class="delta-rows">
+          <span>Size: ${m.beforeA.size}</span>
+          <span>Avg Age: ${fmt(m.beforeA.avgAge)}</span>
+          <span>Score: ${fmt(m.beforeA.score)}</span>
+        </div>
+      </div>
+      <div class="delta-block">
+        <div class="delta-patrol">${esc(m.patrolB)}</div>
+        <div class="delta-rows">
+          <span>Size: ${m.beforeB.size}</span>
+          <span>Avg Age: ${fmt(m.beforeB.avgAge)}</span>
+          <span>Score: ${fmt(m.beforeB.score)}</span>
+        </div>
+      </div>
+      <div class="delta-block">
+        <div class="delta-patrol">Combined</div>
+        <div class="delta-rows">
+          <span>Size: ${m.after.size}</span>
+          <span>Avg Age: ${fmt(m.after.avgAge)}</span>
+          <span>Age SD: ${fmt(m.after.sdAge)}</span>
+          <span>Rank SD: ${fmt(m.after.sdRank)}</span>
+          <span>Score: ${fmt(m.after.score)}</span>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function buildHTML(patrols, suggestions, unassignedResults, mergeResults, dateStr, troopName, cfg) {
   const label = troopName ? `${troopName} - ` : "";
   const { aw, rw, patrolMin, patrolMax, highVarThreshold } = cfg;
 
@@ -322,21 +540,19 @@ function buildHTML(patrols, suggestions, dateStr, troopName, cfg) {
 
   function patrolCard(p) {
     const color     = patrolStatusColor(p);
-    const sizeFlag  = p.metrics.size < patrolMin ? " (too small)" : p.metrics.size > patrolMax ? " (too large)" : "";
     const scoreFlag = p.metrics.score > highVarThreshold ? " !" : "";
     const rows      = p.scouts.map(s => `
       <tr>
         <td class="check-cell"><span class="cb"></span></td>
         <td>${esc(s.fullName)}</td>
         <td>${s.age || "-"}</td>
-        <td>${esc(s.rank || "No Rank")}</td>
+        <td title="${esc(s.rank || "No Rank")}">${esc(rankAbbrev(s.rank))}</td>
       </tr>`).join("");
     return `
   <div class="patrol-card" style="border-left-color:${color}">
     <div class="patrol-header">
       <span class="patrol-name">${esc(p.name)}</span>
-      <span class="patrol-tag">${p.gender === "F" ? "Female" : "Male"}</span>
-      <span class="patrol-size" style="color:${color}">${p.metrics.size} scouts${esc(sizeFlag)}</span>
+      <span class="patrol-size" style="color:${color}">${p.metrics.size} scouts</span>
     </div>
     <table>
       <thead><tr>
@@ -366,9 +582,12 @@ function buildHTML(patrols, suggestions, dateStr, troopName, cfg) {
   </div>`;
   }
 
-  const totalScouts    = patrols.reduce((s, p) => s + p.metrics.size, 0);
-  const established    = patrols.filter(p => !p.isNewScout);
-  const newScoutGroups = patrols.filter(p => p.isNewScout);
+  const totalScouts      = patrols.reduce((s, p) => s + p.metrics.size, 0);
+  const unassignedPatrols = patrols.filter(p => isUnassigned(p.name));
+  const realPatrols      = patrols.filter(p => !isUnassigned(p.name));
+  const established      = realPatrols.filter(p => !p.isNewScout);
+  const newScoutGroups   = realPatrols.filter(p => p.isNewScout);
+  const hasUndersized    = realPatrols.some(p => p.metrics.size < patrolMin);
 
   const step2Body = suggestions.length === 0
     ? `<p class="empty-msg">All patrols are within target range - no moves suggested.</p>`
@@ -379,7 +598,7 @@ function buildHTML(patrols, suggestions, dateStr, troopName, cfg) {
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>${esc(label)}Patrol Balance - ${esc(dateStr)}</title>
+<title>${esc(label)}Patrol Visualizer - ${esc(dateStr)}</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -418,10 +637,6 @@ function buildHTML(patrols, suggestions, dateStr, troopName, cfg) {
     border-bottom: 1px solid #D7CDB5;
   }
   .patrol-name { font-weight: 700; font-size: 0.9rem; flex: 1; }
-  .patrol-tag {
-    font-size: 0.7rem; color: #4A5568;
-    background: #E8DCC0; padding: 0.1rem 0.45rem; border-radius: 10px;
-  }
   .patrol-size { font-size: 0.82rem; font-weight: 700; white-space: nowrap; }
   table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
   thead th {
@@ -485,14 +700,20 @@ function buildHTML(patrols, suggestions, dateStr, troopName, cfg) {
     .patrol-card, .suggestion-card { break-inside: avoid; }
     .patrol-metrics, .badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    /* The responsive auto-fill/minmax grid used on screen collapses to a
+       single column at PDF print time (Chromium's print layout pass uses
+       the paper's content width, not the browser viewport) - force the
+       same 3-column layout the web report shows instead of leaving it to
+       auto-fill. */
+    .patrol-grid { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
 </head>
 <body>
 
 <div class="report-header">
-  <h1>⚜ ${esc(label)}Patrol Balance</h1>
-  <div class="report-meta">Generated ${esc(dateStr)}  •  ${totalScouts} active youth  •  ${patrols.length} patrols</div>
+  <h1>⚜ ${esc(label)}Patrol Visualizer</h1>
+  <div class="report-meta">Generated ${esc(dateStr)}  •  ${totalScouts} active youth  •  ${realPatrols.length} patrols${unassignedPatrols.length ? `  •  ${unassignedPatrols.reduce((s, p) => s + p.metrics.size, 0)} unassigned` : ""}</div>
 </div>
 
 <h2>Step 1 - Established Patrols</h2>
@@ -500,12 +721,41 @@ function buildHTML(patrols, suggestions, dateStr, troopName, cfg) {
   ${established.map(p => patrolCard(p)).join("")}
 </div>
 
+${unassignedPatrols.length ? `
+<h2>Unassigned Scouts</h2>
+<p class="section-note">No patrol on file - grouped by gender. Clearing these out is a top priority; see below.</p>
+<div class="patrol-grid">
+  ${unassignedPatrols.map(p => patrolCard(p)).join("")}
+</div>` : ""}
+
 ${newScoutGroups.length ? `
 <h2>New Scout Patrols</h2>
 <p class="section-note">All No Rank - kept separate from rebalancing suggestions.</p>
 <div class="patrol-grid">
   ${newScoutGroups.map(p => patrolCard(p)).join("")}
 </div>` : ""}
+
+${hasUndersized ? `
+<h2>Combine Undersized Patrols</h2>
+<p class="section-note">
+  Top priority - checked first: two undersized patrols are often better fixed by
+  merging them outright than by moving one scout at a time. Only suggested when the
+  combined patrol fits within the max size and keeps variance low (score ≤ ${highVarThreshold}).
+</p>
+${mergeResults.merges.length === 0
+  ? `<p class="empty-msg">No pair of undersized patrols could be combined without exceeding the max size or pushing variance too high.</p>`
+  : mergeResults.merges.map(m => mergeCard(m)).join("")}` : ""}
+
+${unassignedResults.length ? `
+<h2>Clear Unassigned Scouts</h2>
+<p class="section-note">
+  Second priority (after combining undersized patrols above): first checks whether
+  the unassigned group is already low-variance enough to formalize as its own patrol;
+  if not, peels off the single biggest age outlier to the best-fit existing patrol
+  and re-checks, repeating until what's left is low-variance, empty, or has nowhere
+  left to go.
+</p>
+${unassignedResults.map(r => unassignedResultCard(r)).join("")}` : ""}
 
 <h2>Step 2 - Rebalancing Suggestions</h2>
 <p class="section-note">
@@ -518,7 +768,7 @@ ${newScoutGroups.length ? `
 ${step2Body}
 
 <div class="report-footer">
-  Patrol Balance  •  ${esc(dateStr)}
+  Patrol Visualizer  •  ${esc(dateStr)}
 </div>
 </body>
 </html>`;
@@ -535,7 +785,7 @@ function buildCSV(patrols) {
     p.scouts.forEach((s, i) => {
       lines.push([
         i === 0 ? p.name : "",
-        i === 0 ? (p.isNewScout ? "New Scout" : "Established") : "",
+        i === 0 ? (isUnassigned(p.name) ? "Unassigned" : p.isNewScout ? "New Scout" : "Established") : "",
         i === 0 ? (p.gender === "F" ? "Female" : "Male") : "",
         i === 0 ? p.metrics.size : "",
         i === 0 ? fmt(p.metrics.avgAge) : "",
@@ -560,7 +810,11 @@ async function buildPDF(htmlPath) {
     const pdfPath = htmlPath.replace(/\.html$/, ".pdf");
     await page.pdf({
       path: pdfPath, format: "Letter",
-      margin: { top: "0.75in", bottom: "0.75in", left: "0.75in", right: "0.75in" },
+      // Left/right kept at 0.25in - the minimum most consumer printers can
+      // reliably print to - to give the 3-column patrol grid as much
+      // width as possible. Top/bottom unaffected since they don't bear on
+      // that.
+      margin: { top: "0.75in", bottom: "0.75in", left: "0.25in", right: "0.25in" },
       printBackground: true,
     });
     return pdfPath;
@@ -593,16 +847,27 @@ async function generate(inputs, outputDir, options = {}) {
 
   const scouts      = loadRoster(rosterPath);
   const patrols     = buildPatrols(scouts, cfg.aw, cfg.rw);
-  const suggestions = findSuggestions(patrols, cfg);
+  const realPatrols = patrols.filter(p => !isUnassigned(p.name));
+
+  // Top tier: combining undersized patrols is evaluated first. Any patrol
+  // claimed by a suggested merge is pulled out of consideration for the
+  // lower-priority tiers below, so the report doesn't also suggest moving
+  // a scout into (or out of) a patrol it just proposed dissolving.
+  const mergeResults = findMergeSuggestions(realPatrols, cfg);
+  const patrolsAfterMerge     = patrols.filter(p => !mergeResults.usedNames.has(p.name));
+  const realPatrolsAfterMerge = realPatrols.filter(p => !mergeResults.usedNames.has(p.name));
+
+  const unassignedResults = resolveUnassigned(patrolsAfterMerge, cfg);
+  const suggestions = findSuggestions(realPatrolsAfterMerge, cfg);
   const dateStr     = todayLong();
   const ts          = fileTimestamp();
   const troopName   = options.troopName || "";
 
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-  const htmlFileName = `Patrol_Balance_${ts}.html`;
+  const htmlFileName = `Patrol_Visualizer_${ts}.html`;
   const htmlPath     = path.join(outputDir, htmlFileName);
-  fs.writeFileSync(htmlPath, buildHTML(patrols, suggestions, dateStr, troopName, cfg), "utf8");
+  fs.writeFileSync(htmlPath, buildHTML(patrols, suggestions, unassignedResults, mergeResults, dateStr, troopName, cfg), "utf8");
 
   const output = {
     htmlFileName,
@@ -611,8 +876,11 @@ async function generate(inputs, outputDir, options = {}) {
     csvPath:  null,
     stats: {
       activeScouts: scouts.length,
-      patrols:      patrols.length,
+      patrols:      realPatrols.length,
+      unassigned:   scouts.length - realPatrols.reduce((s, p) => s + p.metrics.size, 0),
       suggestions:  suggestions.length,
+      unassignedMoves: unassignedResults.reduce((s, r) => s + r.moves.length, 0),
+      merges:       mergeResults.merges.length,
     },
   };
 
@@ -622,7 +890,7 @@ async function generate(inputs, outputDir, options = {}) {
   }
 
   if (options.downloadCsv === true || options.downloadCsv === "true") {
-    const csvFileName  = `Patrol_Balance_${ts}.csv`;
+    const csvFileName  = `Patrol_Visualizer_${ts}.csv`;
     output.csvPath     = path.join(outputDir, csvFileName);
     output.csvFileName = csvFileName;
     fs.writeFileSync(output.csvPath, buildCSV(patrols), "utf8");
