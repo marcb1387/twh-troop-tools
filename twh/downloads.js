@@ -49,6 +49,16 @@ const RECIPES = {
     description: "Merit Badge History By Scout CSV",
     menuItemId: "52388",
   },
+  // Feeds the Eagle Preparedness Report's "position of responsibility" section
+  // (Eagle requirement 4). This is TroopWebHost's "Leadership Rank Requirement
+  // Status" report (Advancement → Advancement Status Reports). Menu_Item_ID
+  // confirmed 2026-08-29 from a live site:
+  //   FormReport.aspx?Menu_Item_ID=46041&Stack=2&ReportFormat=XLS
+  porHistory: {
+    id: "porHistory",
+    description: "Leadership Rank Requirement Status CSV",
+    menuItemId: "46041",
+  },
 };
 
 /**

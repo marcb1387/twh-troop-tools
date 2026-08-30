@@ -90,6 +90,8 @@ TWH is an ASP.NET site with unusual structure. Key facts:
 
 Menu_Item_IDs for TroopWebHost's built-in reports turned out to be **the same across every org**, not troop-specific as originally assumed (confirmed 2026-08-12) - so they're hardcoded directly in `twh/downloads.js`'s `RECIPES` object (`roster: 53747`, `requirements: 46047`, `meritBadges: 52388`), not read from settings. `settings.js` only holds `troopName` and `subdomain` now. If you add a new TroopWebHost recipe, find its ID the same way (run the report manually, read `Menu_Item_ID=` from the URL) and hardcode it in `RECIPES` too.
 
+`RECIPES.porHistory` = `46041` ("Leadership Rank Requirement Status", Advancement → Advancement Status Reports; confirmed 2026-08-29 from a live site). Feeds the Eagle Preparedness Report's position-of-responsibility section (Eagle req. 4). That report has one row per scout working toward a rank, with columns `Next Rank, Scout, Patrol, Last Rank Earned On, Current Position, Leadership Days Earned, Leadership Days Needed`. `processLeadership()` in `reports/eagle-prep.js` keeps the `Next Rank == "Eagle"` rows (= current Life Scouts) and treats requirement 4 as met when `Leadership Days Needed` is 0 — TWH does the position-approval and since-Life-BOR accounting itself. If the uploaded file lacks those headers it renders a "not the expected export" notice listing the headers it saw.
+
 **Download trigger:** `page.goto(url)` throws "Download is starting" - this is expected and must be caught silently. The download event listener must be set up before the navigation.
 
 ---
@@ -276,6 +278,7 @@ The app icon (`assets/icon.svg`) uses the same OD green/tan palette.
 | Troop Health Report | `health` | PPTX or landscape PDF (choice) | Roster | Roster CSV |
 | Merit Badge Analysis | `merit-badges` | HTML (+ optional PDF/CSV) | Merit Badge History | CSV |
 | Merit Badge Search | `merit-badge-search` | HTML (+ optional PDF/CSV) | Roster + Merit Badge History | Both CSVs |
+| Eagle Preparedness Report | `eagle-prep` | HTML (+ optional PDF/CSV) | Merit Badge History (+ Leadership Rank Requirement Status, optional) | Merit Badge History CSV; optional Leadership Rank Requirement Status CSV. Sections: badge matrix, missing-required, Eagle Palms projection, Eagle req. 4 (position of responsibility) |
 | Patrol Visualizer | `patrol-balance` | HTML (+ optional PDF/CSV) | Roster | Roster CSV |
 | Roster Audit | `roster-audit` | HTML | Roster | Roster CSV |
 | Roster Reconciliation | `reconciliation` | HTML (+ optional PDF/CSV) | Roster | my.scouting CSV |

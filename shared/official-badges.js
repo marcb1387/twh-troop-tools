@@ -32,15 +32,19 @@ const OFFICIAL_BADGES = [
   "Whitewater","Wilderness Survival","Wildland Fire Management","Wood Carving","Woodwork",
 ];
 
-// The 14 required Eagle categories, expanded to all 18 badge names since
-// four of those categories let a Scout choose between alternatives
+// The 13 required Eagle categories, expanded to all 17 badge names since
+// three of those categories let a Scout choose between alternatives
 // (Emergency Preparedness/Lifesaving, Environmental Science/Sustainability,
 // Hiking/Cycling/Swimming). Kept independent of any troop's TWH export for
 // the same reason as OFFICIAL_BADGES - a badge nobody has ever earned won't
 // appear in the data at all, asterisk or not, so there's no way to detect
 // "this is Eagle-required" from the export alone.
+// NOTE: Citizenship in Society was discontinued as an Eagle-required badge
+// effective Feb. 27, 2026 (Eagle dropped from 14 to 13 required badges,
+// electives went from 7 to 8; total stays 21). It remains a valid elective
+// and stays in OFFICIAL_BADGES above.
 const EAGLE_REQUIRED_BADGES = [
-  "Camping", "Citizenship in Society", "Citizenship in the Community",
+  "Camping", "Citizenship in the Community",
   "Citizenship in the Nation", "Citizenship in the World", "Communication",
   "Cooking", "Cycling", "Emergency Preparedness", "Environmental Science",
   "Family Life", "First Aid", "Hiking", "Lifesaving", "Personal Fitness",
