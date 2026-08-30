@@ -628,14 +628,25 @@ function buildHTML(data, por, dateStr, troopName) {
     .matrix-section { overflow: visible; padding: 0.5rem; break-inside: auto; }
     .matrix-table { table-layout: fixed; font-size: 0.55rem; }
     .matrix-table tr { break-inside: avoid; }
-    .matrix-table col.c-scout { width: 74px; }
-    .matrix-table col.c-cat   { width: 50px; }
+    .matrix-table col.c-scout { width: 96px; }
+    .matrix-table col.c-cat   { width: 48px; }
     .matrix-table col.c-num   { width: 40px; }
     .matrix-table thead th { font-size: 0.5rem; white-space: normal;
       padding: 2px 1px; letter-spacing: 0; line-height: 1.12; }
     .matrix-table tbody td { padding: 2px 1px; }
-    .matrix-table .scout-name { white-space: normal; word-break: break-word; }
+    .matrix-table .scout-name { white-space: normal; overflow-wrap: anywhere; line-height: 1.15; }
     .matrix-table .cell-yes, .matrix-table .cell-no { font-size: 0.62rem; }
+
+    /* Life-Scout highlight: match the on-screen look (tan row, goldenrod left
+       rule, gold LIFE tag). box-shadow prints unreliably, so the left rule is
+       a real border here; the tag is shrunk so "Name  LIFE" isn't jumbled. */
+    .matrix-table tr.life > td { background: #FBF1D9;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .matrix-table tr.life td.scout-name { box-shadow: none;
+      border-left: 3px solid #B8860B; padding-left: 3px; }
+    .matrix-table .life-tag { margin-left: 3px; padding: 0 2px; font-size: 0.42rem;
+      letter-spacing: 0; border-radius: 2px; white-space: nowrap; vertical-align: 1px;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 </style>
 </head>
