@@ -337,11 +337,25 @@ app.post("/api/reports/:id/fetch-and-generate", (req, res) => {
         if (inputSpec.twhReport) {
           // Fetch this one from TroopWebHost
           console.log(`▶ Fetching ${inputSpec.twhReport} from TroopWebHost...`);
-          const csvPath = await twhDownload(twhSession.page, inputSpec.twhReport);
-          inputs[inputSpec.key] = csvPath;
-          fetchedFiles.push(csvPath);
-          twhSession.touch();
-          try { cache.store(inputSpec.twhReport, csvPath); } catch (e) { console.warn("Cache write failed:", e.message); }
+          try {
+            const csvPath = await twhDownload(twhSession.page, inputSpec.twhReport);
+            inputs[inputSpec.key] = csvPath;
+            fetchedFiles.push(csvPath);
+            twhSession.touch();
+            try { cache.store(inputSpec.twhReport, csvPath); } catch (e) { console.warn("Cache write failed:", e.message); }
+          } catch (e) {
+            // An *optional* report the account can't see (or that TWH fumbles)
+            // shouldn't sink the whole run - fall back to a fresh cached copy
+            // if there is one, otherwise carry on without it and let the
+            // report render its "add this file" state. Required inputs still
+            // fail the request.
+            if (inputSpec.required) throw e;
+            console.warn(`⚠ Optional report ${inputSpec.twhReport} unavailable: ${e.message}`);
+            if (cacheKey && cache.isFresh(cacheKey)) {
+              console.log(`▸ Falling back to cached ${cacheKey}`);
+              inputs[inputSpec.key] = cache.csvFilePath(cacheKey);
+            }
+          }
         } else {
           // Expect this one as an uploaded file
           const fileArr = req.files && req.files[inputSpec.key];

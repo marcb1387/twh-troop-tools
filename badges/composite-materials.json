@@ -1,0 +1,194 @@
+{
+  "badge": "Composite Materials",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain to your counselor the most likely hazards you may encounter while working with composite materials and what you should do to anticipate, mitigate, and prevent, and respond to these hazards. Describe the appropriate safety gear and clothing that should be used when working with composite materials.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explain the precautions that must be taken when handling, storing, and disposing of resins, reinforcements, and other materials used in composites. Include in your discussion the importance of health, safety, and environmental responsibility and awareness.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Describe what a safety data sheet (SDS) is and tell why it is used.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain what composite materials are. Include a brief history of composites and how they have developed.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Compare the similarities and differences between composites and wood, aluminum, copper, and steel. Describe the physical, electrical, mechanical, corrosive, flammability, cost, and other such properties. For each of these raw materials, give one example of how it can be shaped and used for a specific application.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Describe how composite materials are made. Then do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Discuss three different composite reinforcement materials, their positive and negative characteristics, and their uses. Obtain the SDS for each one and discuss the toxicity, disposal, and safe-handling sections for these materials.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Discuss three different resins used in composites, their positive and negative characteristics, and their uses. Obtain the SDS for each one and discuss the toxicity, disposal, and safe-handling sections for these materials. Include thermoset resins and thermoplastic resins in your discussion.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "For each of the three resins you chose for requirement 3(b), think of a new application that might be worth developing.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "With your parent or guardian's permission and your counselor's approval, do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Visit a company that manufactures or repairs products made with composites. Discuss what you learned with your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Find three composites-related websites. Share and discuss what you learned with your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Use composite materials to complete two projects, at least one of which must come from the Composite Materials merit badge pamphlet. The second project may come from the pamphlet OR may be one you select on your own that has been approved by your counselor in advance.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "With your counselor's assistance, find an appropriate site where the projects can be safely completed under your counselor's supervision and/or the supervision of an adult approved by your counselor who is knowledgeable about composites.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "With your counselor, determine how the finished projects will be evaluated. Using those guidelines, evaluate the completed projects with your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explore careers related to the Composite Materials merit badge. Research one career to learn about the training and education needed, costs, job prospects, salary, job duties, and career advancement. Your research methods may include—with your parent or guardian's permission—an internet or library search, an interview with a professional in the field, or a visit to a location where people in this career work. Discuss with your counselor both your findings and what about this profession might make it an interesting career.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explore how you could use knowledge and skills from the Composite Materials merit badge to pursue a hobby or interest. Research any training needed, expenses, and organizations that promote or support it. Discuss with your counselor what short-term and long-term goals you might have if you pursued this.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/composite-materials/",
+  "verifiedOn": "2026-09-03"
+}

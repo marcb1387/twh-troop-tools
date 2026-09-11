@@ -1,0 +1,242 @@
+{
+  "badge": "Veterinary Medicine",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Discuss with your counselor the roles a veterinarian plays in the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Companion or small animal medicine, and equine medicine",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Food animal or large animal medicine",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Exotic animal medicine",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Marine animal medicine (mammal and fish)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Poultry medicine",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "f",
+          "text": "Wildlife medicine and aquaculture medicine",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Discuss with your counselor the roles a veterinarian plays in the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Public health medicine and zoonotic disease surveillance and control",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "The military",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Food safety and inspection",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Laboratory animal medicine and research",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Teaching and government",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Describe the training required to become a veterinarian. Where is the veterinary medical college in your state or nearest to you? Describe the prerequisites for applying to veterinary school.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Tell your counselor what a registered veterinary technician (R.V.T.) or animal health technician (A.H.T.) is. Describe the training required to become an R.V.T. or A.H.T. Where is the school or training facility for R.V.T. or A.H.T. in your state or nearest to you? Describe the role an R.V.T. or A.H.T. would play in assisting a veterinarian working in three of the practice types listed in requirement 1.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Discuss with your counselor the role a veterinarian plays in the human-animal bond.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 3
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Visit a veterinary clinic, hospital, or veterinary referral teaching hospital that does work in one of the practices listed in requirement 1. Spend as much time as you can observing the veterinarians and their staff. Prepare a presentation on what you observed and learned at the facility and share with your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Spend as much time as possible with a veterinarian who works in one of the fields listed in requirement 2. Learn what special training beyond veterinary medical school may have been required for that position. Learn about any special or unusual activities required of this position. Prepare a presentation and share what you have learned about this field of veterinary medicine with your counselor. Include how this field serves the needs of the general public.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Select one career from any of the lists in requirements 1 or 2. Discuss the following with your counselor:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Why would one choose this particular career field?",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "What would you like about this job?",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "What would be the biggest challenges in doing this job?",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "What to you has been the most surprising aspect of this job?",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "What continuing education requirements are required to maintain certification for this job?",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/veterinary-medicine/",
+  "verifiedOn": "2026-09-03"
+}

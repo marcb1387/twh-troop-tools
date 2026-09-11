@@ -1,0 +1,196 @@
+{
+  "badge": "Collections",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Prepare a short written report or outline for your counselor, giving a detailed description of your collection, including a short history, why you enjoy your collection, and what you have learned from collecting. Be sure to include why you chose that particular type of collection/collecting method.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Explain the growth and development of your collection.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Demonstrate your knowledge of preserving and displaying your collection.",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain the precautions you need to take to preserve your collection, including handling, cleaning, and storage.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explain how best to display your collection, keeping in mind preserving as discussed above.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain to your counselor the events available for a hobbyist of this collection, including shows, seminars, conventions, contests, and museum programs and exhibits.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Explain to your counselor how you keep track of your collection. Describe your cataloging method.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Demonstrate your knowledge of collecting and investing. Discuss with your counselor:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "How investing and speculation would apply to your collection",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "What you would look for in purchasing other collections similar to yours",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "What you would expect in return value if you decided to sell all or part of the collection",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Discuss with your counselor at least 10 terms commonly used to describe your collection and be prepared to discuss the definition of each.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Show your counselor any two groups from your collection. Explain how you organized your collection and why you chose that method. Note: If your collection is too large to transport and your counselor is unable to view your collection directly, photographs should be available to share.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain the monetary value of your collection and where you learned about those values.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Explain how your collection is graded for value, physical defects, size, and age. Show the various classifications or ratings used in your collection.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "List the national, state, or local association(s) related to or associated with your collection.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "f",
+          "text": "Explain to your counselor the purpose of and reason for the identification number (if applicable), series, brand name (if any), and any other special identification marks.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Discuss with your counselor the plans you have to continue with the collection in the future.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 3
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Find out about career opportunities in collecting. Pick one and find out the education, training, and experience required for this profession. Discuss this with your counselor, and explain why this profession might interest you.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/collections/",
+  "verifiedOn": "2026-09-03"
+}

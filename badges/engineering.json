@@ -1,0 +1,210 @@
+{
+  "badge": "Engineering",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Select a manufactured item in your home (such as a toy or an appliance) and, under adult supervision and with the approval of your counselor, investigate how and why it works as it does. Find out what sort of engineering activities were needed to create it. Discuss with your counselor what you learned and how you got the information.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Select an engineering achievement that has had a major impact on society. Using resources such as the internet (with your parent or guardian's permission), books, and magazines, find out about the engineers who made this engineering feat possible, the special obstacles they had to overcome, and how this achievement has influenced the world today. Tell your counselor what you learned.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Explain the work of six types of engineers. Pick two of the six types and explain how their work is related to engineering.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Visit with an engineer (who may be your counselor, parent or guardian) and do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Discuss the work this engineer does and the tools the engineer uses.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Discuss with the engineer a current project and the engineer's particular role in it.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 3
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Find out how the engineer's work is done and how results are achieved.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Ask to see the reports that the engineer writes concerning the project.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Discuss with your counselor what you learned about engineering from this visit.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Use the systems engineering approach to design an original piece of patrol equipment, a toy or a useful device for the home, office or garage.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Do TWO of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Transforming Motion. Using common materials or a construction set, make a simple model that will demonstrate motion. Explain how the model uses basic mechanical elements like levers and inclined planes to demonstrate motion. Describe an example where this mechanism is used in a real product.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Using Electricity. Make a list of 10 electrical appliances in your home. Find out approximately how much electricity each uses in one month. Learn how to find out the amount and cost of electricity used in your home during periods of light and heavy use. List five ways to conserve electricity.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Understanding Electronics. Using an electronic device such as a smartphone or tablet computer, find out how sound, video, text or images travel from one location to another. Explain how the device was designed for ease of use, function, and durability.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Using Materials. Do experiments to show the differences in strength and heat conductivity in wood, metal, and plastic. Discuss with your counselor what you have learned.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Converting Energy. Do an experiment to show how mechanical, heat, chemical, solar, and/or electrical energy may be converted from one or more types of energy to another. Explain your results. Describe to your counselor what energy is and how energy is converted and used in your surroundings.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "f",
+          "text": "Moving People. Find out the different ways people in your community get to work. Make a study of traffic flow (number of vehicles and relative speed) in both heavy and light traffic periods. Discuss with your counselor what might be improved to make it easier for people in your community to get where they need to go.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "g",
+          "text": "Building an Engineering Project. Enter a project in a science or engineering fair or similar competition. (This requirement may be met by participation on an engineering competition project team.) Discuss with your counselor what your project demonstrates, the kinds of questions visitors to the fair asked you, and how well you were able to answer their questions.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Explain what it means to be a registered Professional Engineer (P.E.). Name the types of engineering work for which registration is most important.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 8,
+      "text": "Study the Engineer's Code of Ethics. Explain how it is like the Scout Oath and Law.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 9,
+      "text": "Explore careers related to this merit badge. Research one career to learn about the training and education needed, costs, job prospects, salary, job duties, and career advancement. Your research methods may include—with your parent or guardian's permission—an internet or library search, an interview with a professional in the field, or a visit to a location where people in this career work. Discuss with your counselor both your findings and what about this profession might make it an interesting career.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/engineering/",
+  "verifiedOn": "2026-09-03"
+}

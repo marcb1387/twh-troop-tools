@@ -1,0 +1,193 @@
+{
+  "badge": "Family Life",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Prepare an outline on what a family is and discuss this with your counselor. Tell why families are important to individuals and to society. Discuss how the actions of one member can affect other members.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "List several reasons why you are important to your family and discuss this with your parent or guardian and with your counselor.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Prepare a list of your regular home duties or chores (at least five) and do them for 90 days. Keep a record of how often you do each of them. Discuss with your counselor the effect your chores had on your family.",
+      "after": [
+        {
+          "type": "numbered",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "With the approval of your parent or guardian and your counselor, decide on and carry out an individual project that you would do around the home that would benefit your family. After completion, discuss the objective or goal and the results of the project with your family and then your counselor.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Plan and carry out a project that involves the participation of your family. After completing the project, discuss the following with your counselor:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "The objective or goal of the project",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "How individual members of your family participated",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "The results of the project",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Do the following: Note: Some of the issues surrounding requirement 6 for the family meeting could be considered of a personal nature. Use discretion when reviewing this requirement with the Scout.",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Discuss with your counselor how to plan and carry out a family meeting.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 3
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Prepare a meeting agenda that includes the following topics, review it with your parent or guardian, and then carry out one or more family meetings:",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "How living the principles of the Scout Oath and Scout Law contributes to your family life",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "The greatest dangers and addictions facing youth in today's society (examples include mental health challenges, use of tobacco products, alcohol, or drugs and other items such as debts, social media, etc.)",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 5
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "Discuss with a parent or guardian how bodily changes can affect the choices you make as you physically and mentally mature.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 5
+                }
+              ]
+            },
+            {
+              "letter": "4",
+              "text": "Personal and family finances",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "5",
+              "text": "A crisis situation within your family and whom you can turn to for support during these situations.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "6",
+              "text": "The effect of technology on your family",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "7",
+              "text": "Good etiquette and manners",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "before": [
+        {
+          "type": "note",
+          "text": "Discussion of each of these subjects will very likely carry over to more than one family meeting.",
+          "wide": true
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Discuss with your counselor your understanding of what makes an effective parent or guardian and why, and your thoughts on the parent or guardian's role and responsibilities in the family.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/family-life/",
+  "verifiedOn": "2026-09-03"
+}

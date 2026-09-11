@@ -1,0 +1,96 @@
+{
+  "badge": "Basketry",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain to your counselor the hazards you are most likely to encounter while using basketry tools and materials, and what you should do to anticipate, help prevent, mitigate, and respond to these hazards.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Discuss the prevention of and first-aid treatment for injuries, including cuts, scratches, and scrapes, that could occur while working with basketry tools and materials.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Show your counselor that you are able to identify the following types of baskets: plaited, coiled, ribbed, and wicker.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Describe three different types of weaves to your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Plan and weave the following projects:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Square basket",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Round basket",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Campstool seat",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/basketry/",
+  "verifiedOn": "2026-09-03"
+}

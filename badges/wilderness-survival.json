@@ -1,0 +1,395 @@
+{
+  "badge": "Wilderness Survival",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Hazards and First Aid. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Show or explain first aid for, and prevention of, injuries and conditions that could occur in backcountry settings, including:",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "Dehydration",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "Heatstroke",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "Hypothermia",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "4",
+              "text": "Shock",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "5",
+              "text": "Blisters",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "6",
+              "text": "Eye injuries",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "7",
+              "text": "Ankle and knee sprains",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "8",
+              "text": "Bug bites of chiggers, ticks, mosquitoes, and biting gnats",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "9",
+              "text": "Bee stings",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "10",
+              "text": "Bites of spiders",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "11",
+              "text": "Sting of a scorpion",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "12",
+              "text": "Bite of a wild mammal",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "13",
+              "text": "Bite of a venomous snake",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explain how the Scout Basic Essentials address hazards of survival situations and are basic to a survival kit.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain how a trip plan could help prevent a wilderness survival situation.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Priorities for Survival. Explain the importance of each of the seven priorities of survival in a wilderness location.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Avoiding Panic. Describe ways to avoid panic and to maintain a high level of morale when lost, and explain why this is important.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        },
+        {
+          "type": "label",
+          "text": "4 First Aid Kits. Put together a personal first aid kit and a personal survival kit. Show how items in the kits are used.",
+          "bold": true,
+          "wide": true
+        },
+        {
+          "type": "lines",
+          "rows": 5,
+          "wide": true
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Shelter. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Describe the steps you would take to survive in the following exposure conditions:",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "Cold and snowy",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "Wet",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "Hot and dry",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "4",
+              "text": "Windy",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "5",
+              "text": "At or on the water",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Show that you know the proper clothing to wear while in the outdoors during extremely hot and cold weather and during wet conditions.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain how to protect yourself from bears and raccoons.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Describe how to build or find survival shelters in a forest or in snow.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Improvise a natural shelter. For the purpose of this demonstration, use techniques that have little negative impact on the environment. Spend a night in your shelter.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Fire Building. Using three different methods (other than matches), build and light three fires.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Signaling. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain and show how lost or stranded Scouts could send signals to attract the attention of ground, airborne, or water search teams.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Demonstrate how to use a signal mirror.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Describe from memory five ground-to-air signals and tell what they mean.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 8,
+      "text": "Water. Demonstrate three ways to treat water found in the outdoors to prepare it for drinking.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 9,
+      "text": "Food. Explain why it usually is not wise to eat wild plants or wildlife in a wilderness survival situation.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 10,
+      "text": "Careers. Do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explore careers related to this merit badge. Research one career to learn about the training and education needed, costs, job prospects, salary, job duties, and career advancement. With permission of your parent or guardian, your research methods may include an internet or library search, an interview with a professional in the field, or a visit to a location where people in this career work. Discuss with your counselor both your findings and what about this profession might make it an interesting career.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explore how you could use knowledge and skills from the Wilderness Survival merit badge to pursue a hobby or to serve as volunteer. Research any training needed, expenses, and organizations that promote or support it. Discuss with your counselor what short-term and long-term goals you might have if you pursue this.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/wilderness-survival/",
+  "verifiedOn": "2026-09-03"
+}

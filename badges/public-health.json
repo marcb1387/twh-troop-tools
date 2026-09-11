@@ -1,0 +1,312 @@
+{
+  "badge": "Public Health",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain what public health is.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explain how Escherichia coli (E. coli), tetanus, AIDS, encephalitis, salmonellosis, Lyme disease, and coronavirus (COVID-19) are contracted.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Choose any four of the following diseases and explain how each one is contracted and possibly prevented: gonorrhea, West Nile virus, botulism, influenza, syphilis, hepatitis, emphysema, meningitis, herpes, or lead poisoning.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "For all 10 diseases from 1(c), explain the type or form of the disease (viral, bacterial, environmental, toxin), any possible vectors for transmission, ways to help prevent exposure or the spread of infection, and available treatments.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain the meaning of immunization.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Name eight diseases against which a young child should be immunized, two diseases against which everyone should be reimmunized periodically, and one immunization everyone should receive annually.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 8
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Using the list of diseases and conditions in requirement 1(b), discuss with your counselor those which currently have no immunization available.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Discuss the importance of safe drinking water in terms of the spread of disease. Then, demonstrate two ways for making water safe to drink that can be used while at camp. In your demonstration, explain how dishes and utensils should be washed, dried, and kept sanitary at home and in camp.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Explain what a vector is and how insects and rodents can be controlled in your home, in your community, and at camp. Tell why this is important. In your discussion, explain which vectors can be easily controlled by individuals and which ones require long-term, collective action.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "With your parent or guardian's and counselor's approval, do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Visit a municipal wastewater treatment facility or a solid-waste management operation in your community.",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "Describe how the facility safely treats and disposes of sewage or solid waste.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "Discuss your visit and what you learned with your counselor.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "Describe how sewage and solid waste should be disposed of under wilderness camping conditions.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Visit a food service facility, such as a restaurant or school cafeteria.",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "Observe food preparation, handling, and storage. Learn how the facility keeps food from becoming contaminated.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 5
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "Find out what conditions allow microorganisms to multiply in food, what can be done to help prevent them from growing and spreading, and how to kill them.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 5
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "Discuss the importance of using a thermometer to check food temperatures.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "4",
+              "text": "Discuss your visit and what you learned with your counselor.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Describe the health dangers from air, water, and noise pollution.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Describe health dangers from tobacco use and alcohol and drug abuse.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Describe the health dangers from abusing illegal and prescription drugs.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "With your parent or guardian's and counselor's approval, do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Do ONE of the following:",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "Visit your city, county, state, or federal public health agency.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "Familiarize yourself with your city, county, state, or a federal health agency's website.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "After completing either 7(a)(1) or 7(a)(2), do ALL of the following:",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "Compare the four leading causes of mortality (death) in your community for any of the past five years with the four leading causes of disease in your community. Explain how the public health agency you visited is trying to reduce the mortality and morbidity rates of these leading causes of illness and death.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 6
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "Explain the role of your health agency as it relates to the outbreak of diseases.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "Discuss the kinds of public assistance the agency is able to provide in case of disasters such as floods, storms, tornadoes, earthquakes, and other acts of destruction. Your discussion can include the cleanup necessary after the disaster.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 8,
+      "text": "Pick a profession in the public health sector that interests you. Find out the education, training, and experience required to work in this profession. Discuss what you learn with your counselor.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/public-health/",
+  "verifiedOn": "2026-09-03"
+}

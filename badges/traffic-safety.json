@@ -1,0 +1,300 @@
+{
+  "badge": "Traffic Safety",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Preventing Impaired Driving. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain why a distracted driver must not operate a motor vehicle. List five common distractions, explain how driver distractions contribute to traffic accidents, and tell how drivers can minimize distractions.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explain why a driver impaired by alcohol, drugs, or other substances must not operate a motor vehicle. Describe how alcohol, cold medications, and prescription and illegal drugs affect driving abilities. For the state where you live, find out what is the legal blood alcohol concentration and what are the consequences for driving while intoxicated or driving under the influence. Find out what the open-container law is in your state.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain why a fatigued driver must not operate a motor vehicle. Describe how drivers must plan to be alert for safely transporting families, friends, Scouts, and themselves.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Describe mistakes that new drivers make, how those mistakes increase their risk of collisions, how drivers can reduce this risk, and how driving behavior affects automobile insurance rates.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Vehicle Safety. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Demonstrate how to wear a lap and shoulder belt properly. Explain why it is important for the driver and all passengers, including children sitting in age-appropriate seats, to always wear their seat belts.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "List five safety features found in motor vehicles besides occupant restraint systems. Describe each safety feature, how each works, and how each contributes to safety.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Auto Maintenance and Safety Checkups. With adult supervision and using a vehicle that you have access to, do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Demonstrate that all driving lights and signaling lights are clear and operational. Show where the switches are for these lights. Explain how drivers use lights to drive safely and courteously and to communicate with other drivers.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explain issues that might affect the driver's ability to see through the front, rear, and side windows. Demonstrate with a smear-and-clear test if the windshield wiper blades will clear the windshield completely or need to be replaced. Describe instances in good and bad weather when windshield wipers are important to safe driving.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Demonstrate how to find the vehicle's recommended tire pressures, how to check tire pressures, and how to check for adequate tire tread depth. Explain why proper tire pressure and tread depth are important to traction, stopping distances, tire wear, and fuel economy.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Check the vehicle for tools needed to change a flat tire or to use tire sealant to fix a puncture. Demonstrate you know how to change a flat tire and how to use tire sealant.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "In a location away from traffic hazards, mark off the reaction distances and braking distances that a car will travel as it makes an emergency stop at 25, 55, and 70 miles per hour on level dry and level wet pavement. Discuss how these distances change for normal and impaired drivers, for day and night driving, and for weather conditions. Note: Use the graphics template in the Traffic Safety merit badge pamphlet or one approved by your counselor to set up this demonstration.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Traffic Safety and the Law. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Describe at least three examples of traffic laws that apply to drivers of motor vehicles and to bicyclists.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explain procedures and etiquette a driver should follow if a law enforcement officer stops their vehicle.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain procedures that drivers should follow if they are involved in a car accident.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Name the three documents that drivers are required by law to carry whenever they operate a motor vehicle.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Road Designs and Signs. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain how road designs for intersections, medians, and road shoulders contribute to traffic safety. Discuss safety features of interstate highways.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explain how color and shape help drivers recognize and understand the information presented on traffic and roadway signs. Explain the purpose of different types of signs, signals, and pavement markings.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Sharing the Road. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Describe the difference in nighttime visibility between a properly lit bicycle and rider (or a pedestrian) wearing reflective material and a bicycle and rider with no lights (or a pedestrian) dressed in dark clothing without reflective material.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Name at least four safety measures that pedestrians, including hikers, should follow as they walk along or across streets or roadways.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Name at least four safety measures that drivers of motor vehicles should follow if they approach a school bus making its stops at pick-up and drop-off locations.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Discuss the risks associated with blind spots on cars and trucks and how drivers can prevent lane change crashes.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Traffic, Your Community, and You. Do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Interview a traffic law enforcement officer or a traffic safety professional in your community to identify what three traffic safety problems the officer is most concerned about. Discuss with your counselor possible ways to solve one of those problems.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Write a personal traffic safety pledge, addressing three of your most concerning issues relating to traffic safety. Discuss your pledge with your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Initiate and organize an activity or event to demonstrate the importance of traffic safety.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 8,
+      "text": "Careers. Explore careers related to traffic safety. Research one career to learn about the training and education needed, costs, job prospects, salary, job duties, and career advancement. Your research methods may include—with your parent or guardian's permission—an internet or library search, an interview with a professional in the field, or a visit to a location where people in this career work. Discuss with your counselor both your findings and what about this profession might make it an interesting career.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/traffic-safety/",
+  "verifiedOn": "2026-09-03"
+}

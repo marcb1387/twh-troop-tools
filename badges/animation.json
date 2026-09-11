@@ -1,0 +1,158 @@
+{
+  "badge": "Animation",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "General Knowledge. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "In your own words, describe to your counselor what animation is.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Discuss with your counselor a brief history of animation.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Principles of Animation. Choose five of the following 12 principles of animation, and discuss how each one makes an animation appear more believable: squash and stretch, anticipation, staging, straight ahead action and pose to pose, follow through and overlapping action, slow in and slow out, arcs, secondary action, timing, exaggeration, solid drawing, and appeal.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Projects. With your counselor's approval, choose two animation techniques and do the following for each:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Technique 1",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "Plan your animation using thumbnail sketches and/or layout drawings either on paper or using an animation software program.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 5
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "Create the animation.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "Share your animations with your counselor. Explain how you created each one, and discuss any improvements that could be made.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Technique 2",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "Plan your animation using thumbnail sketches and/or layout drawings.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "Create the animation.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "Share your animations with your counselor. Explain how you created each one, and discuss any improvements that could be made.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Animation in our World. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Tour an animation studio or a business where animation is used, either in person, via video, or via the internet. Share what you have learned with your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Discuss with your counselor how animation might be used in the future to make your life more enjoyable and productive.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Careers. Learn about three career opportunities in animation. Pick one and find out about the education, training, and experience required for this profession. Discuss your findings with your counselor. Explain why this profession might interest you.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/animation/",
+  "verifiedOn": "2026-09-03"
+}

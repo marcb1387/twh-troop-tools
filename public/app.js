@@ -678,7 +678,8 @@
         progressEl.className = "progress-step";
         showResult(resultArea, "working", `<span class="spinner"></span>Fetching CSVs from TroopWebHost…`);
         resultArea.querySelector(".result").appendChild(progressEl);
-        const numFiles = manifest.inputs.filter(i => i.required && i.autoFetch).length;
+        // Every auto-fetch input gets downloaded, optional ones included.
+        const numFiles = manifest.inputs.filter(i => i.autoFetch).length;
         progressEl.textContent = `Downloading ${numFiles} report${numFiles === 1 ? "" : "s"} — this can take 20-40 seconds.`;
         try {
           const res = await fetch(`/api/reports/${manifest.id}/fetch-and-generate`, {

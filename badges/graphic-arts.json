@@ -1,0 +1,166 @@
+{
+  "badge": "Graphic Arts",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Review with your counselor the processes for producing printed communications: offset lithography, screen printing, electronic/digital, relief, and gravure. Collect samples of three products, each one produced using a different printing process, or draw diagrams to help you with your description.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Explain the differences between continuous tone, line, and halftone artwork. Describe how digital images can be created and/or stored in a computer.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Design a printed piece (flyer, T-shirt, program, form, etc.). Explain your decisions for the typeface or typefaces you use and the way you arrange the elements in your design. Explain which printing process is best suited for printing your design. If desktop publishing is available, identify what hardware and software would be appropriate for outputting your design.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Produce the design you created for requirement 3 using one of the following printing processes:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Offset lithography. Make a layout, and produce a plate using a process approved by your counselor. Run the plate and print at least 50 copies.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Screen printing. Make a hand-cut or photographic stencil and attach it to a screen that you have prepared. Mask the screen and print at least 20 copies.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Electronic/digital printing. Create a layout in electronic form, download it to the press or printer, and run 50 copies. If no electronic interface to the press or printer is available, you may print and scan a paper copy of the layout.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Relief printing. Create a layout in electronic form, download it to the press or printer, and run 50 copies. If no electronic interface to the press or printer is available, you may print and scan a paper copy of the layout.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Postpress Operations. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Discuss the finishing operations of padding, drilling, cutting, and trimming with your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Collect, describe, or identify examples of the following types of binding: perfect, spiral, plastic comb, saddle stitch, and case.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Do ONE of the following, and then describe the highlights of your visit:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Visit a newspaper printing plant. Follow a story from the editor to the press.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Visit a retail, commercial, or in-plant printing facility. Follow a project from beginning to end.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Visit a school's graphic arts program. Find out what courses are available and what the prerequisites are.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "With your parent or guardian's permission, visit three websites that belong to graphic arts professional organizations and/or printing-related companies (suppliers, manufacturers, printers). Print out or download product or service information from two of the sites.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Find out about three career opportunities in graphic arts. Pick one and find out the education, training, and experience required for this profession. Discuss this with your counselor, and explain why this profession might interest you.",
+      "after": [
+        {
+          "type": "numbered",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/graphic-arts/",
+  "verifiedOn": "2026-09-03"
+}

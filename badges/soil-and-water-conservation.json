@@ -1,0 +1,436 @@
+{
+  "badge": "Soil and Water Conservation",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Tell what soil is. Tell how it is formed.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Describe three kinds of soil. Tell how they are different.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Name the three main plant nutrients in fertile soil. Tell how they can be put back when used up.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Define soil erosion.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Tell why soil erosion is important and how it affects you.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Name three kinds of soil erosion. Describe each.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Take pictures of or draw two kinds of soil erosion.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Tell what is meant by conservation practices.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Describe the effect of three kinds of erosion-control practices.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Take pictures of or draw three kinds of erosion-control practices.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain what a watershed is.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Outline the smallest watershed that you can find on a contour map.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Outline, as far as the map will allow, the next larger watershed that also has the smallest one in it.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Explain what a river basin is. Tell why all people living in a river basin should be concerned about land and water use in the basin.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Explain what an aquifer is and why it can be important to communities.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Make a drawing to show the hydrologic cycle.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Demonstrate at least two of the following actions of water in relation to soil: percolation, capillary action, precipitation, evaporation, and transpiration.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain how removal of vegetation will affect the way water runs off a watershed.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Tell how uses of forest, range, and farmland affect usable water supply.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Explain how industrial use affects water supply.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Tell what is meant by water pollution.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Describe common sources of water pollution and explain the effects of each.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain the terms: primary water treatment, secondary waste treatment, and biochemical oxygen demand.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Make a drawing showing the principles of complete waste treatment.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Do TWO of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Make a trip to TWO of the following places. Write a report of more than 500 words about the soil and water and energy conservation practices you saw.",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "An agricultural experiment",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "A managed forest or woodlot, range, or pasture",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "A wildlife refuge or a fish or game management area",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "4",
+              "text": "A conservation-managed farm or ranch",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "5",
+              "text": "A managed watershed",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "6",
+              "text": "A waste-treatment plant",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "7",
+              "text": "A public drinking water treatment plant",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "8",
+              "text": "An industry water use installation",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "9",
+              "text": "A desalinization plant",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Plant 100 trees, bushes, and/or vines for a good purpose.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Seed an area of at least one-fifth acre for some worthwhile conservation purposes, using suitable grasses or legumes alone or in a mixture.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Study a soil survey report. Describe the things in it. Using tracing paper and a pen, trace over any of the soil maps, and outline an area with three or more different kinds of soil. List each kind of soil by full name and map symbol.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Make a list of places in your neighborhood, camps, school ground, or park that have erosion, sedimentation, or pollution problems. Describe how these could be corrected through individual or group action.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "f",
+          "text": "Carry out any other soil and water conservation project approved by your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/soil-and-water-conservation/",
+  "verifiedOn": "2026-09-03"
+}

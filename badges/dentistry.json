@@ -1,0 +1,238 @@
+{
+  "badge": "Dentistry",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Using X-ray (radiographic) films or images and with your counselor's guidance, do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Study the tooth structure and look for decay.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Draw a lower molar, using the radiographs as a guide. Label its parts and surfaces. Show surrounding structures such as bone and gum tissues.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Show on your drawing where the nerves and blood vessels enter and leave the tooth.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Show on your drawing where bacterial plaque is most likely to be found.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Tell or write about what causes dental decay and gum disease. Tell how each of the following contributes to dental decay and gum disease: bacterial plaque, sugars, and acid.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Tell the possible causes for traumatic tooth loss, describe the types of mouth guards used to help prevent tooth trauma, and list the athletic activities during which a person should wear a mouth guard.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain the first-aid procedure for saving a tooth that has been knocked out.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Discuss how the use of tobacco products can negatively affect your oral health.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Arrange for a visit with a dentist. Before you go, ask whether your visit can include a dental examination and a plaque-control demonstration. Afterward, ask questions about things you want to know. Then tell your counselor what the dentist does during a checkup examination.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Do TWO of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Name at least five instruments and five pieces of equipment a dentist uses.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "With the help of a dentist, prepare a dental stone cast using a vibrator, a mixing bowl, a water measure, a plastic measure, model stone, and a spatula.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Keep a record of everything you eat for three days. Circle those items that may provide the sugars that bacterial plaque needs to make acid. List snacks that you should avoid to help maintain the best oral health.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Discuss with your counselor the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "How fluorides help prevent tooth decay and the ways fluorides can be provided to the teeth.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "How the mouth is related to the rest of the body. Topics might include chewing, saliva, enzymes, nutrition, and speech.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Do TWO of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Make a model tooth out of soap, clay, paper-mâché, or wax. Using a string and a large hand brush, show your troop or a school class proper tooth-brushing and flossing procedures.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Make a poster on the prevention of dental disease. Show the importance of good oral health.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Collect at least five advertisements for different toothpastes. List the claims that each one makes. Tell about the accuracy of the advertisements.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Write a feature story for your school newspaper on the proper care of teeth and gums. Include in your story how the use of tobacco products can negatively affect a person's oral health.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Make drawings and write about the progress of dental decay. Describe the types of dental filling and treatments a dentist can use to repair dental decay problems.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Identify three career opportunities that would use skills and knowledge in dentistry. Pick one and research the training, education, certification requirements, experience, and expenses associated with entering the field. Research the prospects for employment, starting salary, advancement opportunities and career goals associated with this career. Discuss what you learned with your counselor and whether you might be interested in this career.",
+      "after": [
+        {
+          "type": "numbered",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/dentistry/",
+  "verifiedOn": "2026-09-03"
+}

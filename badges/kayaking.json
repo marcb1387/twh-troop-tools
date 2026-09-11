@@ -1,0 +1,350 @@
+{
+  "badge": "Kayaking",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain to your counselor the hazards you are most likely to encounter while participating in kayaking activities, including weather and water-related hazards, and what you should do to anticipate, help prevent, mitigate, and respond to these hazards.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Review prevention, symptoms, and first-aid treatment for the following injuries or illnesses that can occur while kayaking: blisters, cold-water shock and hypothermia, heat-related illnesses, dehydration, sunburn, sprains, and strains.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Review the Scouting America Safety Afloat policy. Explain to your counselor how this applies to kayaking.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Before doing requirements 3 through 8, successfully complete the Scouting America swimmer test. Note: See the Swimming merit badge pamphlet for details about the Scouting America swimmer test.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Review the characteristics of life jackets most appropriate for kayaking and understand why one must always be worn while paddling. Then demonstrate how to select and fit a life jacket for kayaking.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Review the importance of safety equipment such as a signal device, extra paddle, sponge, bilge pump, flotation bags, and throw bag.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Name and point out the major parts of a kayak.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Review the differences in the design between recreational, whitewater, and sea or touring kayaks. Include how length, width, stability, and rocker are involved in the design of each type.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain the care, maintenance, and storage of a kayak.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Discuss the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Correct methods for the use of a kayak paddle",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Parts of a paddle",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "The care and maintenance of a paddle",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Using a properly equipped kayak with an open cockpit, a sit-on-top, or an inflatable kayak, do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Safely capsize and perform a wet exit.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Reenter the kayak with assistance from a buddy boat.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Demonstrate a kayak-over-kayak rescue.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Demonstrate the HELP position.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Capsize the kayak, swim it and the paddle to shore, and empty water from the kayak with assistance if needed.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "As a solo paddler, use a properly equipped kayak to demonstrate the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Forward stroke",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Backstroke",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Forward sweep",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Reverse sweep",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Draw stroke",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "f",
+          "text": "Stern draw",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 8,
+      "text": "As a solo paddler, use a properly equipped kayak to demonstrate the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Paddle a straight line for 15 to 20 boat lengths using appropriate strokes while maintaining trim and balance of the kayak.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Spin or pivot from a stationary position 180 degrees (half circle) to the right and left within two boat lengths.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Move abeam to the right 10 feet and to the left 10 feet.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Stop the boat in one boat length.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "While maintaining forward motion, turn the kayak 90 degrees to the right and left.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "f",
+          "text": "Move the kayak backward three to four boat lengths using appropriate and effective reverse strokes.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "g",
+          "text": "Paddle the kayak in a buoyed figure 8 course around markers three to four boat lengths apart.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/kayaking/",
+  "verifiedOn": "2026-09-03"
+}

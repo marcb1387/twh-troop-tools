@@ -1,0 +1,104 @@
+{
+  "badge": "American Cultures",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Do TWO of the following, choosing a different group for each:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Go to a festival, celebration, or other event identified with one of the groups. Report on what you see and learn.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Go to a place of worship, school, or other institution identified with one of the groups. Report on what you see and learn.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Talk with a person from one of the groups about the heritage and traditions of the group. Report on what you learn.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Learn a song, dance, poem, or story that is traditional to one group, and teach it to a group of your friends.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Go to a library or museum to see a program or exhibit featuring one group's traditions. Report on what you see and learn.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Imagine that one of the groups had always lived alone in a city or country to which no other groups ever came. Tell what you think the city or country might be like today. Now tell what you think it might be like if the three groups you chose lived there at the same time.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Tell about some differences between the religious and social customs of the three groups. Tell about some ideas or ways of doing things that are similar in the three groups.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Tell about a contribution made to our country by three different people, each from a different racial, ethnic, or religious background.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Give a talk to your Scout unit or class at school on how people from different groups have gotten along together. Lead a discussion on what can be done to help various groups understand one another better.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/american-cultures/",
+  "verifiedOn": "2026-09-03"
+}

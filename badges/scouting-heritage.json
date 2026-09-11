@@ -1,0 +1,278 @@
+{
+  "badge": "Scouting Heritage",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Discuss with your counselor the life and times of Lord Baden-Powell of Gilwell. Explain why he felt a program like Scouting would be good for the young men of his day. Include in your discussion how Scouting was introduced in the United States, and the origins of Boy Scouting and Cub Scouting under Baden-Powell.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Give a short biographical summary of any TWO of the following, and tell of their roles in how Scouting developed and grew in the United States.",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "Daniel Carter Beard",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "William D. Boyce",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "Waite Phillips",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "4",
+              "text": "Ernest Thompson Seton",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "5",
+              "text": "James E. West",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "6",
+              "text": "\"Green Bar Bill\" Hillcourt",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "7",
+              "text": "Frederick Russell Burnham",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "8",
+              "text": "Dr. Charles Eastman",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "9",
+              "text": "Edgar Robinson",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Discuss the significance to Scouting of any TWO of the following:",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "Brownsea Island",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "The First World Scout Jamboree",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "Scouts BSA Handbook",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "4",
+              "text": "Scout Life magazine (formerly Boys' Life)",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Discuss with your counselor how Scouting's programs have developed over time and been adapted to fit different age groups and interests (Cub Scouting, Scouts BSA, Exploring, Venturing).",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Attend either a Scouting America National Jamboree, OR World Scout Jamboree, OR a national Scouting America high-adventure base. While there, keep a journal documenting your day-to-day experiences. Upon your return, report to your counselor what you did, saw, and learned. You may include photos, brochures, and other documents in your report.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Write or visit the National Scouting Museum. Obtain information about this facility. Give a short report on what you think the role of this museum is in the Scouting program.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Visit an exhibit of Scouting memorabilia or a local museum with a Scouting history gallery, or (with your parent or guardian's permission and counselor's approval) visit with someone in your council who is recognized as a dedicated Scouting historian or memorabilia collector. Learn what you can about the history of Scouting America. Give a short report to your counselor on what you saw and learned.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Research the history of your unit, council, summer camp, or Order of the Arrow lodge. With the permission of a parent or guardian, your research methods may include an internet or library search, interviews with Scout leaders, or visits to locations where you learn about your topic. Prepare an oral or written report, a presentation, or a video of your research and review it with your counselor.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Make a collection of some of your personal patches and other Scouting memorabilia. With their permission, you may include items borrowed from family members or friends who have been in Scouting in the past, or you may include photographs of these items. Show this collection to your counselor, and share what you have learned about items in the collection. Note: There is no requirement regarding how large or small this collection must be.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Reproduce the equipment for an old-time Scouting game such as those played at Brownsea Island. You may find one on your own (with your counselor's approval) or pick one from the Scouting Heritage merit badge pamphlet. Teach and play the game with other Scouts.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 8,
+      "text": "Interview at least three people (different from those you interviewed for requirement 5) over the age of 40 who were Scouts. Find out about their Scouting experiences. Ask about the impact that Scouting has had on their lives. Share what you learned with your counselor.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 9,
+      "text": "Careers. Do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explore careers related to Scouting. Research one career to learn about the training and education needed, costs, job prospects, salary, job duties, and career advancement. With permission of your parent or guardian, your research methods may include an internet or library search, an interview with a professional in the field, or a visit to a location where people in this career work. Discuss with your counselor both your findings and what about this profession might make it an interesting career.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explore how you could use knowledge and skills from this merit badge to serve as a Scouting volunteer. Research any training needed, expenses, and how you could serve as a unit, district, council, regional, or national volunteer. Discuss with your counselor what short-term and long-term goals you might have if you pursued this.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/scouting-heritage/",
+  "verifiedOn": "2026-09-03"
+}

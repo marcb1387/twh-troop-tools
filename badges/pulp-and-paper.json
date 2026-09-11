@@ -1,0 +1,196 @@
+{
+  "badge": "Pulp and Paper",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Tell the history of papermaking. Describe the part paper products play in our society and economy.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Learn about the pulp and paper industry.",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Describe the ways the industry plants, grows, and harvests trees.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explain how the industry manages its forests so that the supply of trees keeps pace with the demand.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Tell how the industry has incorporated the concepts of sustainable forest management (SFM).",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Describe two ways the papermaking industry has addressed pollution.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Name at least four types of trees that are major sources of papermaking fibers. Then do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Discuss what other uses are made of the trees and the forestland owned by the pulp and paper industry.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Describe two ways of getting fibers from wood, and explain the major differences between them.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Tell why some pulps are bleached, and describe the process.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Describe how paper is made. Discuss how paper is recycled. Make a sheet of paper by hand.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Explain what coated paper is and why it is coated. Describe the major uses for different kinds of coated papers. Describe one other way that paper is changed by chemical or mechanical means to make new uses possible.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Make a list of 15 pulp or paper products found in your home. Share examples of 10 such products with your counselor.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "With your parent or guardian's and counselor's approval, do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Visit a pulp mill. Describe how the mill converts wood to cellulose fibers.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Visit a paper mill and get a sample of the paper made there. Describe the processes used for making this paper. Tell how it will be used.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Visit a container plant or box plant. Describe how the plant's products are made.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Visit a recycled paper collection or sorting facility. Describe the operations there.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Using books, magazines, your local library, the internet (with your parent or guardian's permission), and any other suitable research tool, find out how paper products are developed. Find out what role research and development play in the papermaking industry. Share what you learned with your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 8,
+      "text": "Find out about three career opportunities in the papermaking industry that interest you. Pick one and find out the education, training, and experience required for this profession. Discuss this with your counselor, and explain why this profession might interest you.",
+      "after": [
+        {
+          "type": "numbered",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/pulp-and-paper/",
+  "verifiedOn": "2026-09-03"
+}

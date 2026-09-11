@@ -8,7 +8,7 @@ const { OFFICIAL_BADGES, EAGLE_REQUIRED_BADGES } = require("../shared/official-b
 const manifest = {
   id:          "merit-badges",
   name:        "Merit Badge Analysis",
-  description: "Troop-wide merit badge analytics: Eagle coverage, scout progress, popular electives, badges never earned, and stale badges worth repeating.",
+  description: "Troop-wide merit badge analytics: scouts a few requirements from finishing a badge, Eagle coverage, scout progress, popular electives, badges never earned, and stale badges worth repeating.",
   icon:        "🎖️",
   outputType:  "html",
   inputs: [
@@ -19,8 +19,27 @@ const manifest = {
       required:  true,
       twhReport: "meritBadges",
     },
+    {
+      key:       "mbRequirements",
+      label:     "Uncompleted Merit Badge Requirements CSV (optional)",
+      hint:      "Export: Menu → Advancement → Requirements Reports → Uncompleted Merit Badge Requirements → Open in Excel. Enables the \"Almost There\" section: scouts a handful of requirements from finishing a badge. Optional — the rest of the report still generates without it.",
+      required:  false,
+      twhReport: "mbRequirements",
+    },
   ],
   options: [
+    {
+      key:     "nearThreshold",
+      label:   "\"Almost There\" cutoff — requirements still outstanding",
+      type:    "select",
+      default: "5",
+      choices: [
+        { value: "3",  label: "Within 3 requirements" },
+        { value: "5",  label: "Within 5 requirements" },
+        { value: "8",  label: "Within 8 requirements" },
+        { value: "10", label: "Within 10 requirements" },
+      ],
+    },
     { key: "downloadPdf", label: "Also download PDF", type: "checkbox", default: false },
     { key: "downloadCsv", label: "Also download CSV", type: "checkbox", default: false },
   ],
@@ -30,6 +49,30 @@ const manifest = {
 const STALE_YEARS   = 2;
 const MIN_SCOUTS    = 3;
 const TOP_ELECTIVES = 25;
+const NEAR_DEFAULT  = 5;   // "almost there" cutoff when no option is supplied
+const MAX_CODES_SHOWN = 12; // remaining-requirement codes listed inline per row
+
+// Column aliases for the two shapes a TroopWebHost requirements export can
+// arrive in.
+//
+// "counts" is what report 52217 (Uncompleted Merit Badge Requirements) actually
+// returns, confirmed against a live export: one summary row per scout+badge
+// carrying the outstanding count directly.
+//   Scout, Merit Badge, Started, Completed Requirements,
+//   Uncompleted Requirements, Merit Badge Counselor
+//
+// "itemized" is the shape the rank report uses - one row per outstanding
+// requirement, where the row count *is* the number left. Kept as a fallback in
+// case a per-requirement merit badge export turns up.
+//   Award, Code, Uncompleted Requirement, Scout
+const SCOUT_COLS = ["Scout", "Name", "Scout Name"];
+const AWARD_COLS = ["Merit Badge", "Award", "Advancement", "Achievement"];
+const LEFT_COLS  = ["Uncompleted Requirements", "Requirements Uncompleted", "Requirements Remaining", "Uncompleted"];
+const DONE_COLS  = ["Completed Requirements", "Requirements Completed", "Completed"];
+const START_COLS = ["Started", "Start Date", "Date Started"];
+const COUNSELOR_COLS = ["Merit Badge Counselor", "Counselor", "Merit Badge Counselors"];
+const REQ_COLS   = ["Uncompleted Requirement", "Requirement", "Requirement Description", "Description"];
+const CODE_COLS  = ["Code", "Requirement Code", "Req", "Requirement #", "Requirement Number"];
 
 // ═══════════════════════════════ UTILITIES ═══════════════════════════════
 function cleanName(n) {
@@ -69,7 +112,40 @@ function esc(s) {
 
 function fmt1(n) { return isNaN(n) ? "-" : Number(n).toFixed(1); }
 
+// Case/whitespace-tolerant column lookup - TWH exports vary in header casing
+// between reports, and a stray trailing space is common.
+function pickCol(row, names) {
+  for (const want of names) {
+    for (const key of Object.keys(row)) {
+      if (key.trim().toLowerCase() === want.toLowerCase()) return row[key];
+    }
+  }
+  return "";
+}
+
+// Scout identity across two TWH exports. Both use "Last, First M" but the
+// middle initial and suffix are not consistently present between reports,
+// so they are stripped before comparing (same reasoning as
+// shared/name-normalize.js, kept local so badge normalizeName stays put).
+function scoutKey(name) {
+  return String(name || "")
+    .trim()
+    .replace(/\s+(Jr\.?|Sr\.?|II|III|IV|V)\s*$/i, "")
+    .replace(/\s+[A-Za-z]\.?\s*$/, "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+// Sorts "3", "3a", "10b" the way a human reads them, not as raw strings.
+function compareCodes(a, b) {
+  return String(a).localeCompare(String(b), "en", { numeric: true, sensitivity: "base" });
+}
+
 const EAGLE_REQUIRED_NORM = new Set(EAGLE_REQUIRED_BADGES.map(normalizeName));
+// normalized badge name -> canonical spelling, so the "almost there" table
+// prints official names regardless of how TWH spelled them in the export.
+const OFFICIAL_BY_NORM = new Map(OFFICIAL_BADGES.map(b => [normalizeName(b), b]));
 
 // ═══════════════════════════════ DATA PROCESSING ════════════════════════
 function processData(csvPath) {
@@ -85,6 +161,7 @@ function processData(csvPath) {
   const scoutEagle     = new Map(); // scout -> Set<badge>
   const badgeLastEarned = new Map(); // badge -> Date
   const allScouts      = new Set();
+  const scoutEarned    = new Map(); // scoutKey -> Set<normalized badge>
 
   rows.forEach(r => {
     const scout    = (r["Scout"] || "").trim();
@@ -99,6 +176,10 @@ function processData(csvPath) {
     if (!scout || !badge) return;
 
     allScouts.add(scout);
+
+    const sk = scoutKey(scout);
+    if (!scoutEarned.has(sk)) scoutEarned.set(sk, new Set());
+    scoutEarned.get(sk).add(normalizeName(badge));
 
     if (earned) {
       const existing = badgeLastEarned.get(badge);
@@ -165,6 +246,7 @@ function processData(csvPath) {
     .sort((a, b) => b.count - a.count);
 
   return {
+    scoutEarned,
     totalScouts:    allScouts.size,
     totalRows:      rows.length,
     eagleCount:     eagleMap.size,
@@ -179,6 +261,147 @@ function processData(csvPath) {
   };
 }
 
+// ═══════════════════ NEARLY-COMPLETE BADGES (optional file) ═════════════
+// TroopWebHost's Uncompleted Merit Badge Requirements export (report 52217)
+// gives one summary row per scout+badge with the outstanding count already
+// tallied - "Completed Requirements" / "Uncompleted Requirements" - plus who
+// the counselor is and when the Scout started. Badges a Scout has finished
+// aren't in the file at all, so every row is work in progress.
+//
+// A per-requirement export (one row per outstanding requirement, the shape the
+// rank report uses) is still accepted: there the row count is the number left.
+// Which shape arrived is decided by the columns present, and a file matching
+// neither is reported rather than guessed at.
+function processNearlyComplete(reqPath, threshold, scoutEarned) {
+  const empty = {
+    hasData: false, parseLooksWrong: false, shape: null, rawRowCount: 0,
+    headers: [], threshold, rows: [], scoutCount: 0, furtherOut: 0, unmatched: 0,
+  };
+  if (!reqPath || !fs.existsSync(reqPath)) return empty;
+
+  const rows    = parseCSV(fs.readFileSync(reqPath, "utf8"));
+  const headers = rows.length ? Object.keys(rows[0]) : [];
+  const hasCol  = names => names.some(w =>
+    headers.some(k => k.trim().toLowerCase() === w.toLowerCase()));
+
+  const shape = hasCol(LEFT_COLS) ? "counts"
+              : (hasCol(CODE_COLS) || hasCol(REQ_COLS)) ? "itemized"
+              : null;
+
+  if (!rows.length || !hasCol(SCOUT_COLS) || !hasCol(AWARD_COLS) || !shape) {
+    return { ...empty, hasData: true, parseLooksWrong: true, rawRowCount: rows.length, headers };
+  }
+
+  const num = v => {
+    const n = parseInt(String(v ?? "").replace(/[^\d-]/g, ""), 10);
+    return Number.isFinite(n) ? n : null;
+  };
+  // Badge names arrive with TWH's Eagle asterisk and sometimes a requirements
+  // vintage - "*Weather (2014 rqmts)" - both of which cleanName strips.
+  const badgeOf = r => cleanName(pickCol(r, AWARD_COLS).trim());
+  const scoutOf = r => pickCol(r, SCOUT_COLS).trim().replace(/^\*\s*/, "");
+
+  const pairs = new Map();   // scoutKey||badgeNorm -> record
+  let unmatched = 0;
+
+  rows.forEach((r, i) => {
+    const scoutRaw = scoutOf(r);
+    const badge    = badgeOf(r);
+    if (!scoutRaw || !badge) return;
+
+    const badgeNorm = normalizeName(badge);
+    // Anything not on the official list (a council's test-lab badge, a typo, or
+    // a rank row in an itemized file) is counted out loud rather than dropped
+    // on the floor.
+    if (!OFFICIAL_BY_NORM.has(badgeNorm)) { unmatched++; return; }
+
+    const key = `${scoutKey(scoutRaw)}||${badgeNorm}`;
+    if (!pairs.has(key)) {
+      pairs.set(key, {
+        scout:     fmtScout(scoutRaw),
+        sortName:  scoutRaw,
+        scoutKey:  scoutKey(scoutRaw),
+        badge:     OFFICIAL_BY_NORM.get(badgeNorm),
+        isEagle:   EAGLE_REQUIRED_NORM.has(badgeNorm),
+        remaining: 0,
+        completed: null,
+        started:   null,
+        counselor: "",
+        items:     new Map(),
+      });
+    }
+    const p = pairs.get(key);
+
+    if (shape === "counts") {
+      const left = num(pickCol(r, LEFT_COLS));
+      if (left === null) return;
+      // A scout+badge listed twice (rare, but a re-registration does it) is
+      // taken at its most complete.
+      p.remaining = p.remaining ? Math.min(p.remaining, left) : left;
+      p.completed = num(pickCol(r, DONE_COLS));
+      p.started   = parseDate(pickCol(r, START_COLS));
+      p.counselor = pickCol(r, COUNSELOR_COLS).trim();
+    } else {
+      // One row per outstanding requirement. A requirement listed twice (TWH
+      // repeats a parent row for each child in some exports) must not inflate
+      // the count.
+      const code = pickCol(r, CODE_COLS).trim();
+      const desc = pickCol(r, REQ_COLS).trim();
+      p.items.set(code || desc || `row-${i}`, { code, desc });
+    }
+  });
+
+  let furtherOut = 0;
+  const near = [];
+
+  pairs.forEach(p => {
+    // A badge the scout has already completed shouldn't show as outstanding.
+    // TWH leaves finished badges out of this export itself, but a stale file or
+    // a badge signed off after it was pulled would sneak through.
+    const earned = scoutEarned.get(p.scoutKey);
+    if (earned && earned.has(normalizeName(p.badge))) return;
+
+    const items     = [...p.items.values()];
+    const remaining = shape === "counts" ? p.remaining : items.length;
+    if (!remaining || remaining <= 0) return;
+    if (remaining > threshold) { furtherOut++; return; }
+
+    near.push({
+      scout:     p.scout,
+      sortName:  p.sortName,
+      badge:     p.badge,
+      isEagle:   p.isEagle,
+      remaining,
+      completed: p.completed,
+      started:   p.started,
+      counselor: p.counselor,
+      codes:     items.map(it => it.code).filter(Boolean).sort(compareCodes),
+      details:   items
+        .map(it => [it.code, it.desc].filter(Boolean).join(" - "))
+        .filter(Boolean)
+        .sort(compareCodes),
+    });
+  });
+
+  near.sort((a, b) =>
+    a.remaining - b.remaining ||
+    a.sortName.localeCompare(b.sortName) ||
+    a.badge.localeCompare(b.badge));
+
+  return {
+    hasData: true,
+    parseLooksWrong: false,
+    shape,
+    rawRowCount: rows.length,
+    headers,
+    threshold,
+    rows: near,
+    scoutCount: new Set(near.map(d => d.sortName)).size,
+    furtherOut,
+    unmatched,
+  };
+}
+
 // ═══════════════════════════════ HTML GENERATION ════════════════════════
 function bar(count, max, color) {
   const pct = Math.round((count / max) * 100);
@@ -190,7 +413,7 @@ function bar(count, max, color) {
   </div>`;
 }
 
-function buildHTML(data, dateStr, troopName) {
+function buildHTML(data, nearly, dateStr, troopName) {
   const label = troopName ? `${troopName} - ` : "";
 
   const OD    = "#3A4F2A";
@@ -203,6 +426,96 @@ function buildHTML(data, dateStr, troopName) {
   const neverColHtml = data.neverEarned.map(b =>
     `<div style="font-size:0.85rem;padding:0.2rem 0;border-bottom:1px solid #EDE8DC;break-inside:avoid;">${esc(b)}</div>`
   ).join("");
+
+  // ── Almost There (optional requirements file) ──
+  const nearHeading = `<h2>Almost There \u2014 Scouts Within ${nearly.threshold} Requirement${nearly.threshold === 1 ? "" : "s"} of a Badge</h2>`;
+  let nearlyHtml;
+
+  if (!nearly.hasData) {
+    nearlyHtml = `${nearHeading}
+<div class="section"><p class="note" style="margin:0">Add the <strong>Uncompleted Merit Badge Requirements</strong> CSV (Advancement \u2192 Requirements Reports) to list scouts who are a handful of sign-offs from finishing a badge. The Merit Badge History export on its own only records finished badges, so partial progress can't be seen without it.</p></div>`;
+  } else if (nearly.parseLooksWrong) {
+    nearlyHtml = `${nearHeading}
+<div class="section"><p class="note" style="margin:0;color:${RED}">A requirements file was supplied (${nearly.rawRowCount} row${nearly.rawRowCount === 1 ? "" : "s"}) but it isn't a merit badge requirements export. It needs a <em>Scout</em> column, a <em>Merit Badge</em> column, and either an <em>Uncompleted Requirements</em> count or one row per outstanding requirement. Columns found: ${esc(nearly.headers.join(", ") || "none")}.</p></div>`;
+  } else if (nearly.rows.length === 0) {
+    const why = nearly.furtherOut > 0
+      ? `${nearly.furtherOut} scout-badge combination${nearly.furtherOut === 1 ? " has" : "s have"} outstanding requirements, but none within ${nearly.threshold}.`
+      : `No badges in progress were found in that file \u2014 check that it's the merit badge version of the report, not the rank version.`;
+    nearlyHtml = `${nearHeading}
+<div class="section"><p class="note" style="margin:0">${esc(why)}</p></div>`;
+  } else {
+    const counts = nearly.shape === "counts";
+    const staleYears = d => d.started ? (new Date() - d.started) / (365.25 * 24 * 60 * 60 * 1000) : null;
+
+    const nearRows = nearly.rows.map(d => {
+      const cls = d.remaining <= 2 ? `color:${OD};font-weight:700`
+                : d.remaining <= 5 ? `color:${AMBER};font-weight:700`
+                : `font-weight:600`;
+
+      let tail;
+      if (counts) {
+        const yrs = staleYears(d);
+        // A badge opened a long time ago with only a few items left is the
+        // one most worth a nudge, so the age carries the emphasis.
+        const startCls = yrs === null ? "" : yrs >= 2 ? `color:${RED};font-weight:600`
+                        : yrs >= 1 ? `color:${AMBER};font-weight:600` : "";
+        const startTxt = d.started
+          ? d.started.toLocaleDateString("en-US", { month: "short", year: "numeric" })
+          : "\u2014";
+        const done = d.completed === null ? "\u2014" : d.completed;
+        tail = `<td>${done}</td>
+        <td style="${startCls}" title="${yrs === null ? "" : `${fmt1(yrs)} years ago`}">${esc(startTxt)}</td>
+        <td style="font-size:0.82rem">${d.counselor ? esc(d.counselor) : `<span style="color:#4A5568">none assigned</span>`}</td>`;
+      } else {
+        const shown = d.codes.slice(0, MAX_CODES_SHOWN).join(", ");
+        const more  = d.codes.length > MAX_CODES_SHOWN ? ` +${d.codes.length - MAX_CODES_SHOWN} more` : "";
+        tail = `<td title="${esc(d.details.join(" | "))}" style="font-size:0.8rem">${esc(shown)}${more}</td>`;
+      }
+
+      return `<tr>
+        <td>${esc(d.scout)}</td>
+        <td>${esc(d.badge)}${d.isEagle ? `<span class="tag-eagle">Eagle</span>` : ""}</td>
+        <td style="${cls}">${d.remaining}</td>
+        ${tail}
+      </tr>`;
+    }).join("");
+
+    const copyList = nearly.rows
+      .map(d => {
+        const extra = counts
+          ? (d.counselor ? ` - counselor ${d.counselor}` : " - no counselor")
+          : (d.codes.length ? `: ${d.codes.join(", ")}` : "");
+        return `${d.scout} - ${d.badge} (${d.remaining} left)${extra}`;
+      })
+      .join("\n");
+
+    const headCells = counts
+      ? `<th>Scout</th><th>Merit Badge</th><th>Left</th><th>Done</th><th>Started</th><th>Counselor</th>`
+      : `<th>Scout</th><th>Merit Badge</th><th>Left</th><th>Requirements Remaining</th>`;
+
+    const notes = [
+      `${nearly.rows.length} badge${nearly.rows.length === 1 ? "" : "s"} across ${nearly.scoutCount} scout${nearly.scoutCount === 1 ? "" : "s"} with ${nearly.threshold} or fewer requirements still outstanding \u2014 the shortest list of nudges that would turn into finished badges. Closest first.`,
+      counts ? `<strong>Left</strong> and <strong>Done</strong> are TroopWebHost's own counts of that Scout's outstanding and completed requirements. A start date in amber or red means the badge has been open a year or more.` : `Hover a row's remaining requirements for the full wording.`,
+      nearly.furtherOut > 0 ? `${nearly.furtherOut} badge${nearly.furtherOut === 1 ? " is" : "s are"} in progress but further out than ${nearly.threshold}, and not shown.` : "",
+      nearly.unmatched > 0 ? `${nearly.unmatched} row${nearly.unmatched === 1 ? "" : "s"} skipped: not an official BSA merit badge name.` : "",
+    ].filter(Boolean).join(" ");
+
+    nearlyHtml = `${nearHeading}
+<p class="note">${notes}</p>
+<div class="section">
+  <div class="copy-area">
+    <table>
+      <thead><tr>${headCells}</tr></thead>
+      <tbody>${nearRows}</tbody>
+    </table>
+    <div class="copy-aside">
+      <label>Copy-paste list</label>
+      <textarea readonly id="near-ta">${esc(copyList)}</textarea>
+      <button class="copy-btn" onclick="const t=document.getElementById('near-ta');t.select();document.execCommand('copy');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy All',1500)">Copy All</button>
+    </div>
+  </div>
+</div>`;
+  }
 
   // ── Worth repeating table ──
   const worthHtml = data.worthRepeating.length === 0
@@ -320,7 +633,12 @@ function buildHTML(data, dateStr, troopName) {
   <div class="stat"><div class="stat-n">${data.eagleCount}</div><div class="stat-l">Eagle badges earned</div></div>
   <div class="stat"><div class="stat-n">${data.neverEarned.length}</div><div class="stat-l">Badges never earned</div></div>
   <div class="stat"><div class="stat-n">${data.worthRepeating.length}</div><div class="stat-l">Badges worth repeating</div></div>
+  ${nearly.hasData && !nearly.parseLooksWrong ? `
+  <div class="stat"><div class="stat-n">${nearly.rows.length}</div><div class="stat-l">Badges within ${nearly.threshold} requirements</div></div>` : ""}
 </div>
+
+<!-- Almost There -->
+${nearlyHtml}
 
 <!-- Never Earned -->
 <h2>Badges Never Earned (${data.neverEarned.length} of ${OFFICIAL_BADGES.length} official BSA badges)</h2>
@@ -363,13 +681,31 @@ function buildHTML(data, dateStr, troopName) {
 }
 
 // ═══════════════════════════════ CSV GENERATION ════════════════════════
-function buildCSV(data) {
+function buildCSV(data, nearly) {
   const esc2 = v => {
     const s = String(v ?? "");
     return s.includes(",") || s.includes('"') || s.includes("\n")
       ? `"${s.replace(/"/g, '""')}"` : s;
   };
   const lines = [];
+
+  if (nearly.hasData && !nearly.parseLooksWrong) {
+    lines.push(`== ALMOST THERE (WITHIN ${nearly.threshold} REQUIREMENTS) ==`);
+    if (nearly.shape === "counts") {
+      lines.push(["Scout","Merit Badge","Eagle Required","Requirements Left","Requirements Completed","Started","Counselor"].join(","));
+      nearly.rows.forEach(d => lines.push(
+        [d.scout, d.badge, d.isEagle ? "Yes" : "No", d.remaining,
+         d.completed === null ? "" : d.completed,
+         d.started ? d.started.toLocaleDateString("en-US") : "",
+         d.counselor].map(esc2).join(",")));
+    } else {
+      lines.push(["Scout","Merit Badge","Eagle Required","Requirements Left","Remaining Codes"].join(","));
+      nearly.rows.forEach(d => lines.push(
+        [d.scout, d.badge, d.isEagle ? "Yes" : "No", d.remaining, d.codes.join(" ")]
+          .map(esc2).join(",")));
+    }
+    lines.push("");
+  }
 
   lines.push("== BADGES NEVER EARNED ==");
   lines.push(["Merit Badge"].join(","));
@@ -428,10 +764,15 @@ function fileTimestamp() {
 
 // ═══════════════════════════════ MAIN ═══════════════════════════════════
 async function generate(inputs, outputDir, options = {}) {
-  const { meritBadges: csvPath } = inputs;
+  const { meritBadges: csvPath, mbRequirements: reqPath } = inputs;
   if (!csvPath || !fs.existsSync(csvPath)) throw new Error("Merit Badge History CSV not provided");
 
+  const parsedThreshold = parseInt(options.nearThreshold, 10);
+  const nearThreshold   = Number.isFinite(parsedThreshold) && parsedThreshold > 0
+    ? parsedThreshold : NEAR_DEFAULT;
+
   const data    = processData(csvPath);
+  const nearly  = processNearlyComplete(reqPath, nearThreshold, data.scoutEarned);
   const dateStr = todayLong();
   const ts      = fileTimestamp();
   const troopName = options.troopName || "";
@@ -440,7 +781,7 @@ async function generate(inputs, outputDir, options = {}) {
 
   const htmlFileName = `Merit_Badge_Analysis_${ts}.html`;
   const htmlPath     = path.join(outputDir, htmlFileName);
-  fs.writeFileSync(htmlPath, buildHTML(data, dateStr, troopName), "utf8");
+  fs.writeFileSync(htmlPath, buildHTML(data, nearly, dateStr, troopName), "utf8");
 
   const output = {
     htmlFileName,
@@ -452,6 +793,7 @@ async function generate(inputs, outputDir, options = {}) {
       completions: data.totalRows,
       neverEarned: data.neverEarned.length,
       worthRepeating: data.worthRepeating.length,
+      almostThere: nearly.hasData && !nearly.parseLooksWrong ? nearly.rows.length : null,
     },
   };
 
@@ -463,7 +805,7 @@ async function generate(inputs, outputDir, options = {}) {
   if (options.downloadCsv === true || options.downloadCsv === "true") {
     const csvFileName  = `Merit_Badge_Analysis_${ts}.csv`;
     const csvOut       = path.join(outputDir, csvFileName);
-    fs.writeFileSync(csvOut, buildCSV(data), "utf8");
+    fs.writeFileSync(csvOut, buildCSV(data, nearly), "utf8");
     output.csvPath     = csvOut;
     output.csvFileName = csvFileName;
   }
@@ -471,4 +813,6 @@ async function generate(inputs, outputDir, options = {}) {
   return output;
 }
 
-module.exports = { manifest, generate };
+// processNearlyComplete is exported for test/merit-badges.test.js; the
+// server only ever uses manifest + generate.
+module.exports = { manifest, generate, processNearlyComplete };

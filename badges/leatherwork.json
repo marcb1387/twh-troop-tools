@@ -1,0 +1,222 @@
+{
+  "badge": "Leatherwork",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain to your counselor the hazards you are most likely to encounter while using leatherwork tools and materials, and what you should do to anticipate, help prevent, mitigate, or lessen these hazards.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Show that you know first aid for injuries or illnesses that could occur while working with leather, including minor cuts and scratches, puncture wounds, ingested poisoning, and reactions from exposure to chemicals such as dyes, cements, and finishes used in leatherworking.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Explain the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Where leather comes from",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Kinds of hides that are used to make leather",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Five types of leather",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Best uses for each type of leather",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Make one or more articles of leather that use at least five of the following steps:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Pattern layout and transfer",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Cutting leather",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Punching holes",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Carving or stamping surface designs",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Applying dye or stain and finish to the project",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "f",
+          "text": "Assembly by lacing or stitching",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "g",
+          "text": "Setting snaps and rivets",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "h",
+          "text": "Dressing edges",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Braid or plait an article out of leather, vinyl lace, or paracord.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Learn about the commercial tanning process. Report about it to your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Tan the skin of a small animal. Describe the safety precautions you will take and the tanning method that you used.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Recondition or show that you can take proper care of your shoes, a baseball glove, a saddle, furniture, or other articles of leather. Discuss with your counselor the advantages or disadvantages of leather vs. synthetic materials.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Visit a leather-related business. This could be a leathercraft supply company, a tannery, a leather goods or shoe factory, or a saddle shop. Report on your visit to your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/leatherwork/",
+  "verifiedOn": "2026-09-03"
+}

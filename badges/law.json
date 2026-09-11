@@ -1,0 +1,266 @@
+{
+  "badge": "Law",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Define law. Tell some of its sources. Describe the functions it serves.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Discuss TWO of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Justinian's Code, the Code of Hammurabi, and the Magna Carta",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "The development of the jury system",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Two famous trials in history",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Tell what civil law is; tell what criminal law is. Tell the main differences between them. Give examples of each.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Ask five people (not more than one from your immediate family) about the role of law enforcement officers in our society. Discuss their answers with them. Report your findings to your counselor.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Discuss with your counselor several laws that were passed to protect the consumer and the seller. Describe several organizations that provide help to consumers and sellers.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Attend a session of a civil or criminal court. Write 250 words or more on what you saw.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Plan and conduct a mock trial with your troop, school class or other group. After the trial is over, discuss it with the group.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Arrange a visit with a lawyer who works for a business, bank, title company, or government agency. Find out his or her duties and responsibilities. Report what you have learned.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 8,
+      "text": "Explain the requirements for becoming a lawyer in your state. Describe how judges are selected in your state.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 9,
+      "text": "Make a list of 15 jobs that deal with some aspects of law or legal processes. Tell which you prefer. Why?",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 10,
+      "text": "Tell where people can go to obtain the help of a lawyer if they are unable to pay for one. Tell what you can do if you can afford a lawyer but do not know of any in your area.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 11,
+      "text": "Discuss with your counselor the importance in our society of TWO of the following areas of the law or process:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Administrative",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Alternative Dispute Resolution",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Bankruptcy",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Biotechnology",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Environmental",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "f",
+          "text": "Family",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "g",
+          "text": "Immigration",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "h",
+          "text": "Information Technology",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "i",
+          "text": "Intellectual Property (Copyright, Patents and Trademarks)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "j",
+          "text": "International",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "k",
+          "text": "Privacy",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/law/",
+  "verifiedOn": "2026-09-03"
+}

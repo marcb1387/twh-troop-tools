@@ -1,0 +1,162 @@
+{
+  "badge": "Wood Carving",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain to your counselor the hazards you are most likely to encounter while wood carving, and what you should do to anticipate, help prevent, mitigate, or lessen these hazards.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Show that you know first aid for injuries that could occur while wood carving, including minor cuts and scratches and splinters.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Earn the Totin' Chip recognition.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Discuss with your counselor your understanding of the Safety Checklist for Carving.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain to your counselor, orally or in writing, the care and use of five types of tools that you may use in a carving project.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Tell your counselor how to care for and use several types of sharpening devices, then demonstrate that you know how to use these devices.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Using a piece of scrap wood or a project on which you are working, show your counselor that you know how to do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Paring cut",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Basic cut and push cut",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "V cut",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Stop cut or score line",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Tell why different woods are used for different projects. Explain why you chose the type of wood you did for your projects in requirements 6 and 7.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Plan your own or select a project from the Wood Carving merit badge pamphlet and complete a simple carving in the round.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Complete a simple low-relief OR a chip carving project.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/wood-carving/",
+  "verifiedOn": "2026-09-03"
+}

@@ -1,0 +1,548 @@
+{
+  "badge": "Health Care Professions",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Select three of the professions from Group 1 listed below which interest you, then complete the following: Group 1:",
+      "subs": [
+        {
+          "letter": "1",
+          "text": "Allopathic physician (MD)—all specialties",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "2",
+          "text": "Osteopathic physician (DO)—all specialties",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "3",
+          "text": "Podiatrist (DPM)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "4",
+          "text": "Chiropractor (DC)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "5",
+          "text": "Nurse Practitioner (NP)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "6",
+          "text": "Psychologist (PhD or PsyD)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "7",
+          "text": "Optometrist (OD)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "8",
+          "text": "Audiologist (AudD)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "a",
+          "text": "Briefly describe to your counselor the roles these professionals play in the delivery of health care.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Describe to your counselor the educational and licensing requirements for the professionals you selected.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Select three of the professions from Group 2 listed below which interest you, then complete the following: Group 2:",
+      "subs": [
+        {
+          "letter": "1",
+          "text": "Physician Assistant (PA)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "2",
+          "text": "Registered Nurse (RN)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "3",
+          "text": "Certified Nurse Midwife (CNM)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "4",
+          "text": "Certified Nurse Assistant (CNA)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "5",
+          "text": "Licensed Practical Nurse (LPN/LVN)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "6",
+          "text": "Nurse Anesthetist (CRNA)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "7",
+          "text": "Pharmacist (PharmD)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "8",
+          "text": "Pharmacy Technician",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "9",
+          "text": "Emergency Medical Technician (EMT)/Paramedic",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "a",
+          "text": "Briefly describe to your counselor the roles these professionals play in the delivery of health care.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Describe to your counselor the educational and licensing requirements for the professionals you selected.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Select three of the professions from Group 3 listed below which interest you, then complete the following: Group 3:",
+      "subs": [
+        {
+          "letter": "1",
+          "text": "Physical Therapist (DPT)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "2",
+          "text": "Occupational Therapist (OT)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "3",
+          "text": "Orthotist/Prosthetist",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "4",
+          "text": "Medical Appliance Technician",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "5",
+          "text": "Respiratory Therapist (RT)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "6",
+          "text": "Medical Assistant",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "7",
+          "text": "Dietitian (RD)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "8",
+          "text": "Speech-Language Pathologist (Speech Therapist) (SLP)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "a",
+          "text": "Briefly describe to your counselor the roles these professionals play in the delivery of health care.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Describe to your counselor the educational and licensing requirements for the professionals you selected.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Select three of the professions from Group 4 listed below which interest you, then complete the following: Group 4:",
+      "subs": [
+        {
+          "letter": "1",
+          "text": "Biomedical Engineer (BME)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "2",
+          "text": "Medical Technologist",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "3",
+          "text": "Phlebotomist",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "4",
+          "text": "Radiology Technologist",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "5",
+          "text": "Sonographer",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "6",
+          "text": "Medical Records Specialist",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "7",
+          "text": "Cytopathologist",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "8",
+          "text": "Histotechnologist",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "a",
+          "text": "Briefly describe to your counselor the roles these professionals play in the delivery of health care.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Describe to your counselor the educational and licensing requirements for the professionals you selected.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Select one career from any of the lists in requirements 1, 2, 3, or 4 and arrange to visit that professional at their workplace. Discuss with your counselor the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Why did they choose their particular career?",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "What do they most like about their job?",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "What are their biggest challenges in doing their job?",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Identify the tools/instruments that may be used in their jobs.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "What has been the most surprising aspect of their career?",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "f",
+          "text": "What continuing education requirements are required to maintain certification?",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Discuss with your counselor your understanding of the meaning of the Physician's Oath.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 3
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Describe the role of confidentiality between a patient and the health care provider. What is HIPAA?",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 8,
+      "text": "Identify a medical advancement or discovery that has been in the news recently. Discuss with your counselor how this can affect patient care.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 9,
+      "text": "With your parent or guardian's and counselor's approval, serve as a volunteer at a health-related event or facility in your community (e.g. blood drive, health fair, blood pressure screening event). Report to your counselor what you did and learned from the experience.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/health-care-professions/",
+  "verifiedOn": "2026-09-03"
+}

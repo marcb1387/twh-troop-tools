@@ -6,7 +6,7 @@ Currently supports:
 
 - **Advancement Report** - Patrol-level breakdown of uncompleted rank requirements (Scout through First Class). Identifies the highest-impact items to plan activities around.
 - **Troop Health Report** - Committee-meeting deck with membership demographics, rank distribution, recent advancements, Eagle pipeline, and scouts needing follow-up.
-- **Merit Badge Analysis** - Troop-wide merit badge analytics: Eagle coverage, scout progress, popular electives, badges never earned, and stale badges worth repeating.
+- **Merit Badge Analysis** - Troop-wide merit badge analytics: scouts a few requirements from finishing a badge, Eagle coverage, scout progress, popular electives, badges never earned, and stale badges worth repeating.
 - **Patrol Visualizer** - Snapshot of patrol composition with age and rank variance, plus rebalancing suggestions that prioritize clearing out unassigned scouts first.
 - **Roster Audit** - Scans the active youth roster for data quality issues: missing dates of birth, scouts without a patrol, and duplicate names.
 - **Roster Reconciliation** - Compares youth on my.scouting.org against TroopWebHost. Flags who needs to be added, who needs investigation, who's missing a BSA ID, and any name or rank discrepancies.

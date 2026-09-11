@@ -1,0 +1,224 @@
+{
+  "badge": "Electronics",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Describe the safety precautions you must exercise when using, building, altering, or repairing electronic devices.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Draw a simple schematic diagram. It must show resistors, capacitors, and transistors or integrated circuits. Use the correct symbols. Label all parts.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Tell the purpose of each part.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Show the right way to solder and desolder.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Show how to avoid heat damage to electronic components.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Tell about the function of a printed circuit board. Tell what precautions should be observed when soldering printed circuit boards.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Discuss each of the following with your counselor:",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "How to use electronics for a control purpose.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "Explain the basic principles of digital logic.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "How to use electronics for three different analog applications.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Show how to change three decimal numbers into binary numbers and three binary numbers into decimal numbers.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Choose ONE of the following THREE projects. For your project, find or create a schematic diagram. To the best of your ability, explain to your counselor how the circuit you built operates.",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "A control device",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "A digital circuit",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "3",
+              "text": "An analog circuit",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Show how to solve a simple problem involving current, voltage, and resistance using Ohm's law.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Tell about the need for and the use of test equipment in electronics. Name three types of test equipment. Tell how they operate.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Demonstrate to your counselor how to read the colored bands of a resistor to determine its resistance value.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Explain the differences between Through Hole and Surface Mount assembly technologies and give three advantages of each.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Identify three career opportunities that would use skills and knowledge in electronics. Pick one and research the training, education, certification requirements, experience, and expenses associated with entering the field. Research the prospects for employment, starting salary, advancement opportunities and career goals associated with this career. Discuss what you learned with your counselor and whether you might be interested in this career.",
+      "after": [
+        {
+          "type": "numbered",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/electronics/",
+  "verifiedOn": "2026-09-03"
+}

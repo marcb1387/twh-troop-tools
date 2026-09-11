@@ -49,6 +49,16 @@ const RECIPES = {
     description: "Merit Badge History By Scout CSV",
     menuItemId: "52388",
   },
+  // Feeds the Merit Badge Analysis report's "Almost There" section. This is
+  // TroopWebHost's "Uncompleted Merit Badge Requirements" report (Advancement
+  // → Requirements Reports) - one row per scout per outstanding requirement,
+  // which is the only export carrying partial merit badge progress. Menu_Item_ID
+  // confirmed 2026-09-03 from a live site.
+  mbRequirements: {
+    id: "mbRequirements",
+    description: "Uncompleted Merit Badge Requirements CSV",
+    menuItemId: "52217",
+  },
   // Feeds the Eagle Preparedness Report's "position of responsibility" section
   // (Eagle requirement 4). This is TroopWebHost's "Leadership Rank Requirement
   // Status" report (Advancement → Advancement Status Reports). Menu_Item_ID

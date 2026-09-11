@@ -1,0 +1,494 @@
+{
+  "badge": "Whitewater",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain to your counselor the most likely hazards you may encounter while participating in whitewater activities, including branches and trees in water along a shore and stretching across the stream, rocks, hydraulics over ledges or low-head dams, strong wind, low water or air temperature, and thunder and lightning storms. Explain what you should do to anticipate, help prevent, mitigate, and respond to these hazards.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Review with your counselor the prevention, symptoms, and first-aid treatment for the following injuries or illnesses that could occur while participating in whitewater activities: cold-water shock; hypothermia; head, neck, and back injuries; heat-related illnesses; sunburn; dehydration; blisters; bruises; cuts; sprains and strains; shoulder dislocation; and submersion injuries.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Discuss with your counselor the Scouting America Safety Afloat policy and the American Whitewater safety guidelines, including the use of helmet and life jackets.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Demonstrate understanding of the following river features by drawing lines to show the flow of water: upstream V, downstream V, riffle, eddy with an eddy line, ledge, river bend, shallows, current at different depths, drop, horizon line, and hydraulic.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Describe how waves form including standing waves and wave trains.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain how to tilt or edge the boat without leaning your body",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "When entering and exiting an eddy.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "When ferrying in downstream and upstream directions.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Explain when, why, and how you should scout a river while ashore, while on the river, and when you should portage your boat.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Before doing requirements 4 through 12, earn the Canoeing merit badge if you will be using a canoe to earn this merit badge. If you will be using a kayak, earn the Kayaking merit badge. Then do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "If you will be using a canoe to earn this merit badge, demonstrate strokes and maneuvers from the Canoeing merit badge to the satisfaction of your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "If you will be using a kayak to earn this merit badge, demonstrate strokes and maneuvers from the Kayaking merit badge to the satisfaction of your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Do ONE of the following: Option A—Tandem Canoeist. Do ALL of the following strokes and techniques on calm water:",
+      "subs": [
+        {
+          "letter": "1",
+          "text": "Demonstrate the following strokes in the bow: cross forward, bow draw, cross bow draw, bow pry, and sculling draw.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "2",
+          "text": "Demonstrate the following strokes in the stern: stern draw, stern pry, sculling draw, and forward with stern pry.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "3",
+          "text": "Demonstrate a high brace, low brace, and righting pry. Option B—Solo Canoeist. Do ALL of the following strokes and techniques on calm water:",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "1",
+          "text": "Demonstrate the following strokes: cross forward, bow draw, cross bow draw, stern draw, pry, stern pry, sculling draw, and forward with stern pry.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "2",
+          "text": "Demonstrate a high brace, low brace, and righting pry.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            },
+            {
+              "type": "label",
+              "text": "Option C—Solo Kayaker. Do ALL of the following strokes and techniques on calm water:",
+              "bold": true,
+              "wide": true
+            }
+          ]
+        },
+        {
+          "letter": "1",
+          "text": "Demonstrate the following strokes: bow draw, rudder, and sculling draw.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "2",
+          "text": "Demonstrate a high brace and low brace.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain the International Scale of River Difficulty and apply the scale to the stretch of river approved by your counselor.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Identify the specific characteristics of the river that are factors in your classification according to the International Scale.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Discuss how the level of flow changes a river from one class to another and what effects different flow rates have on the features of a river and its hazards.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Explain the importance of communication during every whitewater outing. Demonstrate knowledge and ability to use the following American Whitewater Universal River Signals, both visual and auditory: \"Stop,\" \"Are you OK?,\" \"Help/emergency,\" \"Run river right,\" \"Run river left,\" and \"All clear—come ahead.\"",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "If completing this merit badge in a canoe, describe the various types of canoes used on moving water and how they differ in design, materials, and purpose.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "If completing this merit badge in a kayak, describe the various types of kayaks used on moving water and explain how they differ in design, materials, and purpose.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 8,
+      "text": "Review with your counselor the personal and group equipment necessary for a safe whitewater outing and how and why it is used.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 9,
+      "text": "Demonstrate your ability to read a Class II section of river approved by your counselor. Describe the most desirable paths or lines of travel as well as alternative routes and options. Point out how to use the existing water features to your advantage, and explain how to best avoid the hazards present.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 10,
+      "text": "Wearing a proper life jacket and being appropriately dressed for the weather and water conditions, perform the following skills in moving water in a properly equipped whitewater craft of your choice (tandem canoe, solo canoe, or solo kayak). If a tandem canoe is used, the skills must be demonstrated from both the bow and stern positions.",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Launch and land.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Paddle forward in a straight line at least 10 boat lengths.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Backpaddle in a straight line at least five boat lengths.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Ferry upstream from both sides of the river.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Ferry downstream from both sides of the river.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "f",
+          "text": "Eddy turn from both sides of an eddy.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "g",
+          "text": "Peel out from both sides of an eddy.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 11,
+      "text": "Explain and demonstrate the following to your counselor:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Self-rescue and procedures when capsized in moving water, including a wet exit if necessary",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Proper use of a throw rope to rescue a swimmer in whitewater",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Proper technique for receiving a throw rope as a swimmer",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Portaging—where portaging would be appropriate, and when and how to do it",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "The whitewater buddy system using at least three persons and three craft",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 12,
+      "text": "Participate in one or more whitewater trips using either a canoe or kayak on a Class I and/or Class II river. The trip(s) must involve at least six hours of paddling time. For each trip:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Help to prepare a written plan, specifying the route (put-ins and takeouts), schedule, equipment, safety precautions, and emergency procedures.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Determine local rules and obtain permission from landowners and land managers in advance.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain what steps have been taken to comply with Scouting America Safety Afloat and the American Whitewater safety guidelines.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Show how to protect personal and group equipment from water and how to load and secure the containers in boats to be used in the trip. Execute the plans with other paddlers.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Explain to your counselor how well your plans worked for each trip taken.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/whitewater/",
+  "verifiedOn": "2026-09-03"
+}

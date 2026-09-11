@@ -1,0 +1,84 @@
+{
+  "badge": "Bugling",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Give a brief history of the bugle.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain and demonstrate how the bugle makes sound, and explain how the bugle is related to other brass wind instruments.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Compose a bugle call for your troop or patrol to signal a common group activity, such as assembling for mealtime or striking a campsite. Play the call that you have composed before your unit or patrol.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Sound 10 of the following bugle calls: \"First Call,\" \"Reveille,\" \"Assembly,\" \"Mess,\" \"Drill,\" \"Fatigue,\" \"Officers,\" \"Recall,\" \"Church,\" \"Swimming,\" \"Fire,\" \"Retreat,\" \"To the Colors,\" \"Call to Quarters,\" and \"Taps.\"",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Explain when each of the calls in requirement 3 is used.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Explain how to care for, clean, and maintain a bugle.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Serve as bugler in your troop for three months.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/bugling/",
+  "verifiedOn": "2026-09-03"
+}

@@ -1,0 +1,170 @@
+{
+  "badge": "Textile",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Discuss with your counselor the importance of textiles. Explain the terms fiber, fabric, and textile. Give examples of textiles you use every day.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Get swatches of two natural fiber fabrics (100 percent cotton, linen, wool or silk; no blends). Get swatches of two synthetic fiber fabrics (nylon, polyester, acrylic, olefin, or spandex). Get a sample of one cellulosic fabric (rayon, acetate or lyocell).",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Give the origin, major characteristics, and general content of each type of fiber obtained for 2(a). Explain the difference between a cellulosic manufactured fiber and a synthetic manufactured fiber.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Describe the main steps in making raw fiber into yarn, and yarn into fabric.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Assume you will soon buy a new garment or other textile item. Tell your counselor what fiber or blend of fibers you want the item to be, and give reasons for your choice.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Do TWO of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Visit a textile plant, textile products manufacturer, or textile school or college. Report on what you saw and learned.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Weave a belt, headband, placemat, or wall hanging using a simple loom that you have made yourself.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "With a magnifying glass, examine a woven fabric, a nonwoven fabric, and a knitted fabric. Sketch what you see. Explain how the three constructions are different.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Make a piece of felt.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Make two natural dyes and use them to dye a garment or a piece of fabric.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "f",
+          "text": "Waterproof a fabric.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "g",
+          "text": "Demonstrate how to identify fibers, using microscope identification or the breaking test.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Explain the meaning of 10 of the following terms: warp, harness, heddle, shed, aramid, spandex, sliver, yarn, spindle, distaff, loom, cellulose, sericulture, extrusion, carbon fibers, spinneret, staple, worsted, nonwoven, and greige goods.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "List the advantages and disadvantages of natural plant fibers, natural animal fibers, cellulosic manufactured fibers, and synthetic manufactured fibers. Identify and discuss at least four ecological concerns regarding the production and care of textiles.",
+      "after": [
+        {
+          "type": "numbered",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Explain to your counselor, either verbally or in a written report, five career possibilities in the textile industry. Tell your counselor about two positions that interest you the most and the education, cost of training, and specific duties those positions require.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/textile/",
+  "verifiedOn": "2026-09-03"
+}

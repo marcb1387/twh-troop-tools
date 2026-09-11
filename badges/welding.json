@@ -1,0 +1,208 @@
+{
+  "badge": "Welding",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain to your counselor the hazards you are most likely to encounter while welding, and what you should do to anticipate, help prevent, mitigate, or lessen these hazards.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Show that you know first aid for, and the prevention of, injuries or illnesses that could occur while welding, including electrical shock, eye injuries, burns, fume inhalation, dizziness, skin irritation, and exposure to hazardous chemicals, including filler metals and welding gases.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "With your counselor, discuss general safety precautions and safety data sheets (SDS) related to welding. Explain the importance of the SDS.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Describe the appropriate safety gear and clothing that must be worn when welding. Then, present yourself properly dressed for welding—in protective equipment, clothing, and footwear.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Explain and demonstrate the proper care and storage of welding equipment, tools, and protective clothing and footwear.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Explain the terms welding, electrode, slag, and oxidation. Describe the welding process, how heat is generated, what kind of filler metal is added (if any), and what protects the molten metal from the atmosphere.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Name the different mechanical and thermal cutting methods. Choose one method and describe how to use the process. Discuss one advantage and one limitation of this process.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Select two welding processes, and make a list of the different components of the equipment required for each process. Discuss one advantage and one limitation for each process.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Choose one welding process. Set up the process you have chosen, including gas regulators, work clamps, cables, filler materials, and equipment settings. Have your counselor inspect and approve the area for the welding process you have chosen.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "After successfully completing requirements 1 through 5, use the equipment you prepared for the welding process in 5(b) to do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Using a metal scribe or soapstone, sketch your initial onto a metal plate, and weld a bead on the plate following the pattern of your initial.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Cover a small plate (approximately 3\" x 3\" x 1/4\") with weld beads side by side.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Tack two plates together in a square groove butt joint.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Weld the two plates together from 6(c) on both sides.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Tack two plates together in a T joint, have your counselor inspect it, then weld a T joint with fillet weld on both sides.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "f",
+          "text": "Tack two plates together in a lap joint, have your counselor inspect it, then weld a lap joint with fillet weld on both sides.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Find out about three career opportunities in the welding industry. Pick one and find out the education, training, and experience required for this profession. Discuss this with your counselor, and explain why the profession might interest you.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Discuss the role of the American Welding Society in the welding profession.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/welding/",
+  "verifiedOn": "2026-09-03"
+}

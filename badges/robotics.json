@@ -1,0 +1,230 @@
+{
+  "badge": "Robotics",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Safety. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain to your counselor the most likely hazards you may encounter while working with robots and what you should do to anticipate, mitigate and prevent, and respond to these hazards. Describe the appropriate safety gear and clothing that should be used when working with robotics.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Discuss first aid and prevention for the types of injuries that could occur while participating in robotics activities and competitions, including cuts, eye injuries, and burns (chemical or heat).",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Robotics Industry. Discuss the following with your counselor:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "The kinds of things robots can do and how robots are best used today.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "The similarities and differences between remote-control vehicles, telerobots, and autonomous robots.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Three different methods robots can use to move themselves other than wheels or tracks. Describe when it would be appropriate to use each method.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "General Knowledge. Discuss with your counselor three of the five major fields of robotics (human-robot interface, mobility, manipulation, programming, sensors) and their importance to robotics development. Discuss either the three fields as they relate to a single robot system OR talk about each field in general. Find pictures or at least one video to aid your discussion.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Design, Build, Program, Test. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "With your counselor's approval, choose a task for the robot or robotic subsystem that you plan to build. Include sensor feedback and programming in the task. Document this information in your robot engineering notebook.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Design your robot. The robot design should use sensors and programming and have at least 2 degrees of freedom. Document the design in your robot engineering notebook using drawings and a written description.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Build a robot or robotic subsystem of your original design to accomplish the task you chose for requirement 4(a).",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Discuss with your counselor the programming options available for your robot. Then do ONE of the following:",
+          "subs": [
+            {
+              "letter": "1",
+              "text": "Program your robot to perform the task you chose for your robot in 4(a). Include a sample of your program's source code in your robot engineering notebook.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 5
+                }
+              ]
+            },
+            {
+              "letter": "2",
+              "text": "Prepare a flowchart of the desired steps to program your robot for accomplishing the task in 4(a). Include procedures that show activities based on sensor inputs. Place this in your robot engineering notebook.",
+              "blocks": [
+                {
+                  "type": "lines",
+                  "rows": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Test your robot and record the results in your robot engineering notebook. Include suggestions on how you could improve your robot, as well as pictures or sketches of your finished robot.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Demonstrate. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Demonstrate for your counselor the robot you built in requirement 4.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Share your robot engineering notebook with your counselor. Talk about how well your robot accomplished the task, the improvements you would make in your next design, and what you learned about the design process.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Competitions. Do ONE of the following.",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Attend a robotics competition and report to your counselor what you saw and learned about the competition and how teams are organized and managed.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Learn about three youth robotics competitions. Tell your counselor about these, including the type of competition, time commitment, age of the participants, and how many teams are involved.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Do ONE of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Identify three career opportunities that would use skills and knowledge in robotics. Pick one and research the training, education, certification requirements, experience, and expenses associated with entering the field. Research the prospects for employment, starting salary, advancement opportunities and career goals associated with this career. Discuss what you learned with your counselor and whether you might be interested in this career.",
+          "blocks": [
+            {
+              "type": "numbered",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Identify how you might use the skills and knowledge in robotics to pursue a personal hobby. Research the additional training required, expenses, and affiliation with organizations that would help you maximize the enjoyment and benefit you might gain from it. Discuss what you learned with your counselor and share what short-term and long-term goals you might have if you pursued this.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/robotics/",
+  "verifiedOn": "2026-09-03"
+}

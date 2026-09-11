@@ -1,0 +1,442 @@
+{
+  "badge": "Climbing",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain to your counselor the most likely hazards you may encounter while participating in climbing and rappelling activities and what you should do to anticipate, help prevent, mitigate, and respond to these hazards.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Show that you know first aid for and how to prevent injuries or illnesses that could occur during climbing activities, including heat and cold reactions, dehydration, stopped breathing, sprains, abrasions, fractures, rope burns, blisters, snakebite, concussions, and insect bites or stings.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 6
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Identify the conditions that must exist before performing CPR on a person.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Learn the Leave No Trace Seven Principles and the Outdoor Code and explain what they mean.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Present yourself properly dressed for belaying, climbing, and rappelling. Explain why you are wearing each piece of gear and discuss qualities of easy movement, entanglement free and good weather protection and comfort.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Location. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain how the difficulty of climbs is classified, and apply classifications to the rock faces or walls where you will demonstrate your climbing skills.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Explain the following: top-rope climbing, lead climbing, and bouldering.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Evaluate the safety of a particular climbing area. Consider weather, visibility, the condition of the climbing surface, and any other environmental hazards.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Determine how to summon aid to the climbing area in case of an emergency. Discuss what medical training is needed for your group when climbing and rappelling in remote areas.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Verbal signals. Explain the importance of using verbal signals during every climb and rappel, and while bouldering. With the help of the counselor or another Scout, demonstrate the verbal signals used by each of the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Climbers",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Rappellers",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Belayers",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Boulderers and their spotters",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 6,
+      "text": "Rope. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Describe the kinds of rope acceptable for use in climbing and rappelling.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Show how to examine a rope for signs of wear or damage.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Discuss ways to prevent a rope from being damaged.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Explain when and how a rope should be retired.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Properly coil a rope.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 7,
+      "text": "Knots. Demonstrate the ability to tie each of the following knots. Give at least one example of how each knot is used in belaying, climbing, or rappelling.",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Figure eight on a bight",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Figure eight follow-through",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Water knot",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Double fisherman's knot (grapevine knot)",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Prusik hitch applied to rope",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 8,
+      "text": "Harness, Helmet & Gloves. Explain the purpose of each of the following and demonstrate how to put them on correctly.",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Commercially made climbing harness",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Climbing helmet",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Climbing or rappelling gloves",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 9,
+      "text": "Identify the elements of the CHECK system and describe the meaning of each one to your counselor.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    },
+    {
+      "num": 10,
+      "text": "Belaying. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Explain the importance of belaying climbers and rappellers and when it is necessary.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Belay three different climbers on three different routes.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Serve as a backup belayer on three different climbs.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "d",
+          "text": "Belay three different rappellers on three different routes.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "e",
+          "text": "Serve as a backup belayer on three different rappels.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 11,
+      "text": "Climbing. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Show the correct way to directly tie a belay rope to your harness.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Climb at least three different routes on a rock face or climbing wall, demonstrating good technique and using verbal signals with a belayer.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 12,
+      "text": "Rappelling. Do the following:",
+      "subs": [
+        {
+          "letter": "a",
+          "text": "Show the correct way to directly tie a belay rope to your harness.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "b",
+          "text": "Using a carabiner and a rappel device, attach a rappel rope to your harness.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 4
+            }
+          ]
+        },
+        {
+          "letter": "c",
+          "text": "Rappel down three different rock faces or three rappel routes on a climbing wall. Use verbal signals to communicate with a belayer, and demonstrate good rappelling technique.",
+          "blocks": [
+            {
+              "type": "lines",
+              "rows": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "num": 13,
+      "text": "Demonstrate ways to store rope, hardware, and other gear used for climbing, rappelling, and belaying.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 4
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/climbing/",
+  "verifiedOn": "2026-09-03"
+}

@@ -1,0 +1,58 @@
+{
+  "badge": "Public Speaking",
+  "requirements": [
+    {
+      "num": 1,
+      "text": "Give a three- to five-minute introduction of yourself to an audience such as your troop, class at school, or some other group.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 2,
+      "text": "Prepare a three- to five-minute talk on a topic of your choice that incorporates body language and visual aids.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 3,
+      "text": "Give an impromptu talk of at least two minutes, either as part of a group discussion or before your counselor. Use a subject selected by your counselor that is interesting to you but that is not known to you in advance and for which you do not have time to prepare.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 6
+        }
+      ]
+    },
+    {
+      "num": 4,
+      "text": "Select a topic of interest to your audience. Collect and organize information about the topic and prepare an outline. Write an eight- to 10-minute speech, practice it, then deliver it in a conversational way.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    },
+    {
+      "num": 5,
+      "text": "Show you know parliamentary procedure by leading a discussion or meeting according to accepted rules of order; or by answering questions on the rules of order.",
+      "after": [
+        {
+          "type": "lines",
+          "rows": 5
+        }
+      ]
+    }
+  ],
+  "workbookUpdated": "September 2026",
+  "sourceUrl": "https://www.scouting.org/merit-badges/public-speaking/",
+  "verifiedOn": "2026-09-03"
+}
